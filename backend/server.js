@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
 const cors = require('cors');
@@ -11,7 +12,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.CORS_ORIGIN,
   methods: "GET,POST,PUT,DELETE,PATCH,HEAD",
   credentials: true
 }));
@@ -30,6 +31,6 @@ app.get('/api/profile', passport.authenticate('jwt', { session: false }), (req, 
   });
 });
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

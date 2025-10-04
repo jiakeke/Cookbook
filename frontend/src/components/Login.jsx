@@ -38,7 +38,7 @@ const Login = () => {
 
       const body = JSON.stringify(user);
 
-      const res = await axios.post('http://localhost:5001/api/auth/login', body, config);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, body, config);
       
       // Use the login function from context to save the token
       login(res.data.token);

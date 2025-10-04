@@ -40,7 +40,7 @@ const Register = () => {
 
       const body = JSON.stringify(newUser);
 
-      const res = await axios.post('http://localhost:5001/api/auth/register', body, config);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, body, config);
       
       setSuccess('Registration successful! Redirecting to login...');
       console.log(res.data); // This will contain the token
@@ -65,9 +65,9 @@ const Register = () => {
 
   return (
     <Container className="mt-5">
-      <Row className="justify-content-md-center">
-        <Col xs={12} md={6} lg={4}>
-          <Card>
+      <Row>
+        <Col>
+          <Card style={{ maxWidth: '420px', margin: '0 auto' }}>
             <Card.Body>
               <h3 className="text-center mb-4">{t('register')}</h3>
               {error && <Alert variant="danger">{error}</Alert>}
