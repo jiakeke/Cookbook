@@ -11,5 +11,20 @@
   "dont_have_account": "Don't have an account? Register",
   "already_have_account": "Already have an account? Login",
   "home": "Home",
-  "logout": "Logout"
+  "logout": "Logout",
+  "profile": "Profile",
+  "user_profile": "User Profile",
+  "birthday": "Birthday",
+  "gender": "Gender",
+  "select_gender": "Select Gender...",
+  "male": "Male",
+  "female": "Female",
+  "other": "Other",
+  "height_cm": "Height (cm)",
+  "weight_kg": "Weight (kg)",
+  "update_profile": "Update Profile",
+  "fetch_profile_failed": "Failed to fetch profile data.",
+  "update_profile_success": "Profile updated successfully!",
+  "update_profile_failed": "Failed to update profile.",
+  "name_is_required": "Name is required."
 }

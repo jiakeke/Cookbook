@@ -19,6 +19,18 @@ const UserSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
+  birthday: {
+    type: Date,
+  },
+  gender: {
+    type: String,
+  },
+  height: {
+    type: Number, // in centimeters
+  },
+  weight: {
+    type: Number, // in kilograms
+  },
   authProvider: {
     type: String,
     required: true,

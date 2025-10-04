@@ -11,5 +11,20 @@
   "dont_have_account": "Eikö sinulla ole tiliä? Rekisteröidy",
   "already_have_account": "Onko sinulla jo tili? Kirjaudu sisään",
   "home": "Koti",
-  "logout": "Kirjaudu ulos"
+  "logout": "Kirjaudu ulos",
+  "profile": "Profiili",
+  "user_profile": "Käyttäjäprofiili",
+  "birthday": "Syntymäpäivä",
+  "gender": "Sukupuoli",
+  "select_gender": "Valitse sukupuoli...",
+  "male": "Mies",
+  "female": "Nainen",
+  "other": "Muu",
+  "height_cm": "Pituus (cm)",
+  "weight_kg": "Paino (kg)",
+  "update_profile": "Päivitä profiili",
+  "fetch_profile_failed": "Profiilin tietojen nouto epäonnistui.",
+  "update_profile_success": "Profiili päivitetty onnistuneesti!",
+  "update_profile_failed": "Profiilin päivitys epäonnistui.",
+  "name_is_required": "Nimi on pakollinen."
 }

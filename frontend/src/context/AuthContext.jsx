@@ -7,16 +7,22 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
+  const [loading, setLoading] = useState(true);
 
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
     setToken(null);
+    delete axios.defaults.headers.common['Authorization'];
   };
 
   const login = (newToken) => {
     localStorage.setItem('token', newToken);
     setToken(newToken);
+  };
+
+  const updateUser = (newUserData) => {
+    setUser(newUserData);
   };
 
   useEffect(() => {
@@ -36,12 +42,13 @@ export const AuthProvider = ({ children }) => {
         logout();
       }
     } else {
-        delete axios.defaults.headers.common['Authorization'];
+      // No token, not logged in
     }
+    setLoading(false);
   }, [token]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, login, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
