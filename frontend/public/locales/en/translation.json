@@ -1,0 +1,15 @@
+{
+  "welcome_message": "Welcome to Cookbook",
+  "email_address": "Email Address",
+  "password": "Password",
+  "login": "Login",
+  "register": "Register",
+  "name": "Name",
+  "login_with_google": "Login with Google",
+  "login_with_facebook": "Login with Facebook",
+  "or_connect_with": "Or connect with",
+  "dont_have_account": "Don't have an account? Register",
+  "already_have_account": "Already have an account? Login",
+  "home": "Home",
+  "logout": "Logout"
+}

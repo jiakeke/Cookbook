@@ -1,0 +1,15 @@
+{
+  "welcome_message": "欢迎来到食谱",
+  "email_address": "邮箱地址",
+  "password": "密码",
+  "login": "登录",
+  "register": "注册",
+  "name": "姓名",
+  "login_with_google": "使用 Google 登录",
+  "login_with_facebook": "使用 Facebook 登录",
+  "or_connect_with": "或通过以下方式登录",
+  "dont_have_account": "没有账户？ 注册",
+  "already_have_account": "已有账户？ 登录",
+  "home": "首页",
+  "logout": "登出"
+}

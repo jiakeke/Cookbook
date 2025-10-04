@@ -1,0 +1,15 @@
+{
+  "welcome_message": "Tervetuloa keittokirjaan",
+  "email_address": "Sähköpostiosoite",
+  "password": "Salasana",
+  "login": "Kirjaudu sisään",
+  "register": "Rekisteröidy",
+  "name": "Nimi",
+  "login_with_google": "Kirjaudu Googlella",
+  "login_with_facebook": "Kirjaudu Facebookilla",
+  "or_connect_with": "Tai yhdistä",
+  "dont_have_account": "Eikö sinulla ole tiliä? Rekisteröidy",
+  "already_have_account": "Onko sinulla jo tili? Kirjaudu sisään",
+  "home": "Koti",
+  "logout": "Kirjaudu ulos"
+}
