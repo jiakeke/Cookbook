@@ -25,6 +25,8 @@ const Header = () => {
     zh: { nativeName: '中文' },
   };
 
+  const currentLanguageName = languages[i18n.resolvedLanguage]?.nativeName || 'Language';
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
       <Container>
@@ -43,6 +45,15 @@ const Header = () => {
                 <LinkContainer to="/profile">
                   <NavDropdown.Item>{t('profile')}</NavDropdown.Item>
                 </LinkContainer>
+                {user.role === 'admin' && (
+                  <>
+                    <NavDropdown.Divider />
+                    <LinkContainer to="/admin">
+                      <NavDropdown.Item>{t('admin')}</NavDropdown.Item>
+                    </LinkContainer>
+                  </>
+                )}
+                <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogout}>
                   {t('logout')}
                 </NavDropdown.Item>
@@ -58,7 +69,7 @@ const Header = () => {
               </>
             )}
 
-            <NavDropdown title="Language" id="basic-nav-dropdown">
+            <NavDropdown title={currentLanguageName} id="language-nav-dropdown">
               {Object.keys(languages).map((lng) => (
                 <NavDropdown.Item key={lng} onClick={() => changeLanguage(lng)} disabled={i18n.resolvedLanguage === lng}>
                   {languages[lng].nativeName}

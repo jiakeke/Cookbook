@@ -31,6 +31,11 @@ const UserSchema = new mongoose.Schema({
   weight: {
     type: Number, // in kilograms
   },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user',
+  },
   authProvider: {
     type: String,
     required: true,

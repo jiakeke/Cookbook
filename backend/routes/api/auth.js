@@ -46,6 +46,7 @@ router.post(
       const payload = {
         id: user.id,
         name: user.name,
+        role: user.role,
       };
 
       jwt.sign(
@@ -82,12 +83,56 @@ router.post('/login', (req, res, next) => {
       const payload = {
         id: user.id,
         name: user.name,
+        role: user.role,
       };
       const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 3600 });
       return res.json({ token });
     });
   })(req, res, next);
 });
+
+// @route   POST api/auth/change-password
+// @desc    Change user password
+// @access  Private
+router.post(
+  '/change-password',
+  [
+    passport.authenticate('jwt', { session: false }),
+    check('currentPassword', 'Current password is required').not().isEmpty(),
+    check('newPassword', 'New password must be at least 8 characters long').isLength({ min: 8 }),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { currentPassword, newPassword } = req.body;
+
+    try {
+      // We need to fetch the user with the password field
+      const user = await User.findById(req.user.id);
+      if (!user) {
+        return res.status(404).json({ msg: 'User not found' });
+      }
+
+      // Check if the current password matches
+      const isMatch = await bcrypt.compare(currentPassword, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ msg: 'Incorrect current password' });
+      }
+
+      // Set the new password and save. The pre-save hook will hash it.
+      user.password = newPassword;
+      await user.save();
+
+      res.json({ msg: 'Password updated successfully' });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
+  }
+);
 
 // @route   GET api/auth/me
 // @desc    Get current user's profile
@@ -113,13 +158,11 @@ router.put(
   '/me',
   [
     passport.authenticate('jwt', { session: false }),
-    [
-      check('name', 'Name is required').not().isEmpty(),
-      // Optional validation for other fields
-      check('birthday', 'Invalid date for birthday').optional({ checkFalsy: true }).isISO8601(),
-      check('height', 'Height must be a number').optional({ checkFalsy: true }).isNumeric(),
-      check('weight', 'Weight must be a number').optional({ checkFalsy: true }).isNumeric(),
-    ],
+    check('name', 'Name is required').not().isEmpty(),
+    // Optional validation for other fields
+    check('birthday', 'Invalid date for birthday').optional({ checkFalsy: true }).isISO8601(),
+    check('height', 'Height must be a number').optional({ checkFalsy: true }).isNumeric(),
+    check('weight', 'Weight must be a number').optional({ checkFalsy: true }).isNumeric(),
   ],
   async (req, res) => {
     const errors = validationResult(req);

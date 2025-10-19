@@ -29,12 +29,11 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        // Check if token is expired
         const isExpired = Date.now() >= decoded.exp * 1000;
         if (isExpired) {
           logout();
         } else {
-          setUser({ id: decoded.id, name: decoded.name });
+          setUser({ id: decoded.id, name: decoded.name, role: decoded.role });
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         }
       } catch (error) {
@@ -42,7 +41,8 @@ export const AuthProvider = ({ children }) => {
         logout();
       }
     } else {
-      // No token, not logged in
+      setUser(null);
+      delete axios.defaults.headers.common['Authorization'];
     }
     setLoading(false);
   }, [token]);

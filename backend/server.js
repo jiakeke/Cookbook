@@ -22,15 +22,7 @@ app.use(passport.initialize());
 // Define Routes
 app.get('/', (req, res) => res.send('API Running'));
 app.use('/api/auth', require('./routes/api/auth'));
-
-
-// Protected route example
-app.get('/api/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({
-    message: 'You made it to the secure route',
-    user: req.user,
-  });
-});
+app.use('/api/admin', require('./routes/api/admin')); // Admin routes
 
 const PORT = process.env.PORT;
 
