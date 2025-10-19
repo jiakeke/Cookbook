@@ -82,3 +82,30 @@ To run the project, you will need to start both the backend and frontend servers
    npm run dev
    ```
    The frontend will be running on the host and port specified in `frontend/.env` (e.g., http://localhost:3000).
+
+## Utility Scripts
+
+The project includes scripts for database maintenance and data seeding, located in the `backend/scripts` directory.
+
+### User Migration and Admin Seeding
+
+The `updateUserSchema.js` script performs two main functions:
+
+1.  **User Schema Migration**: It updates existing user documents in the database to conform to the latest schema, adding new fields like `role` with default values.
+2.  **Admin User Seeding**: It ensures that a default administrator account exists. If not found, it creates one with the following credentials:
+    - **Email**: `admin@example.com`
+    - **Password**: `admin`
+
+**When to Run This Script:**
+
+- After a fresh database setup to create the default admin user.
+- After pulling schema changes related to the User model to update existing records.
+
+**Usage:**
+
+Ensure your `backend/.env` file is correctly configured with your database connection string. Then, navigate to the backend directory and run the script:
+
+```sh
+cd backend
+npm run migrate
+```
