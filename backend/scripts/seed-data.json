@@ -1,0 +1,185 @@
+{
+  "users": [
+    {
+      "_id": "68f2cf18940f30ae99a832ca",
+      "name": "user1",
+      "email": "user1@example.com",
+      "password": "$2b$10$maAef5f3qw/4c72GevGXmeamTZnHlb2uzn/i4D2bFunmoRXo1RV0G",
+      "avatar": "",
+      "birthday": null,
+      "gender": "other",
+      "height": null,
+      "weight": null,
+      "role": "admin",
+      "authProvider": "local",
+      "providerId": null,
+      "date": "2025-10-17T23:19:52.335Z",
+      "__v": 0
+    },
+    {
+      "_id": "68f2d9dae8fee90c85df4c66",
+      "name": "user2",
+      "email": "user2@example.com",
+      "password": "$2b$10$maAef5f3qw/4c72GevGXmeamTZnHlb2uzn/i4D2bFunmoRXo1RV0G",
+      "avatar": "",
+      "birthday": null,
+      "gender": "other",
+      "height": null,
+      "weight": null,
+      "role": "user",
+      "authProvider": "local",
+      "providerId": null,
+      "date": "2025-10-18T00:05:46.222Z",
+      "__v": 0
+    },
+    {
+      "_id": "68df1b1a80c5d26f137807b1",
+      "name": "user3",
+      "email": "user3@example.com",
+      "password": "$2b$10$maAef5f3qw/4c72GevGXmeamTZnHlb2uzn/i4D2bFunmoRXo1RV0G",
+      "avatar": "",
+      "birthday": null,
+      "gender": "other",
+      "height": null,
+      "weight": null,
+      "role": "admin",
+      "authProvider": "local",
+      "providerId": null,
+      "date": "2025-10-03T00:38:50.480Z",
+      "__v": 0
+    },
+    {
+      "_id": "68f66deb48e728960e3872ba",
+      "name": "user4",
+      "email": "user4@example.com",
+      "password": "$2b$10$maAef5f3qw/4c72GevGXmeamTZnHlb2uzn/i4D2bFunmoRXo1RV0G",
+      "role": "admin",
+      "authProvider": "local",
+      "date": "2025-10-20T17:14:19.741Z",
+      "__v": 0,
+      "avatar": "",
+      "birthday": null,
+      "gender": "other",
+      "height": null,
+      "weight": null,
+      "providerId": null
+    }
+  ],
+  "recipes": [
+    {
+      "name": {
+        "en": "Tomato and Egg Stir-Fry",
+        "fi": "",
+        "zh": "西红柿炒鸡蛋"
+      },
+      "preparation": {
+        "en": "1. bla bla bla\n2. bla bla bla\n3. bla bla bla\n4. bla bla bla",
+        "fi": "",
+        "zh": "1. 哈哈哈\n2. 哈哈哈\n3. 哈哈哈\n4. 哈哈哈"
+      },
+      "_id": "68f447902beb7bdc4f1f07fc",
+      "image": "https://public.keskofiles.com/f/k-ruoka/product/2000614600007?w=700&h=390&fit=max&auto=format&fm=jpg&cs=srgb",
+      "country_or_region": "68f440ac946c27c7af09749b",
+      "calorie": 33,
+      "protein": 22,
+      "carbohydrate": 11,
+      "fat": 1,
+      "ingredients": [
+        {
+          "ingredient": "68f444e2946c27c7af0974ef",
+          "quantity": 500,
+          "unit": "g",
+          "optional": false,
+          "method": "68f4415c946c27c7af0974c3",
+          "_id": "68f447902beb7bdc4f1f07fd"
+        }
+      ],
+      "__v": 0
+    }
+  ],
+  "ingredients": [
+    {
+      "name": {
+        "en": "Tomato",
+        "fi": "Tomatti",
+        "zh": "西红柿"
+      },
+      "_id": "68f444e2946c27c7af0974ef",
+      "image": "https://public.keskofiles.com/f/k-ruoka/product/2000614600007?w=700&h=390&fit=max&auto=format&fm=jpg&cs=srgb",
+      "link": [
+        {
+          "uri": "https://www.k-ruoka.fi/haku?q=Tomatti&tuote=pihvitomaatti-suomi-kg-2000614600007",
+          "price": 6.99,
+          "size": "1 kg",
+          "store": "68f443d7946c27c7af0974e0",
+          "_id": "68f44db1b03a83d23b79b220"
+        },
+        {
+          "uri": "https://www.k-ruoka.fi/haku?q=Tomatti&tuote=pihvitomaatti-suomi-kg-2000614600007",
+          "price": 2.22,
+          "size": "500 g",
+          "store": "68f443d7946c27c7af0974e0",
+          "_id": "68f44de0b03a83d23b79b22b"
+        }
+      ],
+      "__v": 0
+    }
+  ],
+  "methods": [
+    {
+      "name": {
+        "en": "Shreds",
+        "fi": "",
+        "zh": "切丝"
+      },
+      "_id": "68f44125946c27c7af0974b8",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Sliced",
+        "fi": "",
+        "zh": "切片"
+      },
+      "_id": "68f4415c946c27c7af0974c3",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Minced",
+        "fi": "",
+        "zh": "切末"
+      },
+      "_id": "68f441ca946c27c7af0974ce",
+      "__v": 0
+    }
+  ],
+  "stores": [
+    {
+      "name": {
+        "en": "K",
+        "fi": "",
+        "zh": ""
+      },
+      "_id": "68f443d7946c27c7af0974e0",
+      "logo": "https://play-lh.googleusercontent.com/byAicKJ2yvaOO5imVDjTYPjxwqhP6qDRcILtQ8QEIAjWuykkPDUz6SEobwBmIGbBj8rL",
+      "__v": 0
+    }
+  ],
+  "countryOrRegions": [
+    {
+      "name": {
+        "en": "Chinese",
+        "fi": "Kiina",
+        "zh": "中国"
+      },
+      "description": {
+        "en": "",
+        "fi": "",
+        "zh": ""
+      },
+      "_id": "68f440ac946c27c7af09749b",
+      "__v": 0
+    }
+  ]
+}

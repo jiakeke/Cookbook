@@ -109,3 +109,27 @@ Ensure your `backend/.env` file is correctly configured with your database conne
 cd backend
 npm run migrate
 ```
+
+### Database Seeding
+
+These scripts allow you to export data from your database into a sanitized JSON file and then import it back, which is useful for creating a consistent development environment.
+
+- **`export-data`**: Connects to the database, fetches all data, anonymizes sensitive user information (like emails and passwords), and saves the result to `backend/scripts/seed-data.json`.
+- **`import-data`**: Wipes the current database and populates it with the data from `backend/scripts/seed-data.json`.
+- **`destroy-data`**: Wipes all data from the relevant collections in the database.
+
+**Usage:**
+
+```sh
+# To export and anonymize the current database state
+cd backend
+npm run export-data
+
+# To import the sanitized data into your database
+cd backend
+npm run import-data
+
+# To clear the database
+cd backend
+npm run destroy-data
+```

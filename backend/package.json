@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "node scripts/updateUserSchema.js"
+    "migrate": "node scripts/updateUserSchema.js",
+    "export-data": "node scripts/exportData.js",
+    "import-data": "node scripts/seedDatabase.js -i",
+    "destroy-data": "node scripts/seedDatabase.js -d"
   },
   "keywords": [],
   "author": "",
