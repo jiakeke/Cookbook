@@ -8,6 +8,7 @@ const RecipeCreateModal = ({ show, onHide, onRecipeCreate }) => {
   
   const initialFormData = {
     name: { en: '', fi: '', zh: '' },
+    description: { en: '', fi: '', zh: '' },
     image: '',
     country_or_region: null,
     calorie: '',
@@ -116,6 +117,10 @@ const RecipeCreateModal = ({ show, onHide, onRecipeCreate }) => {
                   <Form.Group className="mb-3">
                     <Form.Label>{t('recipe_name')}</Form.Label>
                     <Form.Control type="text" value={formData.name[activeLang]} onChange={(e) => handleMultiLangChange(e, 'name')} required={activeLang === 'en'} />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('recipe_description')}</Form.Label>
+                    <Form.Control as="textarea" rows={3} value={formData.description[activeLang]} onChange={(e) => handleMultiLangChange(e, 'description')} />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>{t('preparation')}</Form.Label>

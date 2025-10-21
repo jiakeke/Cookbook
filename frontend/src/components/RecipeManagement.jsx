@@ -118,6 +118,7 @@ const RecipeManagement = () => {
               <tr>
                 <th>{t('image')}</th>
                 <th>{t('name')}</th>
+                <th>{t('description')}</th>
                 <th>{t('country_or_region')}</th>
                 <th>{t('ingredients_count')}</th>
                 <th>{t('actions')}</th>
@@ -128,6 +129,7 @@ const RecipeManagement = () => {
                 <tr key={recipe._id}>
                   <td><Image src={recipe.image} alt={getLocalizedValue(recipe.name, i18n.language)} style={{ width: '50px', height: 'auto' }} thumbnail /></td>
                   <td>{getLocalizedValue(recipe.name, i18n.language)}</td>
+                  <td>{getLocalizedValue(recipe.description, i18n.language)?.substring(0, 50) || ''}...</td>
                   <td>{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</td>
                   <td>{recipe.ingredients?.length}</td>
                   <td>

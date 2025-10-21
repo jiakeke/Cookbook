@@ -119,6 +119,10 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
                     <Form.Control type="text" value={formData.name[activeLang]} onChange={(e) => handleMultiLangChange(e, 'name')} required={activeLang === 'en'} />
                   </Form.Group>
                   <Form.Group className="mb-3">
+                    <Form.Label>{t('recipe_description')}</Form.Label>
+                    <Form.Control as="textarea" rows={3} value={formData.description ? formData.description[activeLang] : ''} onChange={(e) => handleMultiLangChange(e, 'description')} />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
                     <Form.Label>{t('preparation')}</Form.Label>
                     <Form.Control as="textarea" rows={5} value={formData.preparation[activeLang]} onChange={(e) => handleMultiLangChange(e, 'preparation')} />
                   </Form.Group>

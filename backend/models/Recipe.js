@@ -6,6 +6,11 @@ const RecipeSchema = new mongoose.Schema({
     fi: { type: String },
     zh: { type: String },
   },
+  description: {
+    en: { type: String },
+    fi: { type: String },
+    zh: { type: String },
+  },
   image: {
     type: String,
   },
@@ -38,5 +43,17 @@ const RecipeSchema = new mongoose.Schema({
     },
   ],
 });
+
+// Virtual populate for comments
+RecipeSchema.virtual('comments', {
+  ref: 'comment',
+  localField: '_id',
+  foreignField: 'recipe',
+  justOne: false,
+});
+
+// Ensure virtual fields are included when converting to JSON
+RecipeSchema.set('toObject', { virtuals: true });
+RecipeSchema.set('toJSON', { virtuals: true });
 
 module.exports = mongoose.model('recipe', RecipeSchema);
