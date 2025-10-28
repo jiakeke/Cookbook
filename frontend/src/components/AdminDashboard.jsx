@@ -36,6 +36,12 @@ const AdminDashboard = () => {
       <LinkContainer to="/admin/recipes" onClick={handleClose}>
         <Nav.Link>{t('recipe_management')}</Nav.Link>
       </LinkContainer>
+      <LinkContainer to="/admin/allergens" onClick={handleClose}>
+        <Nav.Link>{t('allergen_management')}</Nav.Link>
+      </LinkContainer>
+      <LinkContainer to="/admin/special-groups" onClick={handleClose}>
+        <Nav.Link>{t('special_group_management')}</Nav.Link>
+      </LinkContainer>
       {/* Add other admin links here */}
     </Nav>
   );

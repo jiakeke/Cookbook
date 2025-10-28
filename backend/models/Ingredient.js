@@ -13,11 +13,24 @@ const IngredientSchema = new mongoose.Schema({
     {
       uri: { type: String },
       price: { type: Number },
+      pricePerKg: { type: Number },
       size: { type: String },
       store: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'store',
       },
+    },
+  ],
+  allergens: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'allergen',
+    },
+  ],
+  specials: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'specialGroup',
     },
   ],
 });

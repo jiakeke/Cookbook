@@ -61,10 +61,11 @@ const RecipeDetail = () => {
                   <Card.Title>{getLocalizedValue(link.ingredientName, i18n.language)}</Card.Title>
                   <ListGroup variant="flush">
                     <ListGroup.Item>{t('price')}: {link.price} &euro;</ListGroup.Item>
+                    {link.pricePerKg && <ListGroup.Item>{t('price_per_kg')}: {link.pricePerKg} &euro;</ListGroup.Item>}
                     <ListGroup.Item>{t('size_spec')}: {link.size}</ListGroup.Item>
                     <ListGroup.Item>{t('store')}: {getLocalizedValue(link.store.name, i18n.language)}</ListGroup.Item>
                   </ListGroup>
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-2">{t('add_to_cart')}</a>
+                  <a href={link.uri} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-2">{t('add_to_cart')}</a>
                 </Card.Body>
               </Card>
             </Col>
@@ -101,6 +102,10 @@ const RecipeDetail = () => {
         </Card.Body>
       </Card>
 
+      {/* Servings */}
+      <h3 className="mt-4">{t('servings')}</h3>
+      <p>{recipe.servings || 'N/A'}</p>
+
       {/* Ingredients */}
       <h3 className="mt-4">{t('ingredients')}</h3>
       <Table striped bordered hover responsive>
@@ -122,6 +127,10 @@ const RecipeDetail = () => {
                 {ing.optional && <Badge bg="secondary">{t('optional')}</Badge>}
               </td>
               <td>{getLocalizedValue(ing.method?.name, i18n.language)}</td>
+              <td>
+                {ing.ingredient.allergens?.map(a => <Badge key={a._id} bg="warning" className="me-1">{getLocalizedValue(a.name, i18n.language)}</Badge>)}
+                {ing.ingredient.specials?.map(s => <Badge key={s._id} bg="info" className="me-1">{getLocalizedValue(s.name, i18n.language)}</Badge>)}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -129,15 +138,35 @@ const RecipeDetail = () => {
 
       {/* Preparation */}
       <h3 className="mt-4">{t('preparation')}</h3>
-      <div style={{ whiteSpace: 'pre-wrap' }}>
+      <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">
         {getLocalizedValue(recipe.preparation, i18n.language)}
       </div>
+
+      {/* Cooking Time */}
+      <h3 className="mt-4">{t('cookingTime')}</h3>
+      <p>{recipe.cookingTime ? `${recipe.cookingTime} ${t('minutes', 'minutes')}` : 'N/A'}</p>
+
+      {/* Remark */}
+      {getLocalizedValue(recipe.remark, i18n.language) && (
+        <>
+          <h3 className="mt-4">{t('remark')}</h3>
+          <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">
+            {getLocalizedValue(recipe.remark, i18n.language)}
+          </div>
+        </>
+      )}
 
       {/* Purchase Links */}
       {renderPurchaseLinks()}
 
       {/* Comments */}
       <CommentSection recipe={recipe} onCommentsUpdate={(newComment) => setRecipe({...recipe, comments: [newComment, ...recipe.comments]})}/>
+
+      {/* Timestamps */}
+      <div className="text-muted text-end mt-4">
+        <small>{t('created_at')}: {new Date(recipe.createdAt).toLocaleString()}</small><br />
+        <small>{t('modified_at')}: {new Date(recipe.updatedAt).toLocaleString()}</small>
+      </div>
 
     </Container>
   );

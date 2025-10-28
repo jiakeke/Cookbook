@@ -126,6 +126,10 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
                     <Form.Label>{t('preparation')}</Form.Label>
                     <Form.Control as="textarea" rows={5} value={formData.preparation[activeLang]} onChange={(e) => handleMultiLangChange(e, 'preparation')} />
                   </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('remark')}</Form.Label>
+                    <Form.Control as="textarea" rows={3} value={formData.remark ? formData.remark[activeLang] : ''} onChange={(e) => handleMultiLangChange(e, 'remark')} />
+                  </Form.Group>
                 </Tab.Pane>
               </Tab.Content>
 
@@ -143,6 +147,21 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
                       <option value="">{t('select_country')}</option>
                       {dependencies.countries.map(c => <option key={c._id} value={c._id}>{c.name.en}</option>)}
                     </Form.Select>
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('cooking_time_minutes')}</Form.Label>
+                    <Form.Control type="number" name="cookingTime" value={formData.cookingTime} onChange={handleChange} />
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('servings')}</Form.Label>
+                    <Form.Control type="number" name="servings" value={formData.servings} onChange={handleChange} />
                   </Form.Group>
                 </Col>
               </Row>

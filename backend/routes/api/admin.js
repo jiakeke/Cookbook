@@ -10,6 +10,8 @@ const CountryOrRegion = require('../../models/CountryOrRegion');
 const Store = require('../../models/Store');
 const Ingredient = require('../../models/Ingredient');
 const Recipe = require('../../models/Recipe');
+const Allergen = require('../../models/Allergen');
+const SpecialGroup = require('../../models/SpecialGroup');
 
 // Middleware stack for all admin routes
 const adminAccess = [passport.authenticate('jwt', { session: false }), adminAuth];
@@ -537,6 +539,252 @@ router.delete('/stores/:id', adminAccess, async (req, res) => {
   }
 });
 
+// --- Allergen Routes ---
+
+// @route   GET api/admin/allergens
+// @desc    Get all allergens with pagination and search
+// @access  Admin
+router.get('/allergens', adminAccess, async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const searchQuery = req.query.search || '';
+
+    const query = searchQuery
+      ? {
+          $or: [
+            { 'name.en': { $regex: searchQuery, $options: 'i' } },
+            { 'name.fi': { $regex: searchQuery, $options: 'i' } },
+            { 'name.zh': { $regex: searchQuery, $options: 'i' } },
+          ],
+        }
+      : {};
+
+    const allergens = await Allergen.find(query)
+      .limit(limit)
+      .skip((page - 1) * limit)
+      .sort({ _id: -1 });
+
+    const total = await Allergen.countDocuments(query);
+
+    res.json({
+      allergens,
+      total,
+      page,
+      pages: Math.ceil(total / limit),
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   POST api/admin/allergens
+// @desc    Create a new allergen
+// @access  Admin
+router.post(
+  '/allergens',
+  [
+    ...adminAccess,
+    check('name.en', 'English name is required').not().isEmpty(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name, description } = req.body;
+
+    try {
+      const newAllergen = new Allergen({ name, description });
+      await newAllergen.save();
+      res.status(201).json(newAllergen);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route   PUT api/admin/allergens/:id
+// @desc    Update an allergen by ID
+// @access  Admin
+router.put(
+  '/allergens/:id',
+  [
+    ...adminAccess,
+    check('name.en', 'English name is required').not().isEmpty(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name, description } = req.body;
+
+    try {
+      const updatedAllergen = await Allergen.findByIdAndUpdate(
+        req.params.id,
+        { $set: { name, description } },
+        { new: true }
+      );
+
+      if (!updatedAllergen) {
+        return res.status(404).json({ msg: 'Allergen not found' });
+      }
+
+      res.json(updatedAllergen);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route   DELETE api/admin/allergens/:id
+// @desc    Delete an allergen by ID
+// @access  Admin
+router.delete('/allergens/:id', adminAccess, async (req, res) => {
+  try {
+    const allergen = await Allergen.findById(req.params.id);
+    if (!allergen) {
+      return res.status(404).json({ msg: 'Allergen not found' });
+    }
+
+    await Allergen.findByIdAndDelete(req.params.id);
+
+    res.json({ msg: 'Allergen deleted successfully' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// --- SpecialGroup Routes ---
+
+// @route   GET api/admin/specialgroups
+// @desc    Get all special groups with pagination and search
+// @access  Admin
+router.get('/specialgroups', adminAccess, async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const searchQuery = req.query.search || '';
+
+    const query = searchQuery
+      ? {
+          $or: [
+            { 'name.en': { $regex: searchQuery, $options: 'i' } },
+            { 'name.fi': { $regex: searchQuery, $options: 'i' } },
+            { 'name.zh': { $regex: searchQuery, $options: 'i' } },
+          ],
+        }
+      : {};
+
+    const specialgroups = await SpecialGroup.find(query)
+      .limit(limit)
+      .skip((page - 1) * limit)
+      .sort({ _id: -1 });
+
+    const total = await SpecialGroup.countDocuments(query);
+
+    res.json({
+      specialgroups,
+      total,
+      page,
+      pages: Math.ceil(total / limit),
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   POST api/admin/specialgroups
+// @desc    Create a new special group
+// @access  Admin
+router.post(
+  '/specialgroups',
+  [
+    ...adminAccess,
+    check('name.en', 'English name is required').not().isEmpty(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name, description } = req.body;
+
+    try {
+      const newSpecialGroup = new SpecialGroup({ name, description });
+      await newSpecialGroup.save();
+      res.status(201).json(newSpecialGroup);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route   PUT api/admin/specialgroups/:id
+// @desc    Update a special group by ID
+// @access  Admin
+router.put(
+  '/specialgroups/:id',
+  [
+    ...adminAccess,
+    check('name.en', 'English name is required').not().isEmpty(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name, description } = req.body;
+
+    try {
+      const updatedSpecialGroup = await SpecialGroup.findByIdAndUpdate(
+        req.params.id,
+        { $set: { name, description } },
+        { new: true }
+      );
+
+      if (!updatedSpecialGroup) {
+        return res.status(404).json({ msg: 'Special group not found' });
+      }
+
+      res.json(updatedSpecialGroup);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route   DELETE api/admin/specialgroups/:id
+// @desc    Delete a special group by ID
+// @access  Admin
+router.delete('/specialgroups/:id', adminAccess, async (req, res) => {
+  try {
+    const specialgroup = await SpecialGroup.findById(req.params.id);
+    if (!specialgroup) {
+      return res.status(404).json({ msg: 'Special group not found' });
+    }
+
+    await SpecialGroup.findByIdAndDelete(req.params.id);
+
+    res.json({ msg: 'Special group deleted successfully' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 // --- Ingredient Routes ---
 
 // @route   GET api/admin/ingredients
@@ -560,6 +808,8 @@ router.get('/ingredients', adminAccess, async (req, res) => {
 
     const ingredients = await Ingredient.find(query)
       .populate('link.store')
+      .populate('allergens')
+      .populate('specials')
       .limit(limit)
       .skip((page - 1) * limit)
       .sort({ _id: -1 });
@@ -593,12 +843,12 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, image, link } = req.body;
+    const { name, image, link, allergens, specials } = req.body;
 
     try {
-      const newIngredient = new Ingredient({ name, image, link });
+      const newIngredient = new Ingredient({ name, image, link, allergens, specials });
       await newIngredient.save();
-      await newIngredient.populate('link.store');
+      await newIngredient.populate('link.store allergens specials');
       res.status(201).json(newIngredient);
     } catch (err) {
       console.error(err.message);
@@ -622,14 +872,14 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, image, link } = req.body;
+    const { name, image, link, allergens, specials } = req.body;
 
     try {
       const updatedIngredient = await Ingredient.findByIdAndUpdate(
         req.params.id,
-        { $set: { name, image, link } },
+        { $set: { name, image, link, allergens, specials } },
         { new: true }
-      ).populate('link.store');
+      ).populate('link.store allergens specials');
 
       if (!updatedIngredient) {
         return res.status(404).json({ msg: 'Ingredient not found' });
@@ -669,12 +919,14 @@ router.delete('/ingredients/:id', adminAccess, async (req, res) => {
 // @access  Admin
 router.get('/recipes/dependencies', adminAccess, async (req, res) => {
   try {
-    const [countries, ingredients, methods] = await Promise.all([
+    const [countries, ingredients, methods, allergens, specialgroups] = await Promise.all([
       CountryOrRegion.find().sort({ 'name.en': 1 }),
       Ingredient.find().sort({ 'name.en': 1 }),
       Method.find().sort({ 'name.en': 1 }),
+      Allergen.find().sort({ 'name.en': 1 }),
+      SpecialGroup.find().sort({ 'name.en': 1 }),
     ]);
-    res.json({ countries, ingredients, methods });
+    res.json({ countries, ingredients, methods, allergens, specialgroups });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
