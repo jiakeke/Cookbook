@@ -957,6 +957,8 @@ router.get('/recipes', adminAccess, async (req, res) => {
       .populate('country_or_region')
       .populate('ingredients.ingredient')
       .populate('ingredients.method')
+      .populate('creator')
+      .populate({ path: 'comments', populate: { path: 'user' } })
       .limit(limit)
       .skip((page - 1) * limit)
       .sort({ _id: -1 });
@@ -991,9 +993,9 @@ router.post(
     }
 
     try {
-      const newRecipe = new Recipe(req.body);
+      const newRecipe = new Recipe({ ...req.body, creator: req.user.id });
       await newRecipe.save();
-      await newRecipe.populate('country_or_region ingredients.ingredient ingredients.method');
+      await newRecipe.populate('country_or_region ingredients.ingredient ingredients.method creator');
       res.status(201).json(newRecipe);
     } catch (err) {
       console.error(err.message);
@@ -1022,7 +1024,7 @@ router.put(
         req.params.id,
         { $set: req.body },
         { new: true }
-      ).populate('country_or_region ingredients.ingredient ingredients.method');
+      ).populate('country_or_region ingredients.ingredient ingredients.method creator');
 
       if (!updatedRecipe) {
         return res.status(404).json({ msg: 'Recipe not found' });

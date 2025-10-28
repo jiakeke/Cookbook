@@ -221,5 +221,8 @@
   "allergens": "Allergens",
   "specials": "Specials",
   "select_allergens": "Select allergens...",
-  "select_specials": "Select special groups..."
+  "select_specials": "Select special groups...",
+  "creator": "Creator",
+  "minutes": "minutes",
+  "ratings": "ratings"
 }

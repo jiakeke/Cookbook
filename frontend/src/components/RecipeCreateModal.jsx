@@ -16,11 +16,14 @@ const RecipeCreateModal = ({ show, onHide, onRecipeCreate }) => {
     carbohydrate: '',
     fat: '',
     preparation: { en: '', fi: '', zh: '' },
+    cookingTime: '',
+    servings: '',
+    remark: { en: '', fi: '', zh: '' },
     ingredients: [],
   };
 
   const [formData, setFormData] = useState(initialFormData);
-  const [dependencies, setDependencies] = useState({ countries: [], ingredients: [], methods: [] });
+  const [dependencies, setDependencies] = useState({ countries: [], ingredients: [], methods: [], allergens: [], specialgroups: [] });
   const [error, setError] = useState('');
   const [loadingDeps, setLoadingDeps] = useState(true);
   const [activeLang, setActiveLang] = useState('en');

@@ -220,5 +220,8 @@
   "allergens": "Allergeenit",
   "specials": "Erityisryhmät",
   "select_allergens": "Valitse allergeenit...",
-  "select_specials": "Valitse erityisryhmät..."
+  "select_specials": "Valitse erityisryhmät...",
+  "creator": "Luoja",
+  "minutes": "minuuttia",
+  "ratings": "arvostelua"
 }

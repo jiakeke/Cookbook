@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Recipe = require('../../models/Recipe');
+const Comment = require('../../models/Comment');
 
 // @route   GET api/recipes
 // @desc    Get all public recipes
@@ -9,6 +10,7 @@ router.get('/', async (req, res) => {
   try {
     const recipes = await Recipe.find()
       .populate('country_or_region')
+      .populate('creator', 'name')
       .sort({ _id: -1 });
     res.json(recipes);
   } catch (err) {
@@ -24,20 +26,26 @@ router.get('/:id', async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id)
       .populate('country_or_region')
+      .populate('creator', 'name')
       .populate({
         path: 'ingredients.ingredient',
         model: 'ingredient',
-        populate: {
-          path: 'link.store',
-          model: 'store'
-        }
+        populate: [
+          { path: 'link.store', model: 'store' },
+          { path: 'allergens', model: 'allergen' },
+          { path: 'specials', model: 'specialGroup' },
+        ]
       })
       .populate('ingredients.method')
-      .populate('comments');
+      .lean();
 
     if (!recipe) {
       return res.status(404).json({ msg: 'Recipe not found' });
     }
+
+    recipe.comments = await Comment.find({ recipe: recipe._id })
+      .populate('user', 'name')
+      .sort({ createdAt: -1 });
 
     res.json(recipe);
   } catch (err) {

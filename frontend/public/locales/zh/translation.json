@@ -220,5 +220,8 @@
   "allergens": "过敏源",
   "specials": "特殊人群",
   "select_allergens": "选择过敏源...",
-  "select_specials": "选择特殊人群..."
+  "select_specials": "选择特殊人群...",
+  "creator": "创建者",
+  "minutes": "分钟",
+  "ratings": "评分"
 }

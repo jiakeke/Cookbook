@@ -35,6 +35,10 @@ const RecipeSchema = new mongoose.Schema(
       fi: { type: String },
       zh: { type: String },
     },
+    creator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user',
+    },
     ingredients: [
       {
         ingredient: {

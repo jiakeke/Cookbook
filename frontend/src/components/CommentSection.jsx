@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Form, Button, Row, Col, Image, Spinner, Alert, Modal, Card } from 'react-bootstrap';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext.jsx';
+import StarRating from './StarRating';
 
 // --- Comment Form Component ---
 const CommentForm = ({ recipeId, onCommentPosted }) => {
   const { t } = useTranslation();
+  const { user, token } = useAuth();
   const [content, setContent] = useState('');
+  const [rating, setRating] = useState(5);
   const [files, setFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -56,15 +60,32 @@ const CommentForm = ({ recipeId, onCommentPosted }) => {
 
     const formData = new FormData();
     formData.append('content', content);
+    formData.append('rating', rating);
     files.forEach(file => {
       formData.append('images', file);
     });
 
+    const config = {};
+    if (user && token) {
+      config.headers = { Authorization: `Bearer ${token}` };
+    } else {
+      const guestNickname = localStorage.getItem('guestNickname');
+      if (guestNickname) {
+        formData.append('nickname', guestNickname);
+      }
+    }
+
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/comments/${recipeId}`, formData);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/comments/${recipeId}`, formData, config);
+      
+      if (!user && res.data.nickname) {
+        localStorage.setItem('guestNickname', res.data.nickname);
+      }
+
       onCommentPosted(res.data);
       // Reset form
       setContent('');
+      setRating(5);
       setFiles([]);
       previews.forEach(p => URL.revokeObjectURL(p));
       setPreviews([]);
@@ -83,6 +104,9 @@ const CommentForm = ({ recipeId, onCommentPosted }) => {
         <Card.Title as="h4">{t('leave_a_comment')}</Card.Title>
         <Form onSubmit={handleSubmit}>
           {error && <Alert variant="danger">{error}</Alert>}
+          <Form.Group className="mb-3">
+            <StarRating rating={rating} setRating={setRating} />
+          </Form.Group>
           <Form.Group className="mb-3">
             <Form.Control 
               as="textarea" 
@@ -135,7 +159,9 @@ const CommentList = ({ comments }) => {
       {comments.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(comment => (
         <Card key={comment._id} className="mb-3">
           <Card.Body>
-            <p>{comment.content}</p>
+            <Card.Title as="h6">{comment.user ? comment.user.name : comment.nickname}</Card.Title>
+            {comment.rating && <StarRating rating={comment.rating} readOnly />}
+            <p className="mt-2">{comment.content}</p>
             <Row>
               {comment.images.map((img, i) => (
                 <Col key={i} xs={4} md={3} lg={2} className="mb-2">

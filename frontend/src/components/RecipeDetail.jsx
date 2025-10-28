@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { getLocalizedValue } from '../utils/translationHelper';
 import CommentSection from './CommentSection';
+import StarRating from './StarRating';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -30,6 +31,16 @@ const RecipeDetail = () => {
     fetchRecipe();
   }, [id, t]);
 
+  const calculateAverageRating = () => {
+    if (!recipe || !recipe.comments || recipe.comments.length === 0) {
+      return 0;
+    }
+    const ratings = recipe.comments.map(c => c.rating).filter(r => r > 0);
+    if (ratings.length === 0) return 0;
+    const totalRating = ratings.reduce((acc, rating) => acc + rating, 0);
+    return totalRating / ratings.length;
+  };
+
   if (loading) {
     return <div className="text-center"><Spinner animation="border" /></div>;
   }
@@ -41,6 +52,8 @@ const RecipeDetail = () => {
   if (!recipe) {
     return <Container><Alert variant="warning">{t('recipe_not_found')}</Alert></Container>;
   }
+
+  const averageRating = calculateAverageRating();
 
   const renderPurchaseLinks = () => {
     const allLinks = recipe.ingredients.flatMap(ing => 
@@ -84,8 +97,13 @@ const RecipeDetail = () => {
         </Col>
         <Col md={8}>
           <h1>{getLocalizedValue(recipe.name, i18n.language)}</h1>
+          <div className="d-flex align-items-center mb-2">
+            <StarRating rating={averageRating} readOnly />
+            <span className="ms-2">{averageRating.toFixed(1)} ({recipe.comments.filter(c => c.rating > 0).length} {t('ratings')})</span>
+          </div>
           <p className="text-muted">{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</p>
           <p>{getLocalizedValue(recipe.description, i18n.language)}</p>
+          {recipe.creator && <p className="text-muted">{t('creator')}: {recipe.creator.name}</p>}
         </Col>
       </Row>
 
@@ -115,6 +133,7 @@ const RecipeDetail = () => {
             <th>{t('unit')}</th>
             <th>{t('name')}</th>
             <th>{t('method')}</th>
+            <th>{t('allergens')} / {t('specials')}</th>
           </tr>
         </thead>
         <tbody>
@@ -144,7 +163,7 @@ const RecipeDetail = () => {
 
       {/* Cooking Time */}
       <h3 className="mt-4">{t('cookingTime')}</h3>
-      <p>{recipe.cookingTime ? `${recipe.cookingTime} ${t('minutes', 'minutes')}` : 'N/A'}</p>
+      <p>{recipe.cookingTime ? `${recipe.cookingTime} ${t('minutes')}` : 'N/A'}</p>
 
       {/* Remark */}
       {getLocalizedValue(recipe.remark, i18n.language) && (
