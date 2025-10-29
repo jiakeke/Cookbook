@@ -27,6 +27,7 @@ app.get('/', (req, res) => res.send('API Running'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/recipes', require('./routes/api/recipes')); // Public recipe routes
 app.use('/api/comments', require('./routes/api/comments')); // Public comment routes
+app.use('/api/reports', require('./routes/api/reports')); // Report routes
 app.use('/api/admin', require('./routes/api/admin')); // Admin routes
 
 const PORT = process.env.PORT;

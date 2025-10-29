@@ -31,6 +31,10 @@ const CommentSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  approved: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 module.exports = mongoose.model('comment', CommentSchema);

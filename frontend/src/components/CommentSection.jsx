@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext.jsx';
 import StarRating from './StarRating';
+import ReportModal from './ReportModal';
 
 // --- Comment Form Component ---
 const CommentForm = ({ recipeId, onCommentPosted }) => {
@@ -141,13 +142,26 @@ const CommentForm = ({ recipeId, onCommentPosted }) => {
 // --- Comment List Component ---
 const CommentList = ({ comments }) => {
   const { t } = useTranslation();
-  const [showModal, setShowModal] = useState(false);
+  const { user } = useAuth();
+  const [showImgModal, setShowImgModal] = useState(false);
   const [imageToShow, setImageToShow] = useState('');
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [commentToReport, setCommentToReport] = useState(null);
+  const [reportSuccess, setReportSuccess] = useState('');
 
   const handleImageClick = (imageUrl) => {
     setImageToShow(imageUrl);
-    setShowModal(true);
+    setShowImgModal(true);
   };
+
+  const handleReportClick = (comment) => {
+    setCommentToReport(comment);
+    setShowReportModal(true);
+  };
+
+  const handleReportSubmitted = () => {
+    setReportSuccess(t('report_submitted_successfully'));
+  }
 
   if (!comments || comments.length === 0) {
     return <p className="mt-4">{t('no_comments_yet')}</p>;
@@ -156,10 +170,16 @@ const CommentList = ({ comments }) => {
   return (
     <div className="mt-4">
       <h4>{t('comments')}</h4>
-      {comments.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(comment => (
+      {reportSuccess && <Alert variant="success" onClose={() => setReportSuccess('')} dismissible>{reportSuccess}</Alert>}
+      {comments.filter(c => c.approved).slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(comment => (
         <Card key={comment._id} className="mb-3">
           <Card.Body>
-            <Card.Title as="h6">{comment.user ? comment.user.name : comment.nickname}</Card.Title>
+            <div className="d-flex justify-content-between">
+              <Card.Title as="h6">{comment.user ? comment.user.name : comment.nickname}</Card.Title>
+              {user && (
+                <Button variant="link" size="sm" onClick={() => handleReportClick(comment)}>{t('report')}</Button>
+              )}
+            </div>
             {comment.rating && <StarRating rating={comment.rating} readOnly />}
             <p className="mt-2">{comment.content}</p>
             <Row>
@@ -179,12 +199,21 @@ const CommentList = ({ comments }) => {
         </Card>
       ))}
 
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg">
+      <Modal show={showImgModal} onHide={() => setShowImgModal(false)} centered size="lg">
         <Modal.Header closeButton />
         <Modal.Body className="text-center">
           <Image src={`${import.meta.env.VITE_API_BASE_URL}${imageToShow}`} fluid />
         </Modal.Body>
       </Modal>
+
+      {commentToReport && 
+        <ReportModal 
+          show={showReportModal}
+          onHide={() => setShowReportModal(false)}
+          commentId={commentToReport._id}
+          onReportSubmitted={handleReportSubmitted}
+        />
+      }
     </div>
   );
 };

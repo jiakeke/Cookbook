@@ -17,6 +17,7 @@ import IngredientManagement from './components/IngredientManagement';
 import RecipeManagement from './components/RecipeManagement';
 import AllergenManagement from './components/AllergenManagement';
 import SpecialGroupManagement from './components/SpecialGroupManagement';
+import ReportManagement from './components/ReportManagement';
 import RecipeList from './components/RecipeList';
 import RecipeDetail from './components/RecipeDetail';
 import { useTranslation } from 'react-i18next';
@@ -61,6 +62,7 @@ function App() {
               <Route path="recipes" element={<RecipeManagement />} />
               <Route path="allergens" element={<AllergenManagement />} />
               <Route path="special-groups" element={<SpecialGroupManagement />} />
+              <Route path="reports" element={<ReportManagement />} />
             </Route>
           </Route>
         </Routes>

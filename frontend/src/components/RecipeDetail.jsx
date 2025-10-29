@@ -35,7 +35,7 @@ const RecipeDetail = () => {
     if (!recipe || !recipe.comments || recipe.comments.length === 0) {
       return 0;
     }
-    const ratings = recipe.comments.map(c => c.rating).filter(r => r > 0);
+    const ratings = recipe.comments.filter(c => c.approved).map(c => c.rating).filter(r => r > 0);
     if (ratings.length === 0) return 0;
     const totalRating = ratings.reduce((acc, rating) => acc + rating, 0);
     return totalRating / ratings.length;
@@ -99,7 +99,7 @@ const RecipeDetail = () => {
           <h1>{getLocalizedValue(recipe.name, i18n.language)}</h1>
           <div className="d-flex align-items-center mb-2">
             <StarRating rating={averageRating} readOnly />
-            <span className="ms-2">{averageRating.toFixed(1)} ({recipe.comments.filter(c => c.rating > 0).length} {t('ratings')})</span>
+            <span className="ms-2">{averageRating.toFixed(1)} ({recipe.comments.filter(c => c.approved && c.rating > 0).length} {t('ratings')})</span>
           </div>
           <p className="text-muted">{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</p>
           <p>{getLocalizedValue(recipe.description, i18n.language)}</p>
