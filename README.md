@@ -133,3 +133,9 @@ npm run import-data
 cd backend
 npm run destroy-data
 ```
+
+---
+
+## API Documentation
+
+For detailed information about the backend API, please see the [Backend API Documentation](./docs/backend_api.md).
