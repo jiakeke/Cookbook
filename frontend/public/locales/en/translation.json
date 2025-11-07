@@ -245,5 +245,8 @@
   "status_rejected": "Rejected",
   "action_accept": "Accept",
   "action_reject": "Reject",
-  "action_reopen": "Reopen"
+  "action_reopen": "Reopen",
+  "like": "Like",
+  "unlike": "Unlike",
+  "likes": "Likes"
 }

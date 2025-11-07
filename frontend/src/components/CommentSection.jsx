@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col, Image, Spinner, Alert, Modal, Card } from 'react-bootstrap';
+import { Form, Button, Row, Col, Image, Spinner, Alert, Modal, Card, Dropdown } from 'react-bootstrap';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext.jsx';
 import StarRating from './StarRating';
 import ReportModal from './ReportModal';
+import { useLike } from '../hooks/useLike';
+import { FaThumbsUp, FaRegThumbsUp, FaEllipsisV } from 'react-icons/fa';
+
+// --- Like Component for Comments ---
+const CommentLike = ({ comment }) => {
+  const { t } = useTranslation();
+  const { isLiked, likeCount, toggleLike } = useLike('comment', comment);
+
+  return (
+    <div className="d-flex align-items-center">
+      <Button variant="link" onClick={toggleLike} className="p-0 me-1 text-muted">
+        {isLiked ? <FaThumbsUp color="#0d6efd" /> : <FaRegThumbsUp />}
+      </Button>
+      <small>{likeCount}</small>
+    </div>
+  );
+}
 
 // --- Comment Form Component ---
 const CommentForm = ({ recipeId, onCommentPosted }) => {
@@ -194,7 +211,10 @@ const CommentList = ({ comments }) => {
                 </Col>
               ))}
             </Row>
-            <small className="text-muted">{new Date(comment.createdAt).toLocaleString()}</small>
+            <div className="d-flex justify-content-between align-items-center">
+                <small className="text-muted">{new Date(comment.createdAt).toLocaleString()}</small>
+                <CommentLike comment={comment} />
+            </div>
           </Card.Body>
         </Card>
       ))}

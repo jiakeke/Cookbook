@@ -68,4 +68,78 @@ router.post('/:recipeId', (req, res, next) => {
   })(req, res, next);
 });
 
+// @route   POST api/comments/:id/like
+// @desc    Like a comment
+// @access  Public (Optional Auth)
+router.post('/:id/like', (req, res, next) => {
+  passport.authenticate('jwt', { session: false }, async (err, user, info) => {
+    try {
+      const comment = await Comment.findById(req.params.id);
+      if (!comment) {
+        return res.status(404).json({ msg: 'Comment not found' });
+      }
+
+      if (user) {
+        if (comment.likes_users.includes(user.id)) {
+          return res.status(400).json({ msg: 'Comment already liked' });
+        }
+        comment.likes_users.push(user.id);
+      } else {
+        const { guestId } = req.body;
+        if (!guestId) {
+          return res.status(400).json({ msg: 'Guest ID is required' });
+        }
+        if (comment.likes_guests.includes(guestId)) {
+          return res.status(400).json({ msg: 'Comment already liked' });
+        }
+        comment.likes_guests.push(guestId);
+      }
+
+      await comment.save();
+      res.json({ 
+        likes_users: comment.likes_users,
+        likes_guests: comment.likes_guests 
+      });
+
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  })(req, res, next);
+});
+
+// @route   DELETE api/comments/:id/like
+// @desc    Unlike a comment
+// @access  Public (Optional Auth)
+router.delete('/:id/like', (req, res, next) => {
+  passport.authenticate('jwt', { session: false }, async (err, user, info) => {
+    try {
+      const comment = await Comment.findById(req.params.id);
+      if (!comment) {
+        return res.status(404).json({ msg: 'Comment not found' });
+      }
+
+      if (user) {
+        comment.likes_users = comment.likes_users.filter(id => id.toString() !== user.id.toString());
+      } else {
+        const { guestId } = req.body;
+        if (!guestId) {
+          return res.status(400).json({ msg: 'Guest ID is required' });
+        }
+        comment.likes_guests = comment.likes_guests.filter(id => id !== guestId);
+      }
+
+      await comment.save();
+      res.json({ 
+        likes_users: comment.likes_users,
+        likes_guests: comment.likes_guests 
+      });
+
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  })(req, res, next);
+});
+
 module.exports = router;

@@ -54,6 +54,13 @@ const RecipeSchema = new mongoose.Schema(
         },
       },
     ],
+    likes_users: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+      },
+    ],
+    likes_guests: [String],
   },
   { timestamps: true }
 );

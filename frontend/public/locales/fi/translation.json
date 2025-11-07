@@ -244,5 +244,8 @@
   "status_rejected": "Hylätty",
   "action_accept": "Hyväksy",
   "action_reject": "Hylkää",
-  "action_reopen": "Avaa uudelleen"
+  "action_reopen": "Avaa uudelleen",
+  "like": "Tykkää",
+  "unlike": "Älä tykkää",
+  "likes": "Tykkäykset"
 }

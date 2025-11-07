@@ -244,5 +244,8 @@
   "status_rejected": "已拒绝",
   "action_accept": "接受",
   "action_reject": "拒绝",
-  "action_reopen": "重新打开"
+  "action_reopen": "重新打开",
+  "like": "赞",
+  "unlike": "取消赞",
+  "likes": "赞"
 }
