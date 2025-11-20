@@ -1,0 +1,3077 @@
+{
+  "allergens": [
+    {
+      "name": {
+        "en": "Lactose",
+        "fi": "Laktoosi",
+        "zh": "乳糖"
+      },
+      "_id": "691eb45dcfab87995515140b",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Gluten",
+        "fi": "Gluteeni",
+        "zh": "麸质"
+      },
+      "_id": "691eb45dcfab87995515140c",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Peanuts",
+        "fi": "Maapähkinät",
+        "zh": "花生"
+      },
+      "_id": "691eb45dcfab87995515140d",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Tree Nuts",
+        "fi": "Pähkinät",
+        "zh": "坚果"
+      },
+      "_id": "691eb45dcfab87995515140e",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Milk",
+        "fi": "Maito",
+        "zh": "牛奶"
+      },
+      "_id": "691eb45dcfab87995515140f",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Eggs",
+        "fi": "Kananmunat",
+        "zh": "鸡蛋"
+      },
+      "_id": "691eb45dcfab879955151410",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Soy",
+        "fi": "Soija",
+        "zh": "大豆"
+      },
+      "_id": "691eb45dcfab879955151411",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Wheat",
+        "fi": "Vehnä",
+        "zh": "小麦"
+      },
+      "_id": "691eb45dcfab879955151412",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Fish",
+        "fi": "Kala",
+        "zh": "鱼"
+      },
+      "_id": "691eb45dcfab879955151413",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Shellfish",
+        "fi": "Äyriäiset",
+        "zh": "贝类"
+      },
+      "_id": "691eb45dcfab879955151414",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Sesame",
+        "fi": "Seesami",
+        "zh": "芝麻"
+      },
+      "_id": "691eb45dcfab879955151415",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Sulfites",
+        "fi": "Sulfiitit",
+        "zh": "亚硫酸盐"
+      },
+      "_id": "691eb45dcfab879955151416",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "MSG",
+        "fi": "Natriumglutamaatti",
+        "zh": "味精"
+      },
+      "_id": "691eb45dcfab879955151417",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Celery",
+        "fi": "Selleri",
+        "zh": "芹菜"
+      },
+      "_id": "691eb45dcfab879955151418",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Mustard",
+        "fi": "Sinappi",
+        "zh": "芥末"
+      },
+      "_id": "691eb45dcfab879955151419",
+      "__v": 0
+    }
+  ],
+  "comments": [
+    {
+      "_id": "68f6c7436092bb27e0f78607",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "content": "This is a really delicious dish.",
+      "images": [
+        "/uploads/images-1761003331433.jpg",
+        "/uploads/images-1761003331434.jpg",
+        "/uploads/images-1761003331434.jpg"
+      ],
+      "createdAt": "2025-10-20T23:35:31.440Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014359bce0b30e88d2aef1",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0001",
+      "content": "啊发到付",
+      "images": [
+        "/uploads/images-1761690457057.jpg"
+      ],
+      "createdAt": "2025-10-28T22:27:37.069Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901437e54532099b299562d",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0002",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:28:14.365Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "b5589599-b0c4-42e7-8e84-840a1d020c83"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "690143a054532099b2995650",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0003",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:28:48.958Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690144d1fcc52182be309835",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "user": "68f66deb48e728960e3872ba",
+      "content": "阿萨法地方",
+      "images": [],
+      "createdAt": "2025-10-28T22:33:53.659Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690144e5fcc52182be309858",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0004",
+      "content": "史蒂夫啊",
+      "images": [],
+      "createdAt": "2025-10-28T22:34:13.006Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690144e9fcc52182be30985d",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0005",
+      "content": "阿斯顿发到付阿迪",
+      "images": [],
+      "createdAt": "2025-10-28T22:34:17.167Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901450afcc52182be309883",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "user": "68f66deb48e728960e3872ba",
+      "content": "阿斯顿发到付啊",
+      "images": [],
+      "createdAt": "2025-10-28T22:34:50.480Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014538fcc52182be309904",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "user": "68f66deb48e728960e3872ba",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:35:36.266Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014551fcc52182be30991e",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "user": "68f66deb48e728960e3872ba",
+      "content": "阿斯顿发的f",
+      "images": [],
+      "createdAt": "2025-10-28T22:36:01.335Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690145e5fcc52182be309938",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "user": "68f66deb48e728960e3872ba",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:38:29.652Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901464afcc52182be30996f",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0006",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:40:10.430Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901464dfcc52182be309975",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0007",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:40:13.670Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014760fcc52182be30998f",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0008",
+      "content": "水岸东方",
+      "images": [],
+      "createdAt": "2025-10-28T22:44:48.357Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014763fcc52182be309995",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0009",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:44:51.293Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014766fcc52182be30999b",
+      "recipe": "69013fcb8c2a52549ab3b8be",
+      "nickname": "Guest-0010",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:44:54.061Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690147b690d7f3edb2573f64",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "user": "68f66deb48e728960e3872ba",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:46:14.683Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "b5589599-b0c4-42e7-8e84-840a1d020c83"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "690147d190d7f3edb2573f9a",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:46:41.408Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "b5589599-b0c4-42e7-8e84-840a1d020c83"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "690147e090d7f3edb2573fbd",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "content": "啊",
+      "images": [],
+      "createdAt": "2025-10-28T22:46:56.656Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690147e790d7f3edb2573fc2",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "content": "啊发",
+      "images": [],
+      "createdAt": "2025-10-28T22:47:03.619Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690147ea90d7f3edb2573fc7",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-10-28T22:47:06.588Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901481490d7f3edb2573ffc",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "content": "asdf ",
+      "images": [],
+      "createdAt": "2025-10-28T22:47:48.035Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901482790d7f3edb2574010",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0011",
+      "content": "a ad sd sd sd s s s ",
+      "images": [],
+      "createdAt": "2025-10-28T22:48:07.536Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901482a90d7f3edb2574016",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0011",
+      "content": "sadf a ",
+      "images": [],
+      "createdAt": "2025-10-28T22:48:10.028Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "6901482c90d7f3edb257401b",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0011",
+      "content": "asdf a a df",
+      "images": [],
+      "createdAt": "2025-10-28T22:48:12.614Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014e1326bd0fc7db866459",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "rating": 5,
+      "content": "asdfa s",
+      "images": [],
+      "createdAt": "2025-10-28T23:13:23.623Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014e2126bd0fc7db86645e",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "rating": 3,
+      "content": "asdfasdf ",
+      "images": [],
+      "createdAt": "2025-10-28T23:13:37.971Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014e2f26bd0fc7db866463",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "rating": 1,
+      "content": "asdfasdf a",
+      "images": [],
+      "createdAt": "2025-10-28T23:13:51.040Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "69014e4d26bd0fc7db866468",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "rating": 1,
+      "content": "adsfasdf",
+      "images": [],
+      "createdAt": "2025-10-28T23:14:21.833Z",
+      "approved": true,
+      "likes_users": [
+        "690d6f10833109d43f5f0ee4"
+      ],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690158c79a19118425f8633f",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "nickname": "Guest-0010",
+      "rating": 5,
+      "content": "a史蒂夫",
+      "images": [],
+      "createdAt": "2025-10-28T23:59:03.835Z",
+      "approved": true,
+      "likes_users": [
+        "690d6f10833109d43f5f0ee4"
+      ],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "690d6f26833109d43f5f0f14",
+      "recipe": "68f447902beb7bdc4f1f07fc",
+      "user": "690d6f10833109d43f5f0ee4",
+      "rating": 5,
+      "content": "阿斯顿发到付",
+      "images": [],
+      "createdAt": "2025-11-07T04:01:42.121Z",
+      "approved": true,
+      "likes_users": [
+        "690d6f10833109d43f5f0ee4"
+      ],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c586",
+      "recipe": "691f42e666986105f3c36cce",
+      "nickname": "user123",
+      "rating": 5,
+      "content": "非常好吃！土豆丝炒得很脆，青椒的香味也很足。我按照配方做了，全家都很喜欢。下次还要再做！",
+      "images": [],
+      "createdAt": "2025-11-07T14:23:45.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user456",
+        "user789"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c587",
+      "recipe": "691f42e666986105f3c36cf2",
+      "nickname": "user456",
+      "rating": 4,
+      "content": "第一次做麻婆豆腐就成功了！豆腐很嫩，麻辣味道刚刚好。不过我觉得花椒可以再多放一点，个人喜欢麻味重一些。",
+      "images": [
+        "https://example.com/images/mapo-tofu-1.jpg"
+      ],
+      "createdAt": "2025-11-06T18:45:12.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user123"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c588",
+      "recipe": "691f42e666986105f3c36cd4",
+      "nickname": "user789",
+      "rating": 5,
+      "content": "扇贝很新鲜，蒜蓉的香味特别诱人。不过我发现如果蒸的时间稍微短一点，扇贝会更嫩一些。分享一下我的成果！",
+      "images": [
+        "https://example.com/images/scallop-1.jpg",
+        "https://example.com/images/scallop-2.jpg"
+      ],
+      "createdAt": "2025-11-05T20:12:34.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user123",
+        "user456",
+        "user999"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c589",
+      "recipe": "691f42e666986105f3c36cdc",
+      "nickname": "user999",
+      "rating": 3,
+      "content": "茄子炒得有点软了，不过味道还不错。下次我会控制一下火候。建议大家炒茄子的时候火候要快一些，避免吸油太多。",
+      "images": [],
+      "createdAt": "2025-11-04T09:56:23.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c58a",
+      "recipe": "691f42e666986105f3c36ce6",
+      "nickname": "user234",
+      "rating": 5,
+      "content": "这个配方太棒了！鸡肉炖得特别入味，土豆也很软糯。我还加了一些香菇，味道更好了。看看我做的成品！",
+      "images": [
+        "https://example.com/images/braised-chicken-1.jpg"
+      ],
+      "createdAt": "2025-11-03T15:34:56.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user123",
+        "user456",
+        "user789",
+        "user999"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c58b",
+      "recipe": "691f42e666986105f3c36d10",
+      "nickname": "user567",
+      "rating": 4,
+      "content": "牛肉很嫩，但我觉得可以再多放点姜，去腥效果会更好。整体来说是不错的快炒菜。",
+      "images": [],
+      "createdAt": "2025-11-02T11:23:45.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user234"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c58c",
+      "recipe": "691f42e666986105f3c36d07",
+      "nickname": "user345",
+      "rating": 5,
+      "content": "从来没想过花菜可以这么好吃！干锅的做法太妙了，花菜既脆又入味。我的完成品虽然卖相不如图片那么好，但是味道真的没话说！",
+      "images": [
+        "https://example.com/images/cauliflower-1.jpg",
+        "https://example.com/images/cauliflower-2.jpg"
+      ],
+      "createdAt": "2025-11-01T16:45:12.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user123",
+        "user456"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c58d",
+      "recipe": "691f42e666986105f3c36d1b",
+      "nickname": "user678",
+      "rating": 5,
+      "content": "这道菜我做了好几次了，每次都很成功。关键是炖煮的时间要足够，牛腩才会很软烂。我一般会多炖半小时左右。",
+      "images": [],
+      "createdAt": "2025-10-31T13:12:34.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user234",
+        "user345"
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "691f4654da336dde9100c58e",
+      "recipe": "691f42e666986105f3c36d27",
+      "nickname": "user890",
+      "rating": 5,
+      "content": "羊排很嫩，胡萝卜也炖得恰到好处。我觉得这个配方的调味很合适，羊肉一点膻味都没有。晚饭做给家人吃，都说好！",
+      "images": [
+        "https://example.com/images/lamb-carrots.jpg"
+      ],
+      "createdAt": "2025-10-30T19:23:45.000Z",
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [
+        "user123",
+        "user456",
+        "user789"
+      ],
+      "__v": 0
+    }
+  ],
+  "countryOrRegions": [
+    {
+      "name": {
+        "en": "Chinese",
+        "fi": "Kiina",
+        "zh": "中国"
+      },
+      "description": {
+        "en": "",
+        "fi": "",
+        "zh": ""
+      },
+      "_id": "68f440ac946c27c7af09749b",
+      "__v": 0
+    }
+  ],
+  "ingredients": [
+    {
+      "name": {
+        "en": "Green Pepper",
+        "fi": "Vihreä Paprika",
+        "zh": "青椒"
+      },
+      "_id": "691f4158ac141cee83922495",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Potato",
+        "fi": "Peruna",
+        "zh": "土豆"
+      },
+      "_id": "691f4158ac141cee83922496",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Light Soy Sauce",
+        "fi": "Vaalea Soijakastike",
+        "zh": "生抽"
+      },
+      "_id": "691f4158ac141cee83922497",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Salt",
+        "fi": "Suola",
+        "zh": "盐"
+      },
+      "_id": "691f4158ac141cee83922498",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cooking Oil",
+        "fi": "Ruokaöljy",
+        "zh": "食用油"
+      },
+      "_id": "691f4158ac141cee83922499",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Scallop",
+        "fi": "Simpukka",
+        "zh": "扇贝"
+      },
+      "_id": "691f4158ac141cee8392249a",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Glass Noodles",
+        "fi": "Lasagnuudelit",
+        "zh": "粉丝"
+      },
+      "_id": "691f4158ac141cee8392249b",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Garlic",
+        "fi": "Valkosipuli",
+        "zh": "蒜"
+      },
+      "_id": "691f4158ac141cee8392249c",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Ginger",
+        "fi": "Inkivääri",
+        "zh": "生姜"
+      },
+      "_id": "691f4158ac141cee8392249d",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Green Onion",
+        "fi": "Kevätsipuli",
+        "zh": "葱"
+      },
+      "_id": "691f4158ac141cee8392249e",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Eggplant",
+        "fi": "Munakoiso",
+        "zh": "茄子"
+      },
+      "_id": "691f4158ac141cee8392249f",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Ground Pork",
+        "fi": "Jauheliha",
+        "zh": "猪肉末"
+      },
+      "_id": "691f4158ac141cee839224a0",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Oyster Sauce",
+        "fi": "Osterikastike",
+        "zh": "蚝油"
+      },
+      "_id": "691f4158ac141cee839224a1",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Chicken Thigh",
+        "fi": "Broilerin Reisi",
+        "zh": "鸡腿肉"
+      },
+      "_id": "691f4158ac141cee839224a2",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Mushroom",
+        "fi": "Sieni",
+        "zh": "香菇"
+      },
+      "_id": "691f4158ac141cee839224a3",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Dark Soy Sauce",
+        "fi": "Tumma Soijakastike",
+        "zh": "老抽"
+      },
+      "_id": "691f4158ac141cee839224a4",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cooking Wine",
+        "fi": "Ruoanlaittoon Tarkoitettu Viini",
+        "zh": "料酒"
+      },
+      "_id": "691f4158ac141cee839224a5",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Star Anise",
+        "fi": "Tähtianis",
+        "zh": "八角"
+      },
+      "_id": "691f4158ac141cee839224a6",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Yellow Bean Sauce",
+        "fi": "Keltainen Papukastike",
+        "zh": "黄豆酱"
+      },
+      "_id": "691f4158ac141cee839224a7",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Tofu",
+        "fi": "Tofu",
+        "zh": "豆腐"
+      },
+      "_id": "691f4158ac141cee839224a8",
+      "link": [],
+      "allergens": [],
+      "specials": [
+        "691f40895c666e5360df597d"
+      ],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Doubanjiang",
+        "fi": "Doubanjiang",
+        "zh": "豆瓣酱"
+      },
+      "_id": "691f4158ac141cee839224a9",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Sichuan Peppercorn",
+        "fi": "Sichuanpippuri",
+        "zh": "花椒"
+      },
+      "_id": "691f4158ac141cee839224aa",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cornstarch",
+        "fi": "Maissitärkkelys",
+        "zh": "淀粉"
+      },
+      "_id": "691f4158ac141cee839224ab",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Green Bean",
+        "fi": "Vihreä Papu",
+        "zh": "四季豆"
+      },
+      "_id": "691f4158ac141cee839224ac",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cauliflower",
+        "fi": "Kukkakaali",
+        "zh": "花菜"
+      },
+      "_id": "691f4158ac141cee839224ad",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Pork Belly",
+        "fi": "Porsaankylki",
+        "zh": "五花肉"
+      },
+      "_id": "691f4158ac141cee839224ae",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Dried Chili",
+        "fi": "Kuivattu Chili",
+        "zh": "干辣椒"
+      },
+      "_id": "691f4158ac141cee839224af",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Beef Tenderloin",
+        "fi": "Naudanfilee",
+        "zh": "牛里脊"
+      },
+      "_id": "691f4158ac141cee839224b0",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Onion",
+        "fi": "Sipuli",
+        "zh": "洋葱"
+      },
+      "_id": "691f4158ac141cee839224b1",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Beef Brisket",
+        "fi": "Naudanrinta",
+        "zh": "牛腩"
+      },
+      "_id": "691f4158ac141cee839224b2",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Tomato",
+        "fi": "Tomaatti",
+        "zh": "番茄"
+      },
+      "_id": "691f4158ac141cee839224b3",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cinnamon",
+        "fi": "Kaneli",
+        "zh": "桂皮"
+      },
+      "_id": "691f4158ac141cee839224b4",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Lamb Chop",
+        "fi": "Lampaankyljys",
+        "zh": "羊排"
+      },
+      "_id": "691f4158ac141cee839224b5",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Carrot",
+        "fi": "Porkkana",
+        "zh": "胡萝卜"
+      },
+      "_id": "691f4158ac141cee839224b6",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cumin Powder",
+        "fi": "Juustokuminajauhe",
+        "zh": "孜然粉"
+      },
+      "_id": "691f4158ac141cee839224b7",
+      "link": [],
+      "allergens": [],
+      "specials": [],
+      "__v": 0
+    }
+  ],
+  "methods": [
+    {
+      "name": {
+        "en": "Julienne",
+        "fi": "Suikaloi",
+        "zh": "切丝"
+      },
+      "_id": "691f3f5e33bb356deccb8183",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Oblique cut",
+        "fi": "Viistoleikkaus",
+        "zh": "滚刀"
+      },
+      "_id": "691f3f5e33bb356deccb8184",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Mince",
+        "fi": "Hienonna",
+        "zh": "切沫"
+      },
+      "_id": "691f3f5e33bb356deccb8185",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cut into sections",
+        "fi": "Leikkaa paloiksi",
+        "zh": "切断"
+      },
+      "_id": "691f3f5e33bb356deccb8186",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cube",
+        "fi": "Kuutioi",
+        "zh": "切块"
+      },
+      "_id": "691f3f5e33bb356deccb8187",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Slice",
+        "fi": "Viipaloi",
+        "zh": "切片"
+      },
+      "_id": "691f3f5e33bb356deccb8188",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Soak to remove blood",
+        "fi": "Liota veren poistamiseksi",
+        "zh": "去血水"
+      },
+      "_id": "691f3f5e33bb356deccb8189",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Blanch",
+        "fi": "Ryöppää",
+        "zh": "焯水"
+      },
+      "_id": "691f3f5e33bb356deccb818a",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Shred",
+        "fi": "Revi",
+        "zh": "撕碎"
+      },
+      "_id": "691f3f5e33bb356deccb818b",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Dice",
+        "fi": "Pilko",
+        "zh": "切丁"
+      },
+      "_id": "691f3f5e33bb356deccb818c",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Chop",
+        "fi": "Hakkaa",
+        "zh": "剁碎"
+      },
+      "_id": "691f3f5e33bb356deccb818d",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Crush",
+        "fi": "Murskaa",
+        "zh": "拍碎"
+      },
+      "_id": "691f3f5e33bb356deccb818e",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cut in half",
+        "fi": "Halkaise",
+        "zh": "对半切"
+      },
+      "_id": "691f3f5e33bb356deccb818f",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Remove tendon",
+        "fi": "Poista jänteet",
+        "zh": "去筋"
+      },
+      "_id": "691f3f5e33bb356deccb8190",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Remove bones",
+        "fi": "Poista luut",
+        "zh": "去骨"
+      },
+      "_id": "691f3f5e33bb356deccb8191",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Remove scales",
+        "fi": "Poista suomut",
+        "zh": "去鳞"
+      },
+      "_id": "691f3f5e33bb356deccb8192",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Devein",
+        "fi": "Poista suoni",
+        "zh": "去虾线"
+      },
+      "_id": "691f3f5e33bb356deccb8193",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Remove shell",
+        "fi": "Kuori",
+        "zh": "剥壳"
+      },
+      "_id": "691f3f5e33bb356deccb8194",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Score",
+        "fi": "Viillä",
+        "zh": "花刀"
+      },
+      "_id": "691f3f5e33bb356deccb8195",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Butterfly",
+        "fi": "Perhosleikkaus",
+        "zh": "蝴蝶切"
+      },
+      "_id": "691f3f5e33bb356deccb8196",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Fillet",
+        "fi": "Fileeraa",
+        "zh": "片鱼"
+      },
+      "_id": "691f3f5e33bb356deccb8197",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Trim fat",
+        "fi": "Poista rasva",
+        "zh": "去油"
+      },
+      "_id": "691f3f5e33bb356deccb8198",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cut diagonally",
+        "fi": "Leikkaa viistoon",
+        "zh": "斜切"
+      },
+      "_id": "691f3f5e33bb356deccb8199",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Make slits",
+        "fi": "Tee viiltoja",
+        "zh": "开背"
+      },
+      "_id": "691f3f5e33bb356deccb819a",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Soak",
+        "fi": "Liota",
+        "zh": "泡发"
+      },
+      "_id": "691f3f5e33bb356deccb819b",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Shave",
+        "fi": "Höylää",
+        "zh": "刨片"
+      },
+      "_id": "691f3f5e33bb356deccb819c",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Strip leaves",
+        "fi": "Irroita lehdet",
+        "zh": "摘叶"
+      },
+      "_id": "691f3f5e33bb356deccb819d",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Peel",
+        "fi": "Kuori",
+        "zh": "削皮"
+      },
+      "_id": "691f3f5e33bb356deccb819e",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Core",
+        "fi": "Poista siemenkota",
+        "zh": "去核"
+      },
+      "_id": "691f3f5e33bb356deccb819f",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Cut florets",
+        "fi": "Leikkaa kukinnot",
+        "zh": "切小朵"
+      },
+      "_id": "691f3f5e33bb356deccb81a0",
+      "__v": 0
+    }
+  ],
+  "recipes": [
+    {
+      "name": {
+        "en": "Stir-fried Shredded Potato with Green Pepper",
+        "fi": "Paistetut perunasuikaleet vihreällä paprikalla",
+        "zh": "青椒土豆丝"
+      },
+      "description": {
+        "en": "A classic Chinese home-style dish featuring crisp shredded potatoes and green peppers, simple and refreshing.",
+        "fi": "Kiinan kotiruokaklassikko: rapeat perunasuikaleet ja vihreä paprika, yksinkertainen ja raikas.",
+        "zh": "家常菜，口感清脆，简单爽口。"
+      },
+      "preparation": {
+        "en": "1. Cut green peppers into thin strips.\n2. Cut potatoes into thin strips, soak in water for 4 minutes, then drain well.\n3. Heat the wok first, then add cold oil.\n4. Stir-fry the potato strips for 2-3 minutes.\n5. Add green peppers and continue stir-frying.\n6. When both vegetables are slightly cooked but still crisp, add 1 tablespoon of soy sauce and salt.\n7. Stir-fry briefly and serve.\n\nNote: If ingredients stick to the pan, add small amounts of water multiple times.",
+        "fi": "1. Leikkaa vihreä paprika ohuiksi suikaleiksi.\n2. Leikkaa perunat ohuiksi suikaleiksi, liota vedessä 4 minuuttia ja valuta hyvin.\n3. Kuumenna wokki ensin, lisää sitten kylmä öljy.\n4. Paista perunasuikaleita 2-3 minuuttia.\n5. Lisää paprika ja jatka paistamista.\n6. Kun molemmat vihannekset ovat hieman kypsiä mutta vielä rapeita, lisää 1 rkl soijakastiketta ja suolaa.\n7. Paista nopeasti ja tarjoa.\n\nHuom: Jos ainekset tarttuvat pannuun, lisää pieniä määriä vettä useita kertoja.",
+        "zh": "1. 青椒切丝。\n2. 土豆切丝，泡水4分钟，沥干水分。\n3. 热锅冷油。\n4. 放土豆丝翻炒2–3分钟。\n5. 放青椒，继续翻炒。\n6. 青椒土豆断生后，加生抽一汤匙，加盐。\n7. 快速翻炒出锅。\n\n注意：若粘锅可少量多次加点水。"
+      },
+      "remark": {
+        "en": "If potatoes stick to the pan, sprinkle a little water several times while frying. Green peppers are cheapest at Alanya Middle Eastern market; LIDL sells them seasonally.",
+        "fi": "Jos perunat tarttuvat pannuun, lisää vähän vettä useasti. Alanya (lähi-idän kauppa) on halvin paikka ostaa vihreitä paprikoita; LIDL myy niitä kausittain.",
+        "zh": "炒时若粘锅可少量多次加水。青椒在中东超市 Alanya 最便宜，LIDL 是季节性供应。"
+      },
+      "_id": "691f42e666986105f3c36cce",
+      "calorie": 160,
+      "protein": 3,
+      "carbohydrate": 25,
+      "fat": 6,
+      "cookingTime": 15,
+      "servings": 2,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee83922495",
+          "quantity": 2,
+          "unit": "pcs",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8183",
+          "_id": "691f42e666986105f3c36ccf",
+          "id": "691f42e666986105f3c36ccf"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922496",
+          "quantity": 2,
+          "unit": "medium pcs",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8183",
+          "_id": "691f42e666986105f3c36cd0",
+          "id": "691f42e666986105f3c36cd0"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cd1",
+          "id": "691f42e666986105f3c36cd1"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922498",
+          "quantity": 0.5,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cd2",
+          "id": "691f42e666986105f3c36cd2"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cd3",
+          "id": "691f42e666986105f3c36cd3"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.311Z",
+      "updatedAt": "2025-11-20T16:33:42.311Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36cce"
+    },
+    {
+      "name": {
+        "en": "Garlic Scallops with Glass Noodles",
+        "fi": "Valkosipulisimpukat lasagnuudeleilla",
+        "zh": "蒜蓉粉丝扇贝"
+      },
+      "description": {
+        "en": "Fresh scallops steamed with garlic and glass noodles, a delicate seafood dish that's both elegant and flavorful.",
+        "fi": "Tuoreita simpukoita höyrytettynä valkosipulin ja lasagnuudeleiden kanssa, hienostunut ja maukas mereneläväruoka.",
+        "zh": "新鲜扇贝配以蒜蓉和粉丝蒸制，清淡鲜美，既优雅又美味。"
+      },
+      "preparation": {
+        "en": "1. Clean scallops and remove the orange roe if present.\n2. Soak glass noodles in warm water until soft.\n3. Mince garlic, ginger, and spring onions.\n4. Place glass noodles at the bottom of a heat-resistant plate.\n5. Arrange scallops on top of the noodles.\n6. Sprinkle minced garlic, ginger, and spring onions over the scallops.\n7. Steam for 5-7 minutes.\n8. Heat oil until very hot.\n9. Drizzle hot oil and soy sauce over the dish before serving.\n\nNote: Make sure the steaming water is boiling before placing the dish in the steamer.",
+        "fi": "1. Puhdista simpukat ja poista oranssi mäti, jos sellaista on.\n2. Liota lasagnuudeleita lämpimässä vedessä kunnes ne pehmenevät.\n3. Hienonna valkosipuli, inkivääri ja kevätsipuli.\n4. Aseta lasagnuudelit lämmönkestävän lautasen pohjalle.\n5. Asettele simpukat nuudeleiden päälle.\n6. Ripottele hienonnettu valkosipuli, inkivääri ja kevätsipuli simpukoiden päälle.\n7. Höyrytä 5-7 minuuttia.\n8. Kuumenna öljy erittäin kuumaksi.\n9. Viimeistele kuumalla öljyllä ja soijakastikkeella ennen tarjoilua.\n\nHuom: Varmista että höyrytinvesi kiehuu ennen astian asettamista höyryttimeen.",
+        "zh": "1. 扇贝洗净，如有橙色的蒌子可以去掉。\n2. 粉丝用温水泡软。\n3. 蒜末、姜末和葱花切好。\n4. 把粉丝铺在耐热盘底。\n5. 扇贝摆在粉丝上面。\n6. 撒上蒜末、姜末和葱花。\n7. 蒸5-7分钟。\n8. 准备热油。\n9. 最后淋上热油和生抽即可上桌。\n\n注意：上笼前确保蒸锅水已烧开。"
+      },
+      "remark": {
+        "en": "Fresh scallops can be found at Citymarket or K-Supermarket fish counter. Glass noodles are available at Asian markets.",
+        "fi": "Tuoreita simpukoita löytyy Citymarketin tai K-Supermarketin kalatiskiltä. Lasagnuudeleita saa aasialaisista kaupoista.",
+        "zh": "新鲜扇贝可以在Citymarket或K-Supermarket的生鲜柜台买到。粉丝在亚洲超市有售。"
+      },
+      "_id": "691f42e666986105f3c36cd4",
+      "calorie": 280,
+      "protein": 20,
+      "carbohydrate": 30,
+      "fat": 8,
+      "cookingTime": 20,
+      "servings": 2,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee8392249a",
+          "quantity": 8,
+          "unit": "pcs",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cd5",
+          "id": "691f42e666986105f3c36cd5"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249b",
+          "quantity": 100,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb819b",
+          "_id": "691f42e666986105f3c36cd6",
+          "id": "691f42e666986105f3c36cd6"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36cd7",
+          "id": "691f42e666986105f3c36cd7"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36cd8",
+          "id": "691f42e666986105f3c36cd8"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249e",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cd9",
+          "id": "691f42e666986105f3c36cd9"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cda",
+          "id": "691f42e666986105f3c36cda"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cdb",
+          "id": "691f42e666986105f3c36cdb"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.311Z",
+      "updatedAt": "2025-11-20T16:33:42.311Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36cd4"
+    },
+    {
+      "name": {
+        "en": "Minced Pork with Eggplant",
+        "fi": "Jauheliha munakoison kanssa",
+        "zh": "肉沫茄子"
+      },
+      "description": {
+        "en": "A savory dish combining tender eggplant with seasoned minced pork, perfect over steamed rice.",
+        "fi": "Maukas ruoka, jossa yhdistyy pehmeä munakoiso ja maustettu jauheliha, täydellinen höyrytetyn riisin kanssa.",
+        "zh": "茄子嫩滑，搭配入味的肉沫，配米饭很完美。"
+      },
+      "preparation": {
+        "en": "1. Cut eggplant into strips.\n2. Sprinkle salt on eggplant, let sit for 15 minutes, then squeeze out excess water.\n3. Heat oil in wok until hot.\n4. Fry eggplant until soft, remove and set aside.\n5. In the same wok, fry minced pork until color changes.\n6. Add minced garlic and ginger.\n7. Return eggplant to wok.\n8. Add seasonings and stir well.\n9. Garnish with chopped green onions before serving.\n\nNote: Properly removing excess water from eggplant helps achieve better texture and prevents oil splashing.",
+        "fi": "1. Leikkaa munakoiso suikaleiksi.\n2. Ripottele suolaa munakoisoille, anna levätä 15 minuuttia, purista ylimääräinen vesi pois.\n3. Kuumenna öljy wokissa kuumaksi.\n4. Paista munakoisot pehmeiksi, ota sivuun.\n5. Paista jauheliha samassa wokissa kunnes väri muuttuu.\n6. Lisää hienonnettu valkosipuli ja inkivääri.\n7. Lisää munakoiso takaisin wokkiin.\n8. Lisää mausteet ja sekoita hyvin.\n9. Koristele silputulla kevätsipulilla ennen tarjoilua.\n\nHuom: Ylimääräisen veden poistaminen munakoisosta auttaa saavuttamaan paremman koostumuksen ja estää öljyn roiskumista.",
+        "zh": "1. 茄子切条。\n2. 撒盐腌15分钟，挤出多余水分。\n3. 锅中放油烧热。\n4. 炸茄子至软，取出备用。\n5. 同一锅中炒肉沫至变色。\n6. 加入蒜末、姜末。\n7. 放回茄子。\n8. 加入调味料，翻炒均匀。\n9. 最后撒葱花装饰。\n\n注意：充分挤出茄子的水分可以保持口感并防止油溅。"
+      },
+      "remark": {
+        "en": "Choose firm, glossy eggplants. Asian eggplants work best but regular ones are fine too. LIDL often has good prices on eggplants.",
+        "fi": "Valitse kiinteitä, kiiltäviä munakoisoja. Aasialaiset munakoisot toimivat parhaiten, mutta tavallisetkin käyvät. LIDLissä on usein hyviä tarjouksia munakoisoista.",
+        "zh": "选择紧实有光泽的茄子。亚洲茄子最好，但普通的也可以。LIDL的茄子经常很便宜。"
+      },
+      "_id": "691f42e666986105f3c36cdc",
+      "calorie": 320,
+      "protein": 18,
+      "carbohydrate": 15,
+      "fat": 25,
+      "cookingTime": 30,
+      "servings": 2,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee8392249f",
+          "quantity": 2,
+          "unit": "medium",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cdd",
+          "id": "691f42e666986105f3c36cdd"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a0",
+          "quantity": 200,
+          "unit": "g",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cde",
+          "id": "691f42e666986105f3c36cde"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36cdf",
+          "id": "691f42e666986105f3c36cdf"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36ce0",
+          "id": "691f42e666986105f3c36ce0"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36ce1",
+          "id": "691f42e666986105f3c36ce1"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a1",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36ce2",
+          "id": "691f42e666986105f3c36ce2"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249e",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36ce3",
+          "id": "691f42e666986105f3c36ce3"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 4,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36ce4",
+          "id": "691f42e666986105f3c36ce4"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922498",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36ce5",
+          "id": "691f42e666986105f3c36ce5"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.311Z",
+      "updatedAt": "2025-11-20T16:33:42.311Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36cdc"
+    },
+    {
+      "name": {
+        "en": "Braised Yellow Chicken",
+        "fi": "Haudutettua keltaista kanaa",
+        "zh": "黄焖鸡"
+      },
+      "description": {
+        "en": "A hearty braised chicken dish with mushrooms and potatoes in a rich soy sauce-based broth.",
+        "fi": "Runsas haudutettu kanaruoka sienien ja perunoiden kanssa rikkaassa soijakastikkeeseen pohjautuvassa liemessä.",
+        "zh": "鸡肉炖得软烂，配以香菇和土豆，浓郁的酱油味底汤。"
+      },
+      "preparation": {
+        "en": "1. Cut chicken into bite-sized pieces, wash and drain well.\n2. Heat oil in wok.\n3. Stir-fry ginger and green onion until fragrant.\n4. Add chicken and stir-fry until color changes.\n5. Add light soy sauce, dark soy sauce, and yellow bean sauce.\n6. Add hot water to cover ingredients.\n7. Bring to a boil, then reduce to low heat.\n8. Add potatoes and mushrooms.\n9. Simmer for 20 minutes until tender.\n10. Adjust seasoning before serving.\n\nNote: Using hot water helps maintain the temperature and speeds up cooking.",
+        "fi": "1. Leikkaa kana suupaloiksi, pese ja valuta hyvin.\n2. Kuumenna öljy wokissa.\n3. Paista inkivääri ja kevätsipuli kunnes tuoksuvat.\n4. Lisää kana ja paista kunnes väri muuttuu.\n5. Lisää vaalea soijakastike, tumma soijakastike ja keltainen papukastike.\n6. Lisää kuumaa vettä peittämään ainekset.\n7. Kiehauta ja vähennä lämpöä.\n8. Lisää perunat ja sienet.\n9. Hauduta 20 minuuttia kunnes pehmeää.\n10. Mausta ennen tarjoilua.\n\nHuom: Kuuman veden käyttö auttaa ylläpitämään lämpötilaa ja nopeuttaa kypsymistä.",
+        "zh": "1. 鸡肉切块，冲洗干净并沥干水分。\n2. 锅中放油烧热。\n3. 爆香姜葱。\n4. 加入鸡肉翻炒至变色。\n5. 加入生抽、老抽，黄豆酱。\n6. 加热水没过材料。\n7. 大火烧开后转小火。\n8. 加入土豆和香菇。\n9. 焖20分钟至软烂。\n10. 调味后出锅。\n\n注意：加入热水可以保持温度，加快烹饪。"
+      },
+      "remark": {
+        "en": "Best made with chicken thighs for more flavor. Chinese cooking wine can be found in Asian markets, or substitute with dry sherry.",
+        "fi": "Parhaiten sopii kanankoivet niiden maun vuoksi. Kiinalaista ruoanlaittoon tarkoitettua viiniä löytyy aasialaisista kaupoista, tai korvaa kuivalla sherryllä.",
+        "zh": "最好用鸡腿肉，味道更好。料酒在亚洲超市有售，也可以用干雪利酒代替。"
+      },
+      "_id": "691f42e666986105f3c36ce6",
+      "calorie": 450,
+      "protein": 35,
+      "carbohydrate": 25,
+      "fat": 28,
+      "cookingTime": 40,
+      "servings": 4,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee839224a2",
+          "quantity": 500,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8187",
+          "_id": "691f42e666986105f3c36ce7",
+          "id": "691f42e666986105f3c36ce7"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922496",
+          "quantity": 2,
+          "unit": "medium",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8187",
+          "_id": "691f42e666986105f3c36ce8",
+          "id": "691f42e666986105f3c36ce8"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a3",
+          "quantity": 200,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818f",
+          "_id": "691f42e666986105f3c36ce9",
+          "id": "691f42e666986105f3c36ce9"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 3,
+          "unit": "slices",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cea",
+          "id": "691f42e666986105f3c36cea"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249e",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36ceb",
+          "id": "691f42e666986105f3c36ceb"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cec",
+          "id": "691f42e666986105f3c36cec"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a4",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36ced",
+          "id": "691f42e666986105f3c36ced"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a5",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cee",
+          "id": "691f42e666986105f3c36cee"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a6",
+          "quantity": 2,
+          "unit": "pcs",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cef",
+          "id": "691f42e666986105f3c36cef"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a7",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cf0",
+          "id": "691f42e666986105f3c36cf0"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cf1",
+          "id": "691f42e666986105f3c36cf1"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.311Z",
+      "updatedAt": "2025-11-20T16:33:42.311Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36ce6"
+    },
+    {
+      "name": {
+        "en": "Mapo Tofu",
+        "fi": "Mapo tofu",
+        "zh": "麻婆豆腐"
+      },
+      "description": {
+        "en": "A classic Sichuan dish featuring soft tofu in a spicy sauce with minced meat, numbing and spicy.",
+        "fi": "Klassinen Sichuanin ruoka, jossa pehmeää tofua mausteisessa kastikkeessa jauhelihan kanssa, puuduttavan tulinen.",
+        "zh": "四川经典菜品，嫩滑豆腐配上肉末，麻辣可口。"
+      },
+      "preparation": {
+        "en": "1. Cut tofu into cubes.\n2. Prepare hot water with dark soy sauce, soak tofu for 5 minutes, then drain.\n3. Heat oil in wok.\n4. Fry minced meat until color changes.\n5. Add doubanjiang and stir-fry until fragrant.\n6. Add minced garlic, ginger, and Sichuan peppercorns.\n7. Add water and seasonings, bring to boil.\n8. Gently add tofu, simmer for 3-5 minutes.\n9. Gradually add cornstarch slurry to thicken.\n10. Top with chopped green onions and ground Sichuan pepper.\n\nNote: Adding dark soy sauce to the soaking water helps tofu maintain its shape and adds color.",
+        "fi": "1. Leikkaa tofu kuutioiksi.\n2. Valmista kuuma vesi tummalla soijakastikkeella, liota tofua 5 minuuttia, valuta.\n3. Kuumenna öljy wokissa.\n4. Paista jauheliha kunnes väri muuttuu.\n5. Lisää doubanjiang ja paista kunnes tuoksuva.\n6. Lisää hienonnettu valkosipuli, inkivääri ja sichuanpippuri.\n7. Lisää vesi ja mausteet, kiehauta.\n8. Lisää tofu varovasti, hauduta 3-5 minuuttia.\n9. Lisää maissitärkkelysseosta vähitellen suurusteeksi.\n10. Koristele silputulla kevätsipulilla ja jauhetulla sichuanpippurilla.\n\nHuom: Tumman soijakastikkeen lisääminen liotusveteen auttaa tofua säilyttämään muotonsa ja lisää väriä.",
+        "zh": "1. 豆腐切块。\n2. 准备热水并加入适量老抽，放入豆腐浸泡5分钟后沥干备用。\n3. 锅中热油。\n4. 炒肉末至变色。\n5. 加入豆瓣酱翻炒出香。\n6. 加入蒜末、姜末和花椒。\n7. 加水和调味料，煮沸。\n8. 轻轻放入豆腐，煮3-5分钟。\n9. 少量多次加入水淀粉勾芡。\n10. 最后撒上葱花和花椒粉。\n\n注意：在浸泡水中加入老抽可以帮助豆腐保持形状并上色。"
+      },
+      "remark": {
+        "en": "Doubanjiang (fermented broad bean paste) is essential and can be found in Asian markets. Use soft tofu for authentic texture. Vegan version can be made with impossible meat or omit meat entirely.",
+        "fi": "Doubanjiang (fermentoitu härkäpapumurska) on olennainen ja löytyy aasialaisista kaupoista. Käytä pehmeää tofua autenttisen koostumuksen saamiseksi. Vegaaninen versio voidaan tehdä impossible-lihalla tai jättää liha pois kokonaan.",
+        "zh": "豆瓣酱是必需的，亚洲超市有售。用嫩豆腐口感最正宗。素食版本可以用impossible肉或完全不放肉。"
+      },
+      "_id": "691f42e666986105f3c36cf2",
+      "calorie": 300,
+      "protein": 20,
+      "carbohydrate": 8,
+      "fat": 22,
+      "cookingTime": 25,
+      "servings": 2,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee839224a8",
+          "quantity": 400,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8187",
+          "_id": "691f42e666986105f3c36cf3",
+          "id": "691f42e666986105f3c36cf3"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a0",
+          "quantity": 150,
+          "unit": "g",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cf4",
+          "id": "691f42e666986105f3c36cf4"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a9",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cf5",
+          "id": "691f42e666986105f3c36cf5"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36cf6",
+          "id": "691f42e666986105f3c36cf6"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36cf7",
+          "id": "691f42e666986105f3c36cf7"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224aa",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cf8",
+          "id": "691f42e666986105f3c36cf8"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cf9",
+          "id": "691f42e666986105f3c36cf9"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a4",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cfa",
+          "id": "691f42e666986105f3c36cfa"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a5",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cfb",
+          "id": "691f42e666986105f3c36cfb"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249e",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cfc",
+          "id": "691f42e666986105f3c36cfc"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224ab",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cfd",
+          "id": "691f42e666986105f3c36cfd"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36cfe",
+          "id": "691f42e666986105f3c36cfe"
+        }
+      ],
+      "likes_users": [
+        "68f66deb48e728960e3872ba"
+      ],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.311Z",
+      "updatedAt": "2025-11-20T16:51:51.791Z",
+      "__v": 1,
+      "id": "691f42e666986105f3c36cf2"
+    },
+    {
+      "name": {
+        "en": "Minced Pork with Green Beans",
+        "fi": "Jauheliha vihreiden papujen kanssa",
+        "zh": "肉沫四季豆"
+      },
+      "description": {
+        "en": "A quick stir-fry dish with crispy green beans and savory minced pork, seasoned with soy sauce.",
+        "fi": "Nopea wokkaus rapeilla vihreillä pavuilla ja maukkaalla jauhelihalla, maustettu soijakastikkeella.",
+        "zh": "快炒小菜，四季豆清脆，肉沫鲜香，生抽提味。"
+      },
+      "preparation": {
+        "en": "1. Trim and cut green beans into small sections.\n2. Heat oil in wok until smoking.\n3. Fry green beans until skin blisters, then remove and set aside.\n4. Using the same wok, fry minced pork until browned.\n5. Add minced garlic and ginger.\n6. Return beans to wok.\n7. Add seasonings and stir-fry briefly.",
+        "fi": "1. Leikkaa pavut pieniksi paloiksi.\n2. Kuumenna öljy wokissa kunnes savuaa.\n3. Paista pavut kunnes kuori rakkuloituu, ota sivuun.\n4. Paista jauheliha samassa wokissa ruskeaksi.\n5. Lisää hienonnettu valkosipuli ja inkivääri.\n6. Lisää pavut takaisin wokkiin.\n7. Lisää mausteet ja paista nopeasti.",
+        "zh": "1. 四季豆去筋切小段。\n2. 锅中油热至冒烟。\n3. 炒至四季豆表皮起泡，盛出备用。\n4. 同一锅中炒肉沫至变色。\n5. 加入蒜末、姜末。\n6. 放回豆子。\n7. 加调味料快炒。"
+      },
+      "remark": {
+        "en": "Choose fresh, crisp green beans. They should snap easily when bent. Available year-round in most supermarkets.",
+        "fi": "Valitse tuoreita, rapeita vihreitä papuja. Niiden pitäisi napsahtaa helposti taivutettaessa. Saatavilla ympäri vuoden useimmissa supermarketeissa.",
+        "zh": "选择新鲜脆嫩的四季豆，掰折时应该容易断开。大多数超市全年有售。"
+      },
+      "_id": "691f42e666986105f3c36cff",
+      "calorie": 250,
+      "protein": 15,
+      "carbohydrate": 12,
+      "fat": 18,
+      "cookingTime": 20,
+      "servings": 2,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee839224ac",
+          "quantity": 300,
+          "unit": "g",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d00",
+          "id": "691f42e666986105f3c36d00"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a0",
+          "quantity": 150,
+          "unit": "g",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d01",
+          "id": "691f42e666986105f3c36d01"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36d02",
+          "id": "691f42e666986105f3c36d02"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36d03",
+          "id": "691f42e666986105f3c36d03"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d04",
+          "id": "691f42e666986105f3c36d04"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a1",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d05",
+          "id": "691f42e666986105f3c36d05"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d06",
+          "id": "691f42e666986105f3c36d06"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.312Z",
+      "updatedAt": "2025-11-20T16:33:42.312Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36cff"
+    },
+    {
+      "name": {
+        "en": "Dry-Fried Cauliflower",
+        "fi": "Kuivapaahdettu kukkakaali",
+        "zh": "干锅花菜"
+      },
+      "description": {
+        "en": "Spicy dry-fried cauliflower with sliced pork belly, a flavorful dish with a perfect balance of vegetables and meat.",
+        "fi": "Tulinen kuivapaahdettu kukkakaali porsaankyljen kanssa, maukas ruoka jossa täydellinen tasapaino kasviksia ja lihaa.",
+        "zh": "花菜配五花肉干锅烹饪，荤素搭配，香辣可口。"
+      },
+      "preparation": {
+        "en": "1. Cut cauliflower into small florets.\n2. Slice pork belly.\n3. Heat oil in wok.\n4. Fry pork belly until fat renders.\n5. Add dried chili and Sichuan peppercorns.\n6. Add cauliflower, stir-fry until edges brown slightly.\n7. Add minced garlic, ginger, and seasonings.\n8. Add some water, cover and simmer on low heat until tender.\n\nNote: Don't add too much water; the dish should be relatively dry when finished.",
+        "fi": "1. Paloittele kukkakaali pieniksi kukinnoksi.\n2. Viipaloi porsankylki.\n3. Kuumenna öljy wokissa.\n4. Paista porsaankylkeä kunnes rasva sulaa.\n5. Lisää kuivatut chilit ja sichuanpippurit.\n6. Lisää kukkakaali, paista kunnes reunat ruskistuvat hieman.\n7. Lisää hienonnettu valkosipuli, inkivääri ja mausteet.\n8. Lisää hieman vettä, peitä ja hauduta miedolla lämmöllä kypsäksi.\n\nHuom: Älä lisää liikaa vettä; ruoan tulisi olla suhteellisen kuiva valmiina.",
+        "zh": "1. 花菜切小朵。\n2. 五花肉切片。\n3. 锅中热油。\n4. 炒五花肉出油。\n5. 加入干辣椒和花椒。\n6. 放入花菜，炒至边缘微焦。\n7. 加入蒜末、姜末和调味料。\n8. 加入适量清水，盖盖小火焖至断生。\n\n注意：不要加太多水，成菜应该偏干。"
+      },
+      "remark": {
+        "en": "Choose firm, white cauliflower without brown spots. Can be made vegetarian by omitting pork belly. LIDL and Prisma often have good prices on cauliflower.",
+        "fi": "Valitse kiinteä, valkoinen kukkakaali ilman ruskeita täpliä. Voidaan tehdä kasvisversiona jättämällä porsaankylki pois. LIDLissä ja Prismassa on usein hyviä tarjouksia kukkakaaleista.",
+        "zh": "选择结实、洁白、无褐斑的花菜。可以不放五花肉做素食版本。LIDL和Prisma的花菜经常特价。"
+      },
+      "_id": "691f42e666986105f3c36d07",
+      "calorie": 280,
+      "protein": 12,
+      "carbohydrate": 15,
+      "fat": 20,
+      "cookingTime": 25,
+      "servings": 3,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee839224ad",
+          "quantity": 500,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb81a0",
+          "_id": "691f42e666986105f3c36d08",
+          "id": "691f42e666986105f3c36d08"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224ae",
+          "quantity": 150,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8188",
+          "_id": "691f42e666986105f3c36d09",
+          "id": "691f42e666986105f3c36d09"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224af",
+          "quantity": 4,
+          "unit": "pcs",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818f",
+          "_id": "691f42e666986105f3c36d0a",
+          "id": "691f42e666986105f3c36d0a"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224aa",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d0b",
+          "id": "691f42e666986105f3c36d0b"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36d0c",
+          "id": "691f42e666986105f3c36d0c"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36d0d",
+          "id": "691f42e666986105f3c36d0d"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d0e",
+          "id": "691f42e666986105f3c36d0e"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d0f",
+          "id": "691f42e666986105f3c36d0f"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.312Z",
+      "updatedAt": "2025-11-20T16:33:42.312Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36d07"
+    },
+    {
+      "name": {
+        "en": "Stir-Fried Beef",
+        "fi": "Wokattu naudanliha",
+        "zh": "小炒牛肉"
+      },
+      "description": {
+        "en": "Quick-fried tender beef slices with vegetables in a savory sauce, a classic Chinese stir-fry dish.",
+        "fi": "Nopeasti paistetut mureat naudanlihaviipaleet kasvisten kanssa maukkaassa kastikkeessa, klassinen kiinalainen wokkiruoka.",
+        "zh": "牛肉嫩滑，配以时令蔬菜，经典快炒菜品。"
+      },
+      "preparation": {
+        "en": "1. Slice beef against grain.\n2. Marinate beef with soy sauce, cornstarch, and oil.\n3. Cut all vegetables.\n4. Heat wok until smoking.\n5. Stir-fry beef until medium rare, then remove.\n6. Stir-fry vegetables until crisp-tender.\n7. Return beef to wok.\n8. Add sauce mixture and toss quickly.",
+        "fi": "1. Viipaloi liha syiden vastaisesti.\n2. Marinoi liha soijakastikkeella, maissitärkkelyksellä ja öljyllä.\n3. Leikkaa kaikki kasvikset.\n4. Kuumenna wokki kunnes savuaa.\n5. Paista liha puolikypsäksi, ota sivuun.\n6. Paista kasvikset rapeiksi.\n7. Lisää liha takaisin wokkiin.\n8. Lisää kastikeseos ja sekoita nopeasti.",
+        "zh": "1. 牛肉逆纹切片。\n2. 加生抽、淀粉和油腌制。\n3. 切好配菜。\n4. 锅烧热至冒烟。\n5. 快炒牛肉至七分熟，盛出。\n6. 炒蔬菜至断生。\n7. 放回牛肉。\n8. 加入酱汁快炒。"
+      },
+      "remark": {
+        "en": "Use tender cuts like sirloin or tenderloin. For best results, freeze beef for 30 minutes before slicing. S-market often has good quality beef on sale.",
+        "fi": "Käytä mureiden osien lihaa kuten sisäfileetä tai ulkofileetä. Parhaan tuloksen saat pakastamalla lihan 30 minuutiksi ennen viipalointia. S-marketissa on usein laadukasta naudanlihaa tarjouksessa.",
+        "zh": "使用里脊或嫩牛肉。最好在切片前把牛肉冷冻30分钟。S-market经常有品质好的牛肉特价。"
+      },
+      "_id": "691f42e666986105f3c36d10",
+      "calorie": 350,
+      "protein": 28,
+      "carbohydrate": 10,
+      "fat": 24,
+      "cookingTime": 20,
+      "servings": 2,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee839224b0",
+          "quantity": 300,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8188",
+          "_id": "691f42e666986105f3c36d11",
+          "id": "691f42e666986105f3c36d11"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922495",
+          "quantity": 1,
+          "unit": "large",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8188",
+          "_id": "691f42e666986105f3c36d12",
+          "id": "691f42e666986105f3c36d12"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224b1",
+          "quantity": 1,
+          "unit": "medium",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8188",
+          "_id": "691f42e666986105f3c36d13",
+          "id": "691f42e666986105f3c36d13"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36d14",
+          "id": "691f42e666986105f3c36d14"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818d",
+          "_id": "691f42e666986105f3c36d15",
+          "id": "691f42e666986105f3c36d15"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d16",
+          "id": "691f42e666986105f3c36d16"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a1",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d17",
+          "id": "691f42e666986105f3c36d17"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a5",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d18",
+          "id": "691f42e666986105f3c36d18"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224ab",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d19",
+          "id": "691f42e666986105f3c36d19"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d1a",
+          "id": "691f42e666986105f3c36d1a"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.312Z",
+      "updatedAt": "2025-11-20T16:33:42.312Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36d10"
+    },
+    {
+      "name": {
+        "en": "Beef Brisket Stew with Potatoes and Tomatoes",
+        "fi": "Naudan rintalihapataa perunoiden ja tomaattien kanssa",
+        "zh": "土豆番茄炖牛腩"
+      },
+      "description": {
+        "en": "A hearty stew with tender beef brisket, potatoes, and tomatoes in a rich broth.",
+        "fi": "Ruokaisa pata murealla naudanrinnalla, perunoilla ja tomaateilla rikkaassa liemessä.",
+        "zh": "浓汤炖煮，牛腩酥烂，土豆绵软，番茄鲜美。"
+      },
+      "preparation": {
+        "en": "1. Cut beef into chunks.\n2. Brown beef in hot oil.\n3. Add ginger, garlic, and spices.\n4. Add water and bring to boil.\n5. Reduce heat and simmer for 1 hour.\n6. Add potatoes and tomatoes.\n7. Cook until vegetables are tender.\n8. Season with soy sauce and salt.",
+        "fi": "1. Leikkaa liha paloiksi.\n2. Ruskista liha kuumassa öljyssä.\n3. Lisää inkivääri, valkosipuli ja mausteet.\n4. Lisää vesi ja kiehauta.\n5. Vähennä lämpöä ja hauduta 1 tunti.\n6. Lisää perunat ja tomaatit.\n7. Kypsennä kunnes kasvikset ovat pehmeitä.\n8. Mausta soijakastikkeella ja suolalla.",
+        "zh": "1. 牛腩切块。\n2. 热油煎至牛肉表面焦黄。\n3. 加入姜片、蒜和香料。\n4. 加水烧开。\n5. 转小火炖1小时。\n6. 加入土豆和番茄。\n7. 炖至蔬菜软烂。\n8. 加生抽和盐调味。"
+      },
+      "remark": {
+        "en": "Choose well-marbled beef brisket for best results. Can be cooked in a slow cooker for 6-8 hours on low. Citymarket's meat counter often has good brisket.",
+        "fi": "Valitse hyvin marmoroitunutta naudanrintaa parhaan tuloksen saamiseksi. Voidaan valmistaa hitaassa keittimessä 6-8 tuntia matalalla lämmöllä. Citymarketin lihatiskillä on usein hyvää rintaa.",
+        "zh": "选择有油花的牛腩效果最好。可以用慢炖锅低温煮6-8小时。Citymarket的生鲜柜台经常有好的牛腩。"
+      },
+      "_id": "691f42e666986105f3c36d1b",
+      "calorie": 480,
+      "protein": 35,
+      "carbohydrate": 30,
+      "fat": 28,
+      "cookingTime": 90,
+      "servings": 4,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee839224b2",
+          "quantity": 600,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8187",
+          "_id": "691f42e666986105f3c36d1c",
+          "id": "691f42e666986105f3c36d1c"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922496",
+          "quantity": 3,
+          "unit": "medium",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8187",
+          "_id": "691f42e666986105f3c36d1d",
+          "id": "691f42e666986105f3c36d1d"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224b3",
+          "quantity": 3,
+          "unit": "medium",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8187",
+          "_id": "691f42e666986105f3c36d1e",
+          "id": "691f42e666986105f3c36d1e"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 4,
+          "unit": "slices",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d1f",
+          "id": "691f42e666986105f3c36d1f"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818e",
+          "_id": "691f42e666986105f3c36d20",
+          "id": "691f42e666986105f3c36d20"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a6",
+          "quantity": 2,
+          "unit": "pcs",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d21",
+          "id": "691f42e666986105f3c36d21"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224b4",
+          "quantity": 1,
+          "unit": "pc",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d22",
+          "id": "691f42e666986105f3c36d22"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d23",
+          "id": "691f42e666986105f3c36d23"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a5",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d24",
+          "id": "691f42e666986105f3c36d24"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922498",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d25",
+          "id": "691f42e666986105f3c36d25"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d26",
+          "id": "691f42e666986105f3c36d26"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.312Z",
+      "updatedAt": "2025-11-20T16:33:42.312Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36d1b"
+    },
+    {
+      "name": {
+        "en": "Braised Lamb Chops with Carrots",
+        "fi": "Haudutetut lampaankyljykset porkkanoiden kanssa",
+        "zh": "羊排烧胡萝卜"
+      },
+      "description": {
+        "en": "Tender lamb chops braised with sweet carrots, a perfect combination of meat and vegetables.",
+        "fi": "Mureita lampaankyljyksiä haudutettuna makeiden porkkanoiden kanssa, täydellinen lihan ja kasvisten yhdistelmä.",
+        "zh": "羊排炖得软烂，胡萝卜香甜，荤素搭配恰到好处。"
+      },
+      "preparation": {
+        "en": "1. Trim excess fat from lamb chops.\n2. Season with cumin and salt.\n3. Brown the lamb in hot oil.\n4. Add ginger, garlic, and Shaoxing wine.\n5. Add carrots and water.\n6. Braise until meat is tender and carrots are soft.",
+        "fi": "1. Poista ylimääräinen rasva lampaankyljyksistä.\n2. Mausta juustokuminalla ja suolalla.\n3. Ruskista liha kuumassa öljyssä.\n4. Lisää inkivääri, valkosipuli ja Shaoxing-viini.\n5. Lisää porkkanat ja vesi.\n6. Hauduta kunnes liha on mureaa ja porkkanat pehmeitä.",
+        "zh": "1. 羊排去除多余脂肪。\n2. 撒上孜然和盐调味。\n3. 热油煎至表面焦黄。\n4. 加入姜片、蒜和料酒。\n5. 加入胡萝卜和水。\n6. 炖至羊肉酥烂，胡萝卜软糯。"
+      },
+      "remark": {
+        "en": "New Zealand lamb chops are often available at K-Citymarket. For less gamey flavor, trim visible fat before cooking. Fresh carrots from farmers' markets are sweeter.",
+        "fi": "Uusiseelantilaisia lampaankyljyksiä on usein saatavilla K-Citymarketissa. Vähemmän voimakkaan maun saamiseksi poista näkyvä rasva ennen kypsentämistä. Tuoreet porkkanat torilta ovat makeampia.",
+        "zh": "K-Citymarket经常有新西兰羊排。如果想减少膻味，可以在烹饪前去除可见的脂肪。农贸市场的新鲜胡萝卜更甜。"
+      },
+      "_id": "691f42e666986105f3c36d27",
+      "calorie": 420,
+      "protein": 32,
+      "carbohydrate": 18,
+      "fat": 26,
+      "cookingTime": 60,
+      "servings": 3,
+      "creator": "68f66deb48e728960e3872ba",
+      "ingredients": [
+        {
+          "ingredient": "691f4158ac141cee839224b5",
+          "quantity": 600,
+          "unit": "g",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8198",
+          "_id": "691f42e666986105f3c36d28",
+          "id": "691f42e666986105f3c36d28"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224b6",
+          "quantity": 3,
+          "unit": "large",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb8187",
+          "_id": "691f42e666986105f3c36d29",
+          "id": "691f42e666986105f3c36d29"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249d",
+          "quantity": 4,
+          "unit": "slices",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d2a",
+          "id": "691f42e666986105f3c36d2a"
+        },
+        {
+          "ingredient": "691f4158ac141cee8392249c",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "691f3f5e33bb356deccb818e",
+          "_id": "691f42e666986105f3c36d2b",
+          "id": "691f42e666986105f3c36d2b"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224b7",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d2c",
+          "id": "691f42e666986105f3c36d2c"
+        },
+        {
+          "ingredient": "691f4158ac141cee839224a5",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d2d",
+          "id": "691f42e666986105f3c36d2d"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922497",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d2e",
+          "id": "691f42e666986105f3c36d2e"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922498",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d2f",
+          "id": "691f42e666986105f3c36d2f"
+        },
+        {
+          "ingredient": "691f4158ac141cee83922499",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": null,
+          "_id": "691f42e666986105f3c36d30",
+          "id": "691f42e666986105f3c36d30"
+        }
+      ],
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-20T16:33:42.312Z",
+      "updatedAt": "2025-11-20T16:33:42.312Z",
+      "__v": 0,
+      "id": "691f42e666986105f3c36d27"
+    }
+  ],
+  "reports": [
+    {
+      "_id": "690158f99a19118425f86363",
+      "user": "68f66deb48e728960e3872ba",
+      "comment": "6901482c90d7f3edb257401b",
+      "reason": "哈哈哈哈哈哈哈",
+      "status": "Rejected",
+      "createdAt": "2025-10-28T23:59:53.082Z",
+      "updatedAt": "2025-10-29T00:52:15.170Z",
+      "__v": 0
+    },
+    {
+      "_id": "690162c135e4fee5912b02cf",
+      "user": "68f66deb48e728960e3872ba",
+      "comment": "6901482a90d7f3edb2574016",
+      "reason": "啊啊啊",
+      "status": "Rejected",
+      "createdAt": "2025-10-29T00:41:37.653Z",
+      "updatedAt": "2025-10-29T00:52:16.769Z",
+      "__v": 0
+    },
+    {
+      "_id": "690162c935e4fee5912b02d4",
+      "user": "68f66deb48e728960e3872ba",
+      "comment": "6901482790d7f3edb2574010",
+      "reason": "标标标",
+      "status": "Rejected",
+      "createdAt": "2025-10-29T00:41:45.180Z",
+      "updatedAt": "2025-10-29T00:52:13.294Z",
+      "__v": 0
+    },
+    {
+      "_id": "690166bf29965bf23ef3280a",
+      "user": "68f66deb48e728960e3872ba",
+      "comment": "690158c79a19118425f8633f",
+      "reason": "吖",
+      "status": "Rejected",
+      "createdAt": "2025-10-29T00:58:39.870Z",
+      "updatedAt": "2025-11-20T06:20:27.484Z",
+      "__v": 0
+    },
+    {
+      "_id": "691f470c833109d43f5f16f9",
+      "user": "68f66deb48e728960e3872ba",
+      "comment": "691f4654da336dde9100c587",
+      "reason": "啊啊啊",
+      "status": "New",
+      "createdAt": "2025-11-20T16:51:24.021Z",
+      "updatedAt": "2025-11-20T16:51:24.021Z",
+      "__v": 0
+    }
+  ],
+  "specialGroups": [
+    {
+      "name": {
+        "en": "nut-free",
+        "fi": "pähkinätön",
+        "zh": "无坚果"
+      },
+      "_id": "691f40895c666e5360df597b",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "lactose-free",
+        "fi": "laktoositon",
+        "zh": "乳糖不耐受"
+      },
+      "description": {
+        "en": "",
+        "fi": "",
+        "zh": ""
+      },
+      "_id": "691f40895c666e5360df597c",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "vegetarian",
+        "fi": "kasvisruokavalio",
+        "zh": "素食"
+      },
+      "_id": "691f40895c666e5360df597d",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "heart-symbol",
+        "fi": "sydänmerkki",
+        "zh": "心脏标志"
+      },
+      "_id": "691f40895c666e5360df597e",
+      "__v": 0
+    }
+  ],
+  "stores": [
+    {
+      "name": {
+        "en": "K-Citymarket",
+        "fi": "K-Citymarket",
+        "zh": "K城市超市"
+      },
+      "_id": "691eb594a58c8540d78c0498",
+      "logo": "https://www.kesko.fi/4a7dce/globalassets/default_k_logo_570x570.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Prisma",
+        "fi": "Prisma",
+        "zh": "Prisma超市"
+      },
+      "_id": "691eb594a58c8540d78c0499",
+      "logo": "https://www.liblogo.com/img-logo/pr4418p1c0-prisma-logo-prisma-logo-prisma-retail-logos-logo.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "S-Market",
+        "fi": "S-Market",
+        "zh": "S超市"
+      },
+      "_id": "691eb594a58c8540d78c049a",
+      "logo": "https://kauppakeskuskivis.fi/wp-content/uploads/2023/03/SOK_S-Market_logo_original_RGB.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Lidl",
+        "fi": "Lidl",
+        "zh": "利多超市"
+      },
+      "_id": "691eb594a58c8540d78c049b",
+      "logo": "https://logos-world.net/wp-content/uploads/2020/12/Lidl-Emblem.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Alepa",
+        "fi": "Alepa",
+        "zh": "Alepa便利店"
+      },
+      "_id": "691eb594a58c8540d78c049c",
+      "logo": "https://cdn.aok.wp.s-cloud.fi/uploads/sites/22/2020/06/10150723/alepa_logo.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Aseanic Trading",
+        "fi": "Aseanic Trading",
+        "zh": "亚洲超市 Aseanic"
+      },
+      "_id": "691eb594a58c8540d78c049d",
+      "logo": "https://i.pinimg.com/originals/2a/b9/00/2ab900d70ecbcb76d0d4ee9767b69992.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Asia Market",
+        "fi": "Asia Market",
+        "zh": "亚洲食品超市"
+      },
+      "_id": "691eb594a58c8540d78c049e",
+      "logo": "https://i0.wp.com/www.aasiamarket.fi/wp-content/uploads/2025/05/logo_lpng.webp?fit=800%2C168&ssl=1",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Oriental Market",
+        "fi": "Oriental Market",
+        "zh": "东方超市"
+      },
+      "_id": "691eb594a58c8540d78c049f",
+      "logo": "https://www.orientalmarket.fi/wp-content/uploads/2020/09/oriental-logo.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Alanya Market",
+        "fi": "Alanya Market",
+        "zh": "阿拉尼亚中东超市"
+      },
+      "_id": "691eb594a58c8540d78c04a0",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtzTe40vfTBY5Eaemkiz-w7SzEoBSJz-bFbA&s",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Halal Market",
+        "fi": "Halal Market",
+        "zh": "清真食品超市"
+      },
+      "_id": "691eb594a58c8540d78c04a1",
+      "logo": "https://halalmarketandmeats.com/wp-content/uploads/2023/10/halal_market_logo_final-e1697304704146.png?w=1024",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "K-Supermarket",
+        "fi": "K-Supermarket",
+        "zh": "K超市"
+      },
+      "_id": "691eb594a58c8540d78c04a2",
+      "logo": "https://e7.pngegg.com/pngimages/400/825/png-clipart-supermarket-logo-k-supermarket-icons-logos-emojis-iconic-brands.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "K-Market",
+        "fi": "K-Market",
+        "zh": "K便利店"
+      },
+      "_id": "691eb594a58c8540d78c04a3",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/K-Market.svg/512px-K-Market.svg.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Sale",
+        "fi": "Sale",
+        "zh": "Sale便利店"
+      },
+      "_id": "691eb594a58c8540d78c04a4",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Sale_wordmark.svg/500px-Sale_wordmark.svg.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Tokmanni",
+        "fi": "Tokmanni",
+        "zh": "托克曼尼"
+      },
+      "_id": "691eb594a58c8540d78c04a5",
+      "logo": "https://www.tokmanni.fi/wordpress/wp-content/uploads/2022/04/Punainen-Tokmanni-logo-ilman-slogania-ja-taustaa_RGB-1.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Vii Voan Asian Market",
+        "fi": "Vii Voan Aasian Kauppa",
+        "zh": "维万亚洲超市"
+      },
+      "_id": "691eb594a58c8540d78c04a6",
+      "logo": "viivoan-logo.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Tiger Asian Market",
+        "fi": "Tiger Aasian Kauppa",
+        "zh": "老虎亚洲超市"
+      },
+      "_id": "691eb594a58c8540d78c04a7",
+      "logo": "tiger-logo.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Hakaniemi Market Hall",
+        "fi": "Hakaniemen Kauppahalli",
+        "zh": "哈卡涅米市场"
+      },
+      "_id": "691eb594a58c8540d78c04a8",
+      "logo": "hakaniemi-logo.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Old Market Hall",
+        "fi": "Vanha Kauppahalli",
+        "zh": "老市场"
+      },
+      "_id": "691eb594a58c8540d78c04a9",
+      "logo": "old-market-hall-logo.png",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Jiahe Asian Market",
+        "fi": "Jiahe Aasian Kauppa",
+        "zh": "佳禾超市"
+      },
+      "_id": "691eb594a58c8540d78c04aa",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJWGJcWBHMrsvrzJc3SBqaHVsZzwRVQjOmJTRpFhSbxoKjtIkfAYbQmOmsBDQaxOT4DfA&usqp=CAU",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Kiina Supermarket",
+        "fi": "Kiina Supermarket",
+        "zh": "中国超市"
+      },
+      "_id": "691eb594a58c8540d78c04ab",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGr0DEv0xpGD_rJYyGKmVRdPZ0VCRyTS70fJigmY-LyjZxJSQjTBuZper1EjsK574_fPA&usqp=CAU",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "GC Asian Market",
+        "fi": "GC Aasian Kauppa",
+        "zh": "佳禾亚洲超市"
+      },
+      "_id": "691eb594a58c8540d78c04ac",
+      "logo": "https://gcshop.fi/web/image/117909-4fc65ef3/logo-main.webp",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Sun Market",
+        "fi": "Sun Market",
+        "zh": "太阳超市"
+      },
+      "_id": "691eb594a58c8540d78c04ad",
+      "logo": "https://scontent-hel3-1.xx.fbcdn.net/v/t39.30808-6/287977369_1008527233169433_7055176842891673839_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=zMv_ZjpFnJoQ7kNvwEMcdH2&_nc_oc=AdmMTdaKNg_iYE00y2qxPlGgVWC6xyX9mGDaTB9plvjd37eG2oCToa8p4r6BHp5eBhs&_nc_zt=23&_nc_ht=scontent-hel3-1.xx&_nc_gid=uJJA6H5cI9ba4dpNAf2fEQ&oh=00_AfhDdISgoP-nzXSwHqwqKxfjuIsaPkxJ6CdSuViebdSpTA&oe=69251751",
+      "__v": 0
+    },
+    {
+      "name": {
+        "en": "Valio Aimo",
+        "fi": "Valio Aimo",
+        "zh": "Valio Aimo"
+      },
+      "_id": "691eb594a58c8540d78c04ae",
+      "logo": "https://www.optiscangroup.com/wp-content/uploads/2024/03/Valio-Aimo-logo-white.png",
+      "__v": 0
+    }
+  ],
+  "users": [
+    {
+      "_id": "68f66deb48e728960e3872ba",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "$2b$10$8UPnmDepDKbE5wWmDx3RYulE4cX9QWyQMi0j0WMg.a0GYFD75sdQi",
+      "role": "admin",
+      "authProvider": "local",
+      "date": "2025-10-20T17:14:19.741Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d10",
+      "name": "Clara Zhang",
+      "email": "clara.zhang@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/3.jpg",
+      "birthday": "1998-03-05T00:00:00.000Z",
+      "gender": "female",
+      "height": 162,
+      "weight": 50,
+      "role": "user",
+      "authProvider": "google",
+      "providerId": "google-1023948576",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d16",
+      "name": "Isabella Wu",
+      "email": "isabella.wu@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/9.jpg",
+      "birthday": "1999-09-25T00:00:00.000Z",
+      "gender": "female",
+      "height": 170,
+      "weight": 56,
+      "role": "user",
+      "authProvider": "google",
+      "providerId": "google-2233445566",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d17",
+      "name": "Jack Chen",
+      "email": "jack.chen@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/10.jpg",
+      "birthday": "1985-05-20T00:00:00.000Z",
+      "gender": "male",
+      "height": 177,
+      "weight": 72,
+      "role": "admin",
+      "authProvider": "facebook",
+      "providerId": "fb-5566778899",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d0e",
+      "name": "Alice Chen",
+      "email": "alice.chen@example.com",
+      "password": "$2b$10$U78LkWGzNJtmcXIbkuXGHeetN/Z6MWFtCR1u7dQ0nw0.FxtDLQIDG",
+      "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+      "birthday": "1995-06-12T00:00:00.000Z",
+      "gender": "female",
+      "height": 168,
+      "weight": 55,
+      "role": "user",
+      "authProvider": "local",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d0f",
+      "name": "Bob Li",
+      "email": "bob.li@example.com",
+      "password": "$2b$10$uDpBkPb80OZVqUbZERcXwOmJ.TLPIYm6IJLUXvH3PIsutSL8dHbsC",
+      "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+      "birthday": "1990-09-21T00:00:00.000Z",
+      "gender": "male",
+      "height": 175,
+      "weight": 70,
+      "role": "user",
+      "authProvider": "local",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d11",
+      "name": "David Wong",
+      "email": "david.wong@example.com",
+      "password": "$2b$10$zmcDhyREIXh1QuLDU.kN7OZjdxXoESV78hH43TBhUyhQCb9ywdk6a",
+      "avatar": "https://randomuser.me/api/portraits/men/4.jpg",
+      "birthday": "1988-12-02T00:00:00.000Z",
+      "gender": "male",
+      "height": 180,
+      "weight": 80,
+      "role": "admin",
+      "authProvider": "local",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d14",
+      "name": "Grace Liu",
+      "email": "grace.liu@example.com",
+      "password": "$2b$10$HoXh/AhhPDLiNMtOiwQfcO2oAfaa/VFQwNEU3qiIZqoeR8yDJFaAe",
+      "avatar": "https://randomuser.me/api/portraits/women/7.jpg",
+      "birthday": "1997-01-30T00:00:00.000Z",
+      "gender": "female",
+      "height": 160,
+      "weight": 49,
+      "role": "user",
+      "authProvider": "local",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d13",
+      "name": "Frank Zhou",
+      "email": "frank.zhou@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/6.jpg",
+      "birthday": "1992-04-18T00:00:00.000Z",
+      "gender": "male",
+      "height": 178,
+      "weight": 75,
+      "role": "user",
+      "authProvider": "google",
+      "providerId": "google-8877665544",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d12",
+      "name": "Ella Sun",
+      "email": "ella.sun@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/5.jpg",
+      "birthday": "2000-07-15T00:00:00.000Z",
+      "gender": "female",
+      "height": 165,
+      "weight": 52,
+      "role": "user",
+      "authProvider": "facebook",
+      "providerId": "fb-9988776655",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    },
+    {
+      "_id": "691eb50f71846e3181301d15",
+      "name": "Henry Ma",
+      "email": "henry.ma@example.com",
+      "password": "$2b$10$LlpwhO.NMnzvoe7pGAKia.X1mucuwO74KIhkl3QTnHRBlhwIOCw4q",
+      "avatar": "https://randomuser.me/api/portraits/men/8.jpg",
+      "birthday": "1994-11-10T00:00:00.000Z",
+      "gender": "male",
+      "height": 182,
+      "weight": 78,
+      "role": "user",
+      "authProvider": "local",
+      "date": "2025-11-06T10:00:00.000Z",
+      "__v": 0
+    }
+  ]
+}

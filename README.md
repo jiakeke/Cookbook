@@ -110,28 +110,30 @@ cd backend
 npm run migrate
 ```
 
-### Database Seeding
+### Database Management
 
-These scripts allow you to export data from your database into a sanitized JSON file and then import it back, which is useful for creating a consistent development environment.
+These scripts allow you to manage the database content, such as backing up all data to a single file or restoring the database from that file. This is useful for creating a consistent development environment or for backup purposes.
 
-- **`export-data`**: Connects to the database, fetches all data, anonymizes sensitive user information (like emails and passwords), and saves the result to `backend/scripts/seed-data.json`.
-- **`import-data`**: Wipes the current database and populates it with the data from `backend/scripts/seed-data.json`.
-- **`destroy-data`**: Wipes all data from the relevant collections in the database.
+- **`npm run db:export`**: Connects to the database and exports all collections into a single `backend/scripts/db_export.json` file. This file contains a complete snapshot of the database.
+
+- **`npm run db:import`**: Imports data from `backend/scripts/db_export.json`. **Warning**: This is a destructive operation. It will completely wipe all existing data from the database before importing the data from the file.
+
+- **`npm run db:destroy`**: Wipes all data from the relevant collections in the database. **Warning**: This is a destructive operation and will result in an empty database.
 
 **Usage:**
 
 ```sh
-# To export and anonymize the current database state
+# Navigate to the backend directory
 cd backend
-npm run export-data
 
-# To import the sanitized data into your database
-cd backend
-npm run import-data
+# To export the current database state to db_export.json
+npm run db:export
 
-# To clear the database
-cd backend
-npm run destroy-data
+# To wipe the database and restore it from db_export.json
+npm run db:import
+
+# To completely clear the database
+npm run db:destroy
 ```
 
 ---
