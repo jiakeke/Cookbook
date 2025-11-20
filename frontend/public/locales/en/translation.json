@@ -248,5 +248,7 @@
   "action_reopen": "Reopen",
   "like": "Like",
   "unlike": "Unlike",
-  "likes": "Likes"
+  "likes": "Likes",
+  "special_groups": "Special Groups",
+  "enter_name": "Enter name"
 }

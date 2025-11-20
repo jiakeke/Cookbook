@@ -247,5 +247,7 @@
   "action_reopen": "重新打开",
   "like": "赞",
   "unlike": "取消赞",
-  "likes": "赞"
+  "likes": "赞",
+  "special_groups": "特殊人群",
+  "enter_name": "输入名称"
 }

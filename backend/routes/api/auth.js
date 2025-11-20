@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 // @route   POST api/auth/register
@@ -140,7 +141,7 @@ router.post(
 router.get('/me', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     // req.user is attached by the passport-jwt strategy
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.user.id).select('-password').populate('allergens').populate('specialGroups');
     if (!user) {
       return res.status(404).json({ msg: 'User not found' });
     }
@@ -163,6 +164,23 @@ router.put(
     check('birthday', 'Invalid date for birthday').optional({ checkFalsy: true }).isISO8601(),
     check('height', 'Height must be a number').optional({ checkFalsy: true }).isNumeric(),
     check('weight', 'Weight must be a number').optional({ checkFalsy: true }).isNumeric(),
+    check('gender', 'Invalid gender').optional({ checkFalsy: true }).isIn(['male', 'female', 'other']),
+    check('allergens').optional().isArray().withMessage('Allergens must be an array').custom((value) => {
+      for (const id of value) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+          throw new Error('Invalid ID in allergens');
+        }
+      }
+      return true;
+    }),
+    check('specialGroups').optional().isArray().withMessage('Special groups must be an array').custom((value) => {
+      for (const id of value) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+          throw new Error('Invalid ID in special groups');
+        }
+      }
+      return true;
+    }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -176,7 +194,9 @@ router.put(
       gender,
       height,
       weight,
-      avatar
+      avatar,
+      allergens,
+      specialGroups
     } = req.body;
 
     // Build profile object
@@ -187,6 +207,8 @@ router.put(
     if (height) profileFields.height = height;
     if (weight) profileFields.weight = weight;
     if (avatar) profileFields.avatar = avatar;
+    if (allergens) profileFields.allergens = allergens;
+    if (specialGroups) profileFields.specialGroups = specialGroups;
 
     try {
       let user = await User.findById(req.user.id);

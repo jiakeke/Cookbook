@@ -29,6 +29,8 @@ app.use('/api/recipes', require('./routes/api/recipes')); // Public recipe route
 app.use('/api/comments', require('./routes/api/comments')); // Public comment routes
 app.use('/api/reports', require('./routes/api/reports')); // Report routes
 app.use('/api/admin', require('./routes/api/admin')); // Admin routes
+app.use('/api/allergens', require('./routes/api/allergens')); // Allergens routes
+app.use('/api/special-groups', require('./routes/api/specialGroups')); // Special Groups routes
 
 const PORT = process.env.PORT;
 

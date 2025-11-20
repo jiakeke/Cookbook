@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const adminAuth = require('../../middleware/adminAuth');
 const { check, validationResult } = require('express-validator');
+const mongoose = require('mongoose');
 
 const User = require('../../models/User');
 const Method = require('../../models/Method');
@@ -30,7 +31,7 @@ router.get('/users', adminAccess, async (req, res) => {
         { email: { $regex: searchQuery, $options: 'i' } },
       ],
     };
-    const users = await User.find(query).select('-password').limit(limit).skip((page - 1) * limit).sort({ date: -1 });
+    const users = await User.find(query).select('-password').populate('allergens').populate('specialGroups').limit(limit).skip((page - 1) * limit).sort({ date: -1 });
     const total = await User.countDocuments(query);
     res.json({ users, total, page, pages: Math.ceil(total / limit) });
   } catch (err) {
@@ -38,18 +39,25 @@ router.get('/users', adminAccess, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-router.post('/users', [ ...adminAccess, check('name', 'Name is required').not().isEmpty(), check('email', 'Please include a valid email').isEmail(), check('password', 'Password must be at least 8 characters long').isLength({ min: 8 }), ], async (req, res) => {
+router.post('/users', [ ...adminAccess, check('name', 'Name is required').not().isEmpty(), check('email', 'Please include a valid email').isEmail(), check('password', 'Password must be at least 8 characters long').isLength({ min: 8 }), check('allergens').optional().isArray().withMessage('Allergens must be an array').custom((value) => { for (const id of value) { if (!mongoose.Types.ObjectId.isValid(id)) { throw new Error('Invalid ID in allergens'); } } return true; }), check('specialGroups').optional().isArray().withMessage('Special groups must be an array').custom((value) => { for (const id of value) { if (!mongoose.Types.ObjectId.isValid(id)) { throw new Error('Invalid ID in special groups'); } } return true; }), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const { name, email, password, role } = req.body;
+  const { name, email, password, role, allergens, specialGroups } = req.body;
   try {
     let user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
     }
-    user = new User({ name, email, password, role: role || 'user' });
+    user = new User({ 
+      name, 
+      email, 
+      password, 
+      role: role || 'user',
+      allergens: allergens || [],
+      specialGroups: specialGroups || []
+    });
     await user.save();
     const userResponse = user.toObject();
     delete userResponse.password;
@@ -59,12 +67,12 @@ router.post('/users', [ ...adminAccess, check('name', 'Name is required').not().
     res.status(500).send('Server Error');
   }
 });
-router.put('/users/:id', [ ...adminAccess, check('name', 'Name is required').not().isEmpty(), check('email', 'Please include a valid email').isEmail(), check('role', 'Role is required').isIn(['user', 'admin']), ], async (req, res) => {
+router.put('/users/:id', [ ...adminAccess, check('name', 'Name is required').not().isEmpty(), check('email', 'Please include a valid email').isEmail(), check('role', 'Role is required').isIn(['user', 'admin']), check('allergens').optional().isArray().withMessage('Allergens must be an array').custom((value) => { for (const id of value) { if (!mongoose.Types.ObjectId.isValid(id)) { throw new Error('Invalid ID in allergens'); } } return true; }), check('specialGroups').optional().isArray().withMessage('Special groups must be an array').custom((value) => { for (const id of value) { if (!mongoose.Types.ObjectId.isValid(id)) { throw new Error('Invalid ID in special groups'); } } return true; }), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const { name, email, role } = req.body;
+  const { name, email, role, allergens, specialGroups } = req.body;
   try {
     const userById = await User.findById(req.params.id);
     if (!userById) {
@@ -76,7 +84,8 @@ router.put('/users/:id', [ ...adminAccess, check('name', 'Name is required').not
         return res.status(400).json({ errors: [{ msg: 'Email already in use' }] });
       }
     }
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, { $set: { name, email, role } }, { new: true }).select('-password');
+    const updatedFields = { name, email, role, allergens, specialGroups };
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, { $set: updatedFields }, { new: true }).select('-password');
     if (!updatedUser) {
       return res.status(404).json({ msg: 'User not found' });
     }

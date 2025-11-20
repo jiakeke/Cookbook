@@ -36,6 +36,18 @@ const UserSchema = new mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user',
   },
+  allergens: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'allergen',
+    },
+  ],
+  specialGroups: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'specialGroup',
+    },
+  ],
   authProvider: {
     type: String,
     required: true,

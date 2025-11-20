@@ -247,5 +247,7 @@
   "action_reopen": "Avaa uudelleen",
   "like": "Tykkää",
   "unlike": "Älä tykkää",
-  "likes": "Tykkäykset"
+  "likes": "Tykkäykset",
+  "special_groups": "Erityisryhmät",
+  "enter_name": "Syötä nimi"
 }
