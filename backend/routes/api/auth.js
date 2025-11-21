@@ -165,6 +165,7 @@ router.put(
     check('height', 'Height must be a number').optional({ checkFalsy: true }).isNumeric(),
     check('weight', 'Weight must be a number').optional({ checkFalsy: true }).isNumeric(),
     check('gender', 'Invalid gender').optional({ checkFalsy: true }).isIn(['male', 'female', 'other']),
+    check('avatar', 'Avatar must be a valid URL').optional({ checkFalsy: true }).isURL(),
     check('allergens').optional().isArray().withMessage('Allergens must be an array').custom((value) => {
       for (const id of value) {
         if (!mongoose.Types.ObjectId.isValid(id)) {

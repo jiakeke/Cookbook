@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const UserCreateModal = ({ show, onHide, onUserCreate }) => {
   const { t, i18n } = useTranslation();
-  const initialFormData = { name: '', email: '', password: '', role: 'user', allergens: [], specialGroups: [] };
+  const initialFormData = { name: '', email: '', password: '', role: 'user', avatar: '', allergens: [], specialGroups: [] };
   const [formData, setFormData] = useState(initialFormData);
   const [error, setError] = useState('');
   const [allAllergens, setAllAllergens] = useState([]);
@@ -76,6 +76,10 @@ const UserCreateModal = ({ show, onHide, onUserCreate }) => {
           <Form.Group className="mb-3" controlId="createFormName">
             <Form.Label>{t('name')}</Form.Label>
             <Form.Control type="text" name="name" value={formData.name} onChange={onChange} required />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="createFormAvatar">
+            <Form.Label>{t('avatar_url')}</Form.Label>
+            <Form.Control type="text" name="avatar" placeholder="https://example.com/avatar.png" value={formData.avatar} onChange={onChange} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="createFormEmail">
             <Form.Label>{t('email_address')}</Form.Label>

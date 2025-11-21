@@ -686,6 +686,19 @@
         "user789"
       ],
       "__v": 0
+    },
+    {
+      "_id": "691fabb15bf85c627f7fafeb",
+      "recipe": "691f42e666986105f3c36cd4",
+      "rating": 5,
+      "content": "啊啊啊",
+      "images": [],
+      "approved": true,
+      "likes_users": [],
+      "likes_guests": [],
+      "createdAt": "2025-11-21T00:00:49.706Z",
+      "user": "68f66deb48e728960e3872ba",
+      "__v": 0
     }
   ],
   "countryOrRegions": [
@@ -2642,7 +2655,12 @@
       "name": {
         "en": "nut-free",
         "fi": "pähkinätön",
-        "zh": "无坚果"
+        "zh": "坚果过敏"
+      },
+      "description": {
+        "en": "",
+        "fi": "",
+        "zh": ""
       },
       "_id": "691f40895c666e5360df597b",
       "__v": 0
@@ -2674,7 +2692,12 @@
       "name": {
         "en": "heart-symbol",
         "fi": "sydänmerkki",
-        "zh": "心脏标志"
+        "zh": "心脏病"
+      },
+      "description": {
+        "en": "",
+        "fi": "",
+        "zh": ""
       },
       "_id": "691f40895c666e5360df597e",
       "__v": 0
@@ -2921,7 +2944,21 @@
       "role": "admin",
       "authProvider": "local",
       "date": "2025-10-20T17:14:19.741Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [
+        "691eb45dcfab879955151410",
+        "691eb45dcfab879955151415",
+        "691eb45dcfab879955151418",
+        "691eb45dcfab879955151414"
+      ],
+      "specialGroups": [
+        "691f40895c666e5360df597e",
+        "691f40895c666e5360df597b"
+      ],
+      "weight": 80,
+      "height": 180,
+      "gender": "male",
+      "avatar": "https://randomuser.me/api/portraits/men/34.jpg"
     },
     {
       "_id": "691eb50f71846e3181301d10",
@@ -2936,7 +2973,11 @@
       "authProvider": "google",
       "providerId": "google-1023948576",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": [
+        "691f40895c666e5360df597d"
+      ]
     },
     {
       "_id": "691eb50f71846e3181301d16",
@@ -2951,7 +2992,9 @@
       "authProvider": "google",
       "providerId": "google-2233445566",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": []
     },
     {
       "_id": "691eb50f71846e3181301d17",
@@ -2966,7 +3009,9 @@
       "authProvider": "facebook",
       "providerId": "fb-5566778899",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": []
     },
     {
       "_id": "691eb50f71846e3181301d0e",
@@ -2981,7 +3026,13 @@
       "role": "user",
       "authProvider": "local",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [
+        "691eb45dcfab879955151414"
+      ],
+      "specialGroups": [
+        "691f40895c666e5360df597b"
+      ]
     },
     {
       "_id": "691eb50f71846e3181301d0f",
@@ -2996,7 +3047,11 @@
       "role": "user",
       "authProvider": "local",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": [
+        "691f40895c666e5360df597c"
+      ]
     },
     {
       "_id": "691eb50f71846e3181301d11",
@@ -3011,7 +3066,11 @@
       "role": "admin",
       "authProvider": "local",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": [
+        "691f40895c666e5360df597e"
+      ]
     },
     {
       "_id": "691eb50f71846e3181301d14",
@@ -3026,7 +3085,9 @@
       "role": "user",
       "authProvider": "local",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": []
     },
     {
       "_id": "691eb50f71846e3181301d13",
@@ -3041,7 +3102,9 @@
       "authProvider": "google",
       "providerId": "google-8877665544",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": []
     },
     {
       "_id": "691eb50f71846e3181301d12",
@@ -3056,7 +3119,9 @@
       "authProvider": "facebook",
       "providerId": "fb-9988776655",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": []
     },
     {
       "_id": "691eb50f71846e3181301d15",
@@ -3071,7 +3136,9 @@
       "role": "user",
       "authProvider": "local",
       "date": "2025-11-06T10:00:00.000Z",
-      "__v": 0
+      "__v": 0,
+      "allergens": [],
+      "specialGroups": []
     }
   ]
 }

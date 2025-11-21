@@ -15,6 +15,7 @@ const Profile = () => {
     gender: '',
     height: '',
     weight: '',
+    avatar: '',
     allergens: [],
     specialGroups: [],
   });
@@ -45,13 +46,14 @@ const Profile = () => {
           axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/special-groups`)
         ]);
 
-        const { name, birthday, gender, height, weight, allergens, specialGroups } = profileRes.data;
+        const { name, birthday, gender, height, weight, avatar, allergens, specialGroups } = profileRes.data;
         setFormData({
           name: name || '',
           birthday: birthday ? new Date(birthday).toISOString().split('T')[0] : '',
           gender: gender || '',
           height: height || '',
           weight: weight || '',
+          avatar: avatar || '',
           allergens: allergens?.map(a => typeof a === 'object' ? a._id : a) || [],
           specialGroups: specialGroups?.map(sg => typeof sg === 'object' ? sg._id : sg) || [],
         });
@@ -150,6 +152,7 @@ const Profile = () => {
               <Form noValidate onSubmit={onProfileSubmit}>
                 {/* Profile fields... */}
                 <Form.Group className="mb-3" controlId="formName"><Form.Label>{t('name')}</Form.Label><Form.Control type="text" placeholder={t('enter_name')} name="name" value={formData.name} onChange={onProfileChange} required /></Form.Group>
+                <Form.Group className="mb-3" controlId="formAvatar"><Form.Label>{t('avatar_url')}</Form.Label><Form.Control type="text" placeholder="https://example.com/avatar.png" name="avatar" value={formData.avatar} onChange={onProfileChange} /></Form.Group>
                 <Form.Group className="mb-3" controlId="formBirthday"><Form.Label>{t('birthday')}</Form.Label><Form.Control type="date" name="birthday" value={formData.birthday} onChange={onProfileChange} /></Form.Group>
                 <Form.Group className="mb-3" controlId="formGender"><Form.Label>{t('gender')}</Form.Label><Form.Control as="select" name="gender" value={formData.gender} onChange={onProfileChange}><option value="">{t('select_gender')}</option><option value="male">{t('male')}</option><option value="female">{t('female')}</option><option value="other">{t('other')}</option></Form.Control></Form.Group>
                 <Row><Col md={6}><Form.Group className="mb-3" controlId="formHeight"><Form.Label>{t('height_cm')}</Form.Label><Form.Control type="number" placeholder="e.g., 175" name="height" value={formData.height} onChange={onProfileChange} /></Form.Group></Col><Col md={6}><Form.Group className="mb-3" controlId="formWeight"><Form.Label>{t('weight_kg')}</Form.Label><Form.Control type="number" placeholder="e.g., 70" name="weight" value={formData.weight} onChange={onProfileChange} /></Form.Group></Col></Row>

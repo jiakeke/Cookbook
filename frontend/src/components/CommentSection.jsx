@@ -166,6 +166,8 @@ const CommentList = ({ comments }) => {
   const [commentToReport, setCommentToReport] = useState(null);
   const [reportSuccess, setReportSuccess] = useState('');
 
+  const placeholderAvatar = "https://www.gravatar.com/avatar/placeholder?d=mp";
+
   const handleImageClick = (imageUrl) => {
     setImageToShow(imageUrl);
     setShowImgModal(true);
@@ -191,30 +193,41 @@ const CommentList = ({ comments }) => {
       {comments.filter(c => c.approved).slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(comment => (
         <Card key={comment._id} className="mb-3">
           <Card.Body>
-            <div className="d-flex justify-content-between">
-              <Card.Title as="h6">{comment.user ? comment.user.name : comment.nickname}</Card.Title>
-              {user && (
-                <Button variant="link" size="sm" onClick={() => handleReportClick(comment)}>{t('report')}</Button>
-              )}
-            </div>
-            {comment.rating && <StarRating rating={comment.rating} readOnly />}
-            <p className="mt-2">{comment.content}</p>
             <Row>
-              {comment.images.map((img, i) => (
-                <Col key={i} xs={4} md={3} lg={2} className="mb-2">
-                  <Image 
-                    src={`${import.meta.env.VITE_API_BASE_URL}${img}`} 
-                    thumbnail 
-                    style={{ cursor: 'pointer', width: '100px', height: '100px', objectFit: 'cover' }} 
-                    onClick={() => handleImageClick(img)} 
-                  />
-                </Col>
-              ))}
+              <Col xs={2} md={1} className="text-center">
+                <Image 
+                  src={comment.user?.avatar || placeholderAvatar} 
+                  roundedCircle 
+                  style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                />
+              </Col>
+              <Col xs={10} md={11}>
+                <div className="d-flex justify-content-between">
+                  <Card.Title as="h6">{comment.user ? comment.user.name : comment.nickname}</Card.Title>
+                  {user && (
+                    <Button variant="link" size="sm" onClick={() => handleReportClick(comment)}>{t('report')}</Button>
+                  )}
+                </div>
+                {comment.rating && <StarRating rating={comment.rating} readOnly />}
+                <p className="mt-2 mb-1">{comment.content}</p>
+                <Row className="mb-2">
+                  {comment.images.map((img, i) => (
+                    <Col key={i} xs={4} md={3} lg={2} className="mb-2">
+                      <Image 
+                        src={`${import.meta.env.VITE_API_BASE_URL}${img}`} 
+                        thumbnail 
+                        style={{ cursor: 'pointer', width: '80px', height: '80px', objectFit: 'cover' }} 
+                        onClick={() => handleImageClick(img)} 
+                      />
+                    </Col>
+                  ))}
+                </Row>
+                <div className="d-flex justify-content-between align-items-center">
+                    <small className="text-muted">{new Date(comment.createdAt).toLocaleString()}</small>
+                    <CommentLike comment={comment} />
+                </div>
+              </Col>
             </Row>
-            <div className="d-flex justify-content-between align-items-center">
-                <small className="text-muted">{new Date(comment.createdAt).toLocaleString()}</small>
-                <CommentLike comment={comment} />
-            </div>
           </Card.Body>
         </Card>
       ))}

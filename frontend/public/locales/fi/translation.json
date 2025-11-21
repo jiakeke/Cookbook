@@ -249,5 +249,6 @@
   "unlike": "Älä tykkää",
   "likes": "Tykkäykset",
   "special_groups": "Erityisryhmät",
-  "enter_name": "Syötä nimi"
+  "enter_name": "Syötä nimi",
+  "avatar_url": "Avatar-URL"
 }

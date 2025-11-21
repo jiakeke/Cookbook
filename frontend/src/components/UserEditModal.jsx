@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const UserEditModal = ({ show, onHide, user, onUserUpdate }) => {
   const { t, i18n } = useTranslation();
-  const [formData, setFormData] = useState({ name: '', email: '', role: '', allergens: [], specialGroups: [] });
+  const [formData, setFormData] = useState({ name: '', email: '', role: '', avatar: '', allergens: [], specialGroups: [] });
   const [error, setError] = useState('');
   const [allAllergens, setAllAllergens] = useState([]);
   const [allSpecialGroups, setAllSpecialGroups] = useState([]);
@@ -34,6 +34,7 @@ const UserEditModal = ({ show, onHide, user, onUserUpdate }) => {
         name: user.name || '',
         email: user.email || '',
         role: user.role || 'user',
+        avatar: user.avatar || '',
         allergens: user.allergens?.map(a => typeof a === 'object' ? a._id : a) || [],
         specialGroups: user.specialGroups?.map(sg => typeof sg === 'object' ? sg._id : sg) || [],
       });
@@ -87,6 +88,16 @@ const UserEditModal = ({ show, onHide, user, onUserUpdate }) => {
               value={formData.name}
               onChange={onChange}
               required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="editFormAvatar">
+            <Form.Label>{t('avatar_url')}</Form.Label>
+            <Form.Control
+              type="text"
+              name="avatar"
+              placeholder="https://example.com/avatar.png"
+              value={formData.avatar}
+              onChange={onChange}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="editFormEmail">

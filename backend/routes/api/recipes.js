@@ -45,7 +45,7 @@ router.get('/:id', async (req, res) => {
     }
 
     recipe.comments = await Comment.find({ recipe: recipe._id })
-      .populate('user', 'name')
+      .populate('user', 'name avatar')
       .sort({ createdAt: -1 });
 
     res.json(recipe);
