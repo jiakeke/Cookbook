@@ -42,6 +42,9 @@ const Header = () => {
             <LinkContainer to="/recipes">
               <Nav.Link>{t('recipes')}</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/ingredients">
+              <Nav.Link>{t('ingredients')}</Nav.Link>
+            </LinkContainer>
 
             {user ? (
               <NavDropdown title={user.name} id="basic-nav-dropdown">

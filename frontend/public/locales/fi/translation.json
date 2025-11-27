@@ -250,5 +250,13 @@
   "likes": "Tykkäykset",
   "special_groups": "Erityisryhmät",
   "enter_name": "Syötä nimi",
-  "avatar_url": "Avatar-URL"
+  "avatar_url": "Avatar-URL",
+  "ingredients": "Ainesosat",
+  "fetch_ingredient_details_failed": "Ainesosan tietojen nouto epäonnistui.",
+  "ingredient_not_found": "Ainesosaa ei löytynyt.",
+  "no_purchase_links_available": "Tälle ainesosalle ei ole saatavilla ostolinkkejä.",
+  "go_to_store": "Mene kauppaan",
+  "no_recipes_use_this_ingredient": "Mikään resepti ei tällä hetkellä käytä tätä ainesosaa.",
+  "recipes_using_this_ingredient": "Reseptit, joissa käytetään tätä ainesosaa",
+  "view_recipe": "Katso resepti"
 }

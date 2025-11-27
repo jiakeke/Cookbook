@@ -20,6 +20,8 @@ import SpecialGroupManagement from './components/SpecialGroupManagement';
 import ReportManagement from './components/ReportManagement';
 import RecipeList from './components/RecipeList';
 import RecipeDetail from './components/RecipeDetail';
+import IngredientList from './components/IngredientList';
+import IngredientDetail from './components/IngredientDetail';
 import { useTranslation } from 'react-i18next';
 import { AuthProvider } from './context/AuthContext.jsx';
 
@@ -44,6 +46,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/recipes" element={<RecipeList />} />
           <Route path="/recipes/:id" element={<RecipeDetail />} />
+          <Route path="/ingredients" element={<IngredientList />} />
+          <Route path="/ingredients/:id" element={<IngredientDetail />} />
           
           {/* Protected Routes for any logged-in user */}
           <Route element={<PrivateRoute />}>

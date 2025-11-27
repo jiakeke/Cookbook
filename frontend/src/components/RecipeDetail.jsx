@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image, Spinner, Alert, Card, ListGroup, Table, Badge, Button } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { getLocalizedValue } from '../utils/translationHelper';
@@ -137,7 +137,9 @@ const RecipeDetail = () => {
               <td>{ing.quantity}</td>
               <td>{ing.unit}</td>
               <td>
-                {getLocalizedValue(ing.ingredient.name, i18n.language)}{' '}
+                <Link to={`/ingredients/${ing.ingredient._id}`}>
+                  {getLocalizedValue(ing.ingredient.name, i18n.language)}
+                </Link>{' '}
                 {ing.optional && <Badge bg="secondary">{t('optional')}</Badge>}
               </td>
               <td>{getLocalizedValue(ing.method?.name, i18n.language)}</td>

@@ -250,5 +250,13 @@
   "likes": "赞",
   "special_groups": "特殊人群",
   "enter_name": "输入名称",
-  "avatar_url": "头像URL"
+  "avatar_url": "头像URL",
+  "ingredients": "食材",
+  "fetch_ingredient_details_failed": "获取食材详情失败。",
+  "ingredient_not_found": "未找到该食材。",
+  "no_purchase_links_available": "该食材暂无购买链接。",
+  "go_to_store": "前往商店",
+  "no_recipes_use_this_ingredient": "暂无菜谱使用该食材。",
+  "recipes_using_this_ingredient": "使用该食材的菜谱",
+  "view_recipe": "查看菜谱"
 }

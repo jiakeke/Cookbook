@@ -251,5 +251,12 @@
   "likes": "Likes",
   "special_groups": "Special Groups",
   "enter_name": "Enter name",
-  "avatar_url": "Avatar URL"
+  "avatar_url": "Avatar URL",
+  "fetch_ingredient_details_failed": "Failed to fetch ingredient details.",
+  "ingredient_not_found": "Ingredient not found.",
+  "no_purchase_links_available": "No purchase links available for this ingredient.",
+  "go_to_store": "Go to Store",
+  "no_recipes_use_this_ingredient": "No recipes currently use this ingredient.",
+  "recipes_using_this_ingredient": "Recipes Using This Ingredient",
+  "view_recipe": "View Recipe"
 }
