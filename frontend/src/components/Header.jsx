@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Container, Badge } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
+import { CartContext } from '../context/CartContext.jsx';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { cartItems } = useContext(CartContext);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -82,6 +85,17 @@ const Header = () => {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
+
+            <LinkContainer to="/cart">
+              <Nav.Link>
+                <FaShoppingCart />
+                {cartItems.length > 0 && (
+                  <Badge pill bg="success" style={{ marginLeft: '5px' }}>
+                    {cartItems.reduce((qty, item) => qty + 1, 0)}
+                  </Badge>
+                )}
+              </Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>

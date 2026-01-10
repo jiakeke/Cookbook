@@ -22,8 +22,10 @@ import RecipeList from './components/RecipeList';
 import RecipeDetail from './components/RecipeDetail';
 import IngredientList from './components/IngredientList';
 import IngredientDetail from './components/IngredientDetail';
+import ShoppingCart from './components/ShoppingCart';
 import { useTranslation } from 'react-i18next';
 import { AuthProvider } from './context/AuthContext.jsx';
+import { CartProvider } from './context/CartContext.jsx';
 
 function Home() {
   const { t } = useTranslation();
@@ -37,40 +39,43 @@ function Home() {
 function App() {
   return (
     <AuthProvider>
-      <Header />
-      <main className="py-3">
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/recipes" element={<RecipeList />} />
-          <Route path="/recipes/:id" element={<RecipeDetail />} />
-          <Route path="/ingredients" element={<IngredientList />} />
-          <Route path="/ingredients/:id" element={<IngredientDetail />} />
-          
-          {/* Protected Routes for any logged-in user */}
-          <Route element={<PrivateRoute />}>
-            <Route path="/profile" element={<Profile />} />
-          </Route>
-
-          {/* Protected Routes for admin users */}
-          <Route element={<AdminRoute />}>
-            <Route path="/admin" element={<AdminDashboard />}>
-              <Route index element={<AdminWelcome />} />
-              <Route path="users" element={<UserManagement />} />
-              <Route path="methods" element={<MethodManagement />} />
-              <Route path="countries" element={<CountryOrRegionManagement />} />
-              <Route path="stores" element={<StoreManagement />} />
-              <Route path="ingredients" element={<IngredientManagement />} />
-              <Route path="recipes" element={<RecipeManagement />} />
-              <Route path="allergens" element={<AllergenManagement />} />
-              <Route path="special-groups" element={<SpecialGroupManagement />} />
-              <Route path="reports" element={<ReportManagement />} />
+      <CartProvider>
+        <Header />
+        <main className="py-3">
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/recipes" element={<RecipeList />} />
+            <Route path="/recipes/:id" element={<RecipeDetail />} />
+            <Route path="/ingredients" element={<IngredientList />} />
+            <Route path="/ingredients/:id" element={<IngredientDetail />} />
+            <Route path="/cart" element={<ShoppingCart />} />
+            
+            {/* Protected Routes for any logged-in user */}
+            <Route element={<PrivateRoute />}>
+              <Route path="/profile" element={<Profile />} />
             </Route>
-          </Route>
-        </Routes>
-      </main>
+
+            {/* Protected Routes for admin users */}
+            <Route element={<AdminRoute />}>
+              <Route path="/admin" element={<AdminDashboard />}>
+                <Route index element={<AdminWelcome />} />
+                <Route path="users" element={<UserManagement />} />
+                <Route path="methods" element={<MethodManagement />} />
+                <Route path="countries" element={<CountryOrRegionManagement />} />
+                <Route path="stores" element={<StoreManagement />} />
+                <Route path="ingredients" element={<IngredientManagement />} />
+                <Route path="recipes" element={<RecipeManagement />} />
+                <Route path="allergens" element={<AllergenManagement />} />
+                <Route path="special-groups" element={<SpecialGroupManagement />} />
+                <Route path="reports" element={<ReportManagement />} />
+              </Route>
+            </Route>
+          </Routes>
+        </main>
+      </CartProvider>
     </AuthProvider>
   );
 }

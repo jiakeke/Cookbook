@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Image, Spinner, Alert, Card, ListGroup, Table, Badge, Button } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +7,8 @@ import { getLocalizedValue } from '../utils/translationHelper';
 import CommentSection from './CommentSection';
 import StarRating from './StarRating';
 import { useLike } from '../hooks/useLike';
-import { FaThumbsUp, FaRegThumbsUp } from 'react-icons/fa';
+import { FaShoppingCart, FaThumbsUp, FaRegThumbsUp, FaStore } from 'react-icons/fa';
+import { CartContext } from '../context/CartContext';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -15,6 +16,7 @@ const RecipeDetail = () => {
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { addToCart, addAllToCart } = useContext(CartContext);
   
   const { isLiked, likeCount, toggleLike } = useLike('recipe', recipe);
 
@@ -34,6 +36,31 @@ const RecipeDetail = () => {
 
     fetchRecipe();
   }, [id, t]);
+
+  const handleAddAllToCart = () => {
+    if (!recipe || !recipe.ingredients) return;
+
+    const itemsToAdd = recipe.ingredients.flatMap(ing => {
+      if (!ing.ingredient || !ing.ingredient.link || ing.ingredient.link.length === 0) {
+        return []; // Return empty array if no links, flatMap will handle it
+      }
+      // Map over all links for the current ingredient
+      return ing.ingredient.link.map(linkToAdd => ({
+        ...linkToAdd,
+        ingredientName: ing.ingredient.name,
+        ingredientImage: ing.ingredient.image,
+        store: linkToAdd.store,
+      }));
+    });
+
+    if (itemsToAdd.length > 0) {
+      const recipeInfo = { id: recipe._id, name: recipe.name };
+      addAllToCart(itemsToAdd, recipeInfo);
+      alert(t('all_ingredients_added_to_cart', { count: itemsToAdd.length }));
+    } else {
+      alert(t('no_ingredients_to_add'));
+    }
+  };
 
   const calculateAverageRating = () => {
     if (!recipe || !recipe.comments || recipe.comments.length === 0) {
@@ -68,12 +95,23 @@ const RecipeDetail = () => {
 
     return (
       <>
-        <h3 className="mt-4">{t('purchase_links')}</h3>
+        <div className="d-flex justify-content-between align-items-center mt-4">
+          <h3>{t('purchase_links')}</h3>
+          <Button variant="outline-primary" size="sm" onClick={handleAddAllToCart}>
+            <FaShoppingCart className="me-2" />
+            {t('add_all_to_cart')}
+          </Button>
+        </div>
         <Row>
           {allLinks.map(link => (
             <Col key={link._id} sm={12} md={6} lg={4} className="mb-3">
               <Card>
-                <Card.Img variant="top" src={link.ingredientImage || 'https://via.placeholder.com/150'} style={{ height: '150px', objectFit: 'cover' }} />
+                <Card.Img
+                  variant="top"
+                  src={link.ingredientImage || 'https://via.placeholder.com/150'}
+                  style={{ height: '150px', objectFit: 'cover' }}
+                  onError={(e) => { e.target.onerror = null; e.target.src='https://via.placeholder.com/150'; }}
+                />
                 <Card.Body>
                   <Card.Title>{getLocalizedValue(link.ingredientName, i18n.language)}</Card.Title>
                   <ListGroup variant="flush">
@@ -82,7 +120,21 @@ const RecipeDetail = () => {
                     <ListGroup.Item>{t('size_spec')}: {link.size}</ListGroup.Item>
                     <ListGroup.Item>{t('store')}: {getLocalizedValue(link.store.name, i18n.language)}</ListGroup.Item>
                   </ListGroup>
-                  <a href={link.uri} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-2">{t('add_to_cart')}</a>
+                  <div className="d-flex justify-content-between align-items-center mt-2">
+                    <Button variant="primary" onClick={() => addToCart(link, { id: recipe._id, name: recipe.name })}>{t('add_to_cart')}</Button>
+                    <a href={link.uri} target="_blank" rel="noopener noreferrer">
+                      {link.store.logo ? (
+                        <Image
+                          src={link.store.logo}
+                          alt={getLocalizedValue(link.store.name, i18n.language)}
+                          style={{ height: '30px', maxWidth: '100px' }}
+                          onError={(e) => { e.target.style.display = 'none'; }}
+                        />
+                      ) : (
+                        <FaStore size={30} title={getLocalizedValue(link.store.name, i18n.language)} />
+                      )}
+                    </a>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
