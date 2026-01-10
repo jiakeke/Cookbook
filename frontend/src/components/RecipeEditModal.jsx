@@ -3,8 +3,10 @@ import { Modal, Button, Form, Alert, Tab, Nav, Col, Row } from 'react-bootstrap'
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 
+import { getLocalizedValue } from '../utils/translationHelper';
+
 const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
   const [formData, setFormData] = useState(null);
   const [dependencies, setDependencies] = useState({ countries: [], ingredients: [], methods: [] });
@@ -145,7 +147,7 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
                     <Form.Label>{t('country_or_region')}</Form.Label>
                     <Form.Select name="country_or_region" value={formData.country_or_region || ''} onChange={handleChange}>
                       <option value="">{t('select_country')}</option>
-                      {dependencies.countries.map(c => <option key={c._id} value={c._id}>{c.name.en}</option>)}
+                      {dependencies.countries.map(c => <option key={c._id} value={c._id}>{getLocalizedValue(c.name, i18n.language)}</option>)}
                     </Form.Select>
                   </Form.Group>
                 </Col>
@@ -182,7 +184,7 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
                   <Col md={3}>
                     <Form.Select name="ingredient" value={ing.ingredient} onChange={(e) => handleIngredientChange(index, e)} required>
                       <option value="">{t('select_ingredient')}</option>
-                      {dependencies.ingredients.map(i => <option key={i._id} value={i._id}>{i.name.en}</option>)}
+                      {dependencies.ingredients.map(i => <option key={i._id} value={i._id}>{getLocalizedValue(i.name, i18n.language)}</option>)}
                     </Form.Select>
                   </Col>
                   <Col md={2}><Form.Control type="number" name="quantity" placeholder={t('quantity')} value={ing.quantity} onChange={(e) => handleIngredientChange(index, e)} required /></Col>
@@ -190,7 +192,7 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
                   <Col md={3}>
                     <Form.Select name="method" value={ing.method || ''} onChange={(e) => handleIngredientChange(index, e)}>
                       <option value="">{t('select_method')}</option>
-                      {dependencies.methods.map(m => <option key={m._id} value={m._id}>{m.name.en}</option>)}
+                      {dependencies.methods.map(m => <option key={m._id} value={m._id}>{getLocalizedValue(m.name, i18n.language)}</option>)}
                     </Form.Select>
                   </Col>
                   <Col md={1}><Form.Check type="checkbox" name="optional" label={t('optional_short')} checked={ing.optional} onChange={(e) => handleIngredientChange(index, e)} /></Col>
