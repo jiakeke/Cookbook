@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "recipe": "青椒土豆丝",
+      "user": "user123",
+      "content": "非常好吃！土豆丝炒得很脆，青椒的香味也很足。我按照配方做了，全家都很喜欢。下次还要再做！",
+      "images": [],
+      "rating": 5,
+      "likes": ["user456", "user789"],
+      "likeCount": 2,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-11-07T14:23:45.000Z"
+    },
+    {
+      "recipe": "麻婆豆腐",
+      "user": "user456",
+      "content": "第一次做麻婆豆腐就成功了！豆腐很嫩，麻辣味道刚刚好。不过我觉得花椒可以再多放一点，个人喜欢麻味重一些。",
+      "images": [
+        "https://example.com/images/mapo-tofu-1.jpg"
+      ],
+      "rating": 4,
+      "likes": ["user123"],
+      "likeCount": 1,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-11-06T18:45:12.000Z"
+    },
+    {
+      "recipe": "蒜蓉粉丝扇贝",
+      "user": "user789",
+      "content": "扇贝很新鲜，蒜蓉的香味特别诱人。不过我发现如果蒸的时间稍微短一点，扇贝会更嫩一些。分享一下我的成果！",
+      "images": [
+        "https://example.com/images/scallop-1.jpg",
+        "https://example.com/images/scallop-2.jpg"
+      ],
+      "rating": 5,
+      "likes": ["user123", "user456", "user999"],
+      "likeCount": 3,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-11-05T20:12:34.000Z"
+    },
+    {
+      "recipe": "肉沫茄子",
+      "user": "user999",
+      "content": "茄子炒得有点软了，不过味道还不错。下次我会控制一下火候。建议大家炒茄子的时候火候要快一些，避免吸油太多。",
+      "images": [],
+      "rating": 3,
+      "likes": [],
+      "likeCount": 0,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-11-04T09:56:23.000Z"
+    },
+    {
+      "recipe": "黄焖鸡",
+      "user": "user234",
+      "content": "这个配方太棒了！鸡肉炖得特别入味，土豆也很软糯。我还加了一些香菇，味道更好了。看看我做的成品！",
+      "images": [
+        "https://example.com/images/braised-chicken-1.jpg"
+      ],
+      "rating": 5,
+      "likes": ["user123", "user456", "user789", "user999"],
+      "likeCount": 4,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-11-03T15:34:56.000Z"
+    },
+    {
+      "recipe": "小炒牛肉",
+      "user": "user567",
+      "content": "牛肉很嫩，但我觉得可以再多放点姜，去腥效果会更好。整体来说是不错的快炒菜。",
+      "images": [],
+      "rating": 4,
+      "likes": ["user234"],
+      "likeCount": 1,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-11-02T11:23:45.000Z"
+    },
+    {
+      "recipe": "干锅花菜",
+      "user": "user345",
+      "content": "从来没想过花菜可以这么好吃！干锅的做法太妙了，花菜既脆又入味。我的完成品虽然卖相不如图片那么好，但是味道真的没话说！",
+      "images": [
+        "https://example.com/images/cauliflower-1.jpg",
+        "https://example.com/images/cauliflower-2.jpg"
+      ],
+      "rating": 5,
+      "likes": ["user123", "user456"],
+      "likeCount": 2,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-11-01T16:45:12.000Z"
+    },
+    {
+      "recipe": "土豆番茄炖牛腩",
+      "user": "user678",
+      "content": "这道菜我做了好几次了，每次都很成功。关键是炖煮的时间要足够，牛腩才会很软烂。我一般会多炖半小时左右。",
+      "images": [],
+      "rating": 5,
+      "likes": ["user234", "user345"],
+      "likeCount": 2,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-10-31T13:12:34.000Z"
+    },
+    {
+      "recipe": "羊排烧胡萝卜",
+      "user": "user890",
+      "content": "羊排很嫩，胡萝卜也炖得恰到好处。我觉得这个配方的调味很合适，羊肉一点膻味都没有。晚饭做给家人吃，都说好！",
+      "images": [
+        "https://example.com/images/lamb-carrots.jpg"
+      ],
+      "rating": 5,
+      "likes": ["user123", "user456", "user789"],
+      "likeCount": 3,
+      "reports": [],
+      "approved": true,
+      "createdAt": "2025-10-30T19:23:45.000Z"
+    }
+  ]
+}

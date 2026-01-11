@@ -254,7 +254,6 @@
   "fetch_ingredient_details_failed": "Ainesosan tietojen nouto epäonnistui.",
   "ingredient_not_found": "Ainesosaa ei löytynyt.",
   "no_purchase_links_available": "Tälle ainesosalle ei ole saatavilla ostolinkkejä.",
-  "go_to_store": "Mene kauppaan",
   "no_recipes_use_this_ingredient": "Mikään resepti ei tällä hetkellä käytä tätä ainesosaa.",
   "recipes_using_this_ingredient": "Reseptit, joissa käytetään tätä ainesosaa",
   "view_recipe": "Katso resepti",
@@ -274,5 +273,19 @@
   "source_recipe": "Lähde",
   "add_all_to_cart": "Lisää kaikki koriin",
   "all_ingredients_added_to_cart": "{{count}} ainesosaa lisätty ostoskoriin.",
-  "no_ingredients_to_add": "Tässä reseptissä ei ole ostettavia ainesosia."
+  "no_ingredients_to_add": "Tässä reseptissä ei ole ostettavia ainesosia.",
+  "added_to_cart_alert": "on lisätty ostoskoriin.",
+  "my_recipes": "Omat reseptit",
+  "favorite": "Suosikki",
+  "unfavorite": "Poista suosikeista",
+  "login_to_favorite": "Kirjaudu sisään lisätäksesi suosikkeja.",
+  "recipe_favorited_success": "Resepti lisätty suosikkeihisi! Sinut ohjataan muokkaussivulle.",
+  "recipe_unfavorited_success": "Resepti poistettu suosikeistasi.",
+  "recipe_favorited_failed": "Reseptin lisääminen suosikkeihin epäonnistui.",
+  "my_favorited_recipes": "Omat suosikkireseptit",
+  "no_favorited_recipes": "Et ole vielä lisännyt reseptejä suosikkeihisi.",
+  "public": "Julkinen",
+  "private": "Yksityinen",
+  "make_public": "Tee tästä reseptistä julkinen",
+  "make_public_description": "Anna muiden käyttäjien nähdä muokattu versiosi tästä reseptistä."
 }

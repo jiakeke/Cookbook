@@ -516,7 +516,7 @@ router.post('/recipes', [ ...adminAccess, check('name.en', 'English name is requ
     return res.status(400).json({ errors: errors.array() });
   }
   try {
-    const newRecipe = new Recipe({ ...req.body, creator: req.user.id });
+    const newRecipe = new Recipe({ ...req.body, creator: req.user.id, isOriginal: true, isPublic: true });
     await newRecipe.save();
     await newRecipe.populate('country_or_region ingredients.ingredient ingredients.method creator');
     res.status(201).json(newRecipe);

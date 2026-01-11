@@ -39,6 +39,18 @@ const RecipeSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
     },
+    isOriginal: {
+      type: Boolean,
+      default: true,
+    },
+    originalRecipe: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'recipe',
+    },
+    isPublic: {
+      type: Boolean,
+      default: false,
+    },
     ingredients: [
       {
         ingredient: {

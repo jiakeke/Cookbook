@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown, Container, Badge } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaRegHeart } from 'react-icons/fa';
 import { CartContext } from '../context/CartContext.jsx';
 
 const Header = () => {
@@ -38,7 +38,7 @@ const Header = () => {
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto align-items-center">
             <LinkContainer to="/">
               <Nav.Link>{t('home')}</Nav.Link>
             </LinkContainer>
@@ -50,23 +50,30 @@ const Header = () => {
             </LinkContainer>
 
             {user ? (
-              <NavDropdown title={user.name} id="basic-nav-dropdown">
-                <LinkContainer to="/profile">
-                  <NavDropdown.Item>{t('profile')}</NavDropdown.Item>
+              <>
+                <LinkContainer to="/my-recipes">
+                  <Nav.Link title={t('my_recipes')}>
+                    <FaRegHeart size={20} />
+                  </Nav.Link>
                 </LinkContainer>
-                {user.role === 'admin' && (
-                  <>
-                    <NavDropdown.Divider />
-                    <LinkContainer to="/admin">
-                      <NavDropdown.Item>{t('admin')}</NavDropdown.Item>
-                    </LinkContainer>
-                  </>
-                )}
-                <NavDropdown.Divider />
-                <NavDropdown.Item onClick={handleLogout}>
-                  {t('logout')}
-                </NavDropdown.Item>
-              </NavDropdown>
+                <NavDropdown title={user.name} id="basic-nav-dropdown">
+                  <LinkContainer to="/profile">
+                    <NavDropdown.Item>{t('profile')}</NavDropdown.Item>
+                  </LinkContainer>
+                  {user.role === 'admin' && (
+                    <>
+                      <NavDropdown.Divider />
+                      <LinkContainer to="/admin">
+                        <NavDropdown.Item>{t('admin')}</NavDropdown.Item>
+                      </LinkContainer>
+                    </>
+                  )}
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={handleLogout}>
+                    {t('logout')}
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
             ) : (
               <>
                 <LinkContainer to="/login">
@@ -78,7 +85,7 @@ const Header = () => {
               </>
             )}
 
-            <NavDropdown title={currentLanguageName} id="language-nav-dropdown">
+            <NavDropdown title={currentLanguageName} id="language-nav-dropdown" className="ms-2">
               {Object.keys(languages).map((lng) => (
                 <NavDropdown.Item key={lng} onClick={() => changeLanguage(lng)} disabled={i18n.resolvedLanguage === lng}>
                   {languages[lng].nativeName}
@@ -86,12 +93,12 @@ const Header = () => {
               ))}
             </NavDropdown>
 
-            <LinkContainer to="/cart">
+            <LinkContainer to="/cart" className="ms-2">
               <Nav.Link>
                 <FaShoppingCart />
                 {cartItems.length > 0 && (
                   <Badge pill bg="success" style={{ marginLeft: '5px' }}>
-                    {cartItems.reduce((qty, item) => qty + 1, 0)}
+                    {cartItems.reduce((qty, item) => qty + item.quantity, 0)}
                   </Badge>
                 )}
               </Nav.Link>

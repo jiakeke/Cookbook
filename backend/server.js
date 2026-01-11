@@ -32,6 +32,7 @@ app.use('/api/reports', require('./routes/api/reports')); // Report routes
 app.use('/api/admin', require('./routes/api/admin')); // Admin routes
 app.use('/api/allergens', require('./routes/api/allergens')); // Allergens routes
 app.use('/api/special-groups', require('./routes/api/specialGroups')); // Special Groups routes
+app.use('/api/my-recipes', require('./routes/api/myRecipes')); // User's own recipe routes
 
 const PORT = process.env.PORT;
 

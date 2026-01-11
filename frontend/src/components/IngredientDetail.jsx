@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Image, Spinner, Alert, Card, ListGroup } from 'react-bootstrap';
+import React, { useState, useEffect, useContext } from 'react';
+import { Container, Row, Col, Image, Spinner, Alert, Card, ListGroup, Button } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { getLocalizedValue } from '../utils/translationHelper';
+import { CartContext } from '../context/CartContext';
+import { FaStore } from 'react-icons/fa';
 
 const IngredientDetail = () => {
   const { id } = useParams();
@@ -11,6 +13,7 @@ const IngredientDetail = () => {
   const [data, setData] = useState({ ingredient: null, recipes: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchIngredientDetails = async () => {
@@ -48,19 +51,43 @@ const IngredientDetail = () => {
       return <p>{t('no_purchase_links_available')}</p>;
     }
 
+    const handleAddToCart = (link) => {
+      const recipeInfos = recipes.map(r => ({ id: r._id, name: r.name }));
+      const itemToAdd = {
+        ...link,
+        ingredientName: ingredient.name,
+        ingredientImage: ingredient.image,
+      };
+      addToCart(itemToAdd, recipeInfos);
+      alert(`${getLocalizedValue(ingredient.name, i18n.language)} (${getLocalizedValue(link.store.name, i18n.language)}) ${t('added_to_cart_alert')}`);
+    };
+
     return (
       <Row>
         {ingredient.link.map(link => (
           <Col key={link._id} sm={12} md={6} lg={4} className="mb-3">
             <Card>
               <Card.Body>
-                <Card.Title>{getLocalizedValue(link.store.name, i18n.language)}</Card.Title>
                 <ListGroup variant="flush">
                   <ListGroup.Item>{t('price')}: {link.price} &euro;</ListGroup.Item>
                   {link.pricePerKg && <ListGroup.Item>{t('price_per_kg')}: {link.pricePerKg} &euro;</ListGroup.Item>}
                   <ListGroup.Item>{t('size_spec')}: {link.size}</ListGroup.Item>
                 </ListGroup>
-                <a href={link.uri} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-2">{t('go_to_store')}</a>
+                <div className="d-flex justify-content-between align-items-center mt-2">
+                  <Button variant="primary" onClick={() => handleAddToCart(link)}>{t('add_to_cart')}</Button>
+                  <a href={link.uri} target="_blank" rel="noopener noreferrer">
+                    {link.store.logo ? (
+                      <Image
+                        src={link.store.logo}
+                        alt={getLocalizedValue(link.store.name, i18n.language)}
+                        style={{ height: '30px', maxWidth: '100px' }}
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
+                    ) : (
+                      <FaStore size={30} title={getLocalizedValue(link.store.name, i18n.language)} />
+                    )}
+                  </a>
+                </div>
               </Card.Body>
             </Card>
           </Col>

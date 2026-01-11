@@ -1,0 +1,214 @@
+{
+  "methods": [
+    {
+      "name": {
+        "en": "Julienne",
+        "fi": "Suikaloi",
+        "zh": "切丝"
+      }
+    },
+    {
+      "name": {
+        "en": "Oblique cut",
+        "fi": "Viistoleikkaus",
+        "zh": "滚刀"
+      }
+    },
+    {
+      "name": {
+        "en": "Mince",
+        "fi": "Hienonna",
+        "zh": "切沫"
+      }
+    },
+    {
+      "name": {
+        "en": "Cut into sections",
+        "fi": "Leikkaa paloiksi",
+        "zh": "切断"
+      }
+    },
+    {
+      "name": {
+        "en": "Cube",
+        "fi": "Kuutioi",
+        "zh": "切块"
+      }
+    },
+    {
+      "name": {
+        "en": "Slice",
+        "fi": "Viipaloi",
+        "zh": "切片"
+      }
+    },
+    {
+      "name": {
+        "en": "Soak to remove blood",
+        "fi": "Liota veren poistamiseksi",
+        "zh": "去血水"
+      }
+    },
+    {
+      "name": {
+        "en": "Blanch",
+        "fi": "Ryöppää",
+        "zh": "焯水"
+      }
+    },
+    {
+      "name": {
+        "en": "Shred",
+        "fi": "Revi",
+        "zh": "撕碎"
+      }
+    },
+    {
+      "name": {
+        "en": "Dice",
+        "fi": "Pilko",
+        "zh": "切丁"
+      }
+    },
+    {
+      "name": {
+        "en": "Chop",
+        "fi": "Hakkaa",
+        "zh": "剁碎"
+      }
+    },
+    {
+      "name": {
+        "en": "Crush",
+        "fi": "Murskaa",
+        "zh": "拍碎"
+      }
+    },
+    {
+      "name": {
+        "en": "Cut in half",
+        "fi": "Halkaise",
+        "zh": "对半切"
+      }
+    },
+    {
+      "name": {
+        "en": "Remove tendon",
+        "fi": "Poista jänteet",
+        "zh": "去筋"
+      }
+    },
+    {
+      "name": {
+        "en": "Remove bones",
+        "fi": "Poista luut",
+        "zh": "去骨"
+      }
+    },
+    {
+      "name": {
+        "en": "Remove scales",
+        "fi": "Poista suomut",
+        "zh": "去鳞"
+      }
+    },
+    {
+      "name": {
+        "en": "Devein",
+        "fi": "Poista suoni",
+        "zh": "去虾线"
+      }
+    },
+    {
+      "name": {
+        "en": "Remove shell",
+        "fi": "Kuori",
+        "zh": "剥壳"
+      }
+    },
+    {
+      "name": {
+        "en": "Score",
+        "fi": "Viillä",
+        "zh": "花刀"
+      }
+    },
+    {
+      "name": {
+        "en": "Butterfly",
+        "fi": "Perhosleikkaus",
+        "zh": "蝴蝶切"
+      }
+    },
+    {
+      "name": {
+        "en": "Fillet",
+        "fi": "Fileeraa",
+        "zh": "片鱼"
+      }
+    },
+    {
+      "name": {
+        "en": "Trim fat",
+        "fi": "Poista rasva",
+        "zh": "去油"
+      }
+    },
+    {
+      "name": {
+        "en": "Cut diagonally",
+        "fi": "Leikkaa viistoon",
+        "zh": "斜切"
+      }
+    },
+    {
+      "name": {
+        "en": "Make slits",
+        "fi": "Tee viiltoja",
+        "zh": "开背"
+      }
+    },
+    {
+      "name": {
+        "en": "Soak",
+        "fi": "Liota",
+        "zh": "泡发"
+      }
+    },
+    {
+      "name": {
+        "en": "Shave",
+        "fi": "Höylää",
+        "zh": "刨片"
+      }
+    },
+    {
+      "name": {
+        "en": "Strip leaves",
+        "fi": "Irroita lehdet",
+        "zh": "摘叶"
+      }
+    },
+    {
+      "name": {
+        "en": "Peel",
+        "fi": "Kuori",
+        "zh": "削皮"
+      }
+    },
+    {
+      "name": {
+        "en": "Core",
+        "fi": "Poista siemenkota",
+        "zh": "去核"
+      }
+    },
+    {
+      "name": {
+        "en": "Cut florets",
+        "fi": "Leikkaa kukinnot",
+        "zh": "切小朵"
+      }
+    }
+  ]
+}

@@ -254,7 +254,6 @@
   "fetch_ingredient_details_failed": "获取食材详情失败。",
   "ingredient_not_found": "未找到该食材。",
   "no_purchase_links_available": "该食材暂无购买链接。",
-  "go_to_store": "前往商店",
   "no_recipes_use_this_ingredient": "暂无菜谱使用该食材。",
   "recipes_using_this_ingredient": "使用该食材的菜谱",
   "view_recipe": "查看菜谱",
@@ -274,5 +273,19 @@
   "source_recipe": "来源菜谱",
   "add_all_to_cart": "全部加购",
   "all_ingredients_added_to_cart": "已将{{count}}件商品加入购物车。",
-  "no_ingredients_to_add": "该菜谱没有可购买的商品。"
+  "no_ingredients_to_add": "该菜谱没有可购买的商品。",
+  "added_to_cart_alert": "已加入购物车。",
+  "my_recipes": "我的收藏",
+  "favorite": "收藏",
+  "unfavorite": "取消收藏",
+  "login_to_favorite": "请登录后收藏菜谱。",
+  "recipe_favorited_success": "菜谱已收藏！即将跳转到编辑页面。",
+  "recipe_unfavorited_success": "已取消收藏。",
+  "recipe_favorited_failed": "收藏失败。",
+  "my_favorited_recipes": "我收藏的菜谱",
+  "no_favorited_recipes": "您还没有收藏任何菜谱。",
+  "public": "公开",
+  "private": "私有",
+  "make_public": "将此菜谱公开",
+  "make_public_description": "允许其他用户看到您修改后的这个菜谱版本。"
 }

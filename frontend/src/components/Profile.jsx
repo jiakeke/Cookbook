@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col, Card, Form, Button, Alert, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext.jsx';
+import { getLocalizedValue } from '../utils/translationHelper';
 
 const Profile = () => {
   const { t, i18n } = useTranslation();
   const { token, updateUser } = useAuth();
 
   // State for profile form
-  const [formData, setFormData] = useState({
-    name: '',
-    birthday: '',
-    gender: '',
-    height: '',
-    weight: '',
-    avatar: '',
-    allergens: [],
-    specialGroups: [],
-  });
+  const [formData, setFormData] = useState({ name: '', birthday: '', gender: '', height: '', weight: '', avatar: '', allergens: [], specialGroups: [] });
   const [loading, setLoading] = useState(true);
   const [profileError, setProfileError] = useState('');
   const [profileSuccess, setProfileSuccess] = useState('');
@@ -28,22 +21,21 @@ const Profile = () => {
   const [allSpecialGroups, setAllSpecialGroups] = useState([]);
 
   // State for password form
-  const [passwordData, setPasswordData] = useState({
-    currentPassword: '',
-    newPassword: '',
-    confirmPassword: '',
-  });
+  const [passwordData, setPasswordData] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
   const [passwordError, setPasswordError] = useState('');
   const [passwordSuccess, setPasswordSuccess] = useState('');
 
+  // State for user's forked recipes is removed
+
   useEffect(() => {
-    const fetchProfileAndOptions = async () => {
+    const fetchAllData = async () => {
       setLoading(true);
       try {
+        const config = { headers: { Authorization: `Bearer ${token}` } };
         const [profileRes, allergensRes, specialGroupsRes] = await Promise.all([
-          axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`),
-          axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/allergens`),
-          axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/special-groups`)
+          axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, config),
+          axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/allergens`, config),
+          axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/special-groups`, config),
         ]);
 
         const { name, birthday, gender, height, weight, avatar, allergens, specialGroups } = profileRes.data;
@@ -70,7 +62,7 @@ const Profile = () => {
     };
 
     if (token) {
-      fetchProfileAndOptions();
+      fetchAllData();
     }
   }, [token, t]);
 
@@ -104,7 +96,6 @@ const Profile = () => {
     } catch (err) {
       const errorMsg = err.response?.data?.errors?.[0]?.msg || err.response?.data?.msg || t('update_profile_failed');
       setProfileError(errorMsg);
-      console.error(err);
     }
   };
 
@@ -121,84 +112,42 @@ const Profile = () => {
         return;
     }
     try {
-      const payload = { 
-        currentPassword: passwordData.currentPassword, 
-        newPassword: passwordData.newPassword 
-      };
+      const payload = { currentPassword: passwordData.currentPassword, newPassword: passwordData.newPassword };
       await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/change-password`, payload);
       setPasswordSuccess(t('update_password_success'));
       setPasswordData({ currentPassword: '', newPassword: '', confirmPassword: '' });
     } catch (err) {
       const errorMsg = err.response?.data?.msg || t('update_password_failed');
       setPasswordError(errorMsg);
-      console.error(err);
     }
   };
 
   if (loading) {
-    return <Spinner animation="border" />;
+    return <div className="text-center mt-5"><Spinner animation="border" /></div>;
   }
 
   return (
     <Container className="mt-5">
       <Row>
-        <Col>
-          {/* Profile Form Card */}
-          <Card style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <Col lg={8} className="mx-auto">
+          <Card>
             <Card.Body>
               <h3 className="text-center mb-4">{t('user_profile')}</h3>
               {profileError && <Alert variant="danger">{profileError}</Alert>}
               {profileSuccess && <Alert variant="success">{profileSuccess}</Alert>}
               <Form noValidate onSubmit={onProfileSubmit}>
-                {/* Profile fields... */}
                 <Form.Group className="mb-3" controlId="formName"><Form.Label>{t('name')}</Form.Label><Form.Control type="text" placeholder={t('enter_name')} name="name" value={formData.name} onChange={onProfileChange} required /></Form.Group>
                 <Form.Group className="mb-3" controlId="formAvatar"><Form.Label>{t('avatar_url')}</Form.Label><Form.Control type="text" placeholder="https://example.com/avatar.png" name="avatar" value={formData.avatar} onChange={onProfileChange} /></Form.Group>
                 <Form.Group className="mb-3" controlId="formBirthday"><Form.Label>{t('birthday')}</Form.Label><Form.Control type="date" name="birthday" value={formData.birthday} onChange={onProfileChange} /></Form.Group>
                 <Form.Group className="mb-3" controlId="formGender"><Form.Label>{t('gender')}</Form.Label><Form.Control as="select" name="gender" value={formData.gender} onChange={onProfileChange}><option value="">{t('select_gender')}</option><option value="male">{t('male')}</option><option value="female">{t('female')}</option><option value="other">{t('other')}</option></Form.Control></Form.Group>
                 <Row><Col md={6}><Form.Group className="mb-3" controlId="formHeight"><Form.Label>{t('height_cm')}</Form.Label><Form.Control type="number" placeholder="e.g., 175" name="height" value={formData.height} onChange={onProfileChange} /></Form.Group></Col><Col md={6}><Form.Group className="mb-3" controlId="formWeight"><Form.Label>{t('weight_kg')}</Form.Label><Form.Control type="number" placeholder="e.g., 70" name="weight" value={formData.weight} onChange={onProfileChange} /></Form.Group></Col></Row>
-                
-                <Form.Group className="mb-3" controlId="formAllergens">
-                  <Form.Label>{t('allergens')}</Form.Label>
-                  <div>
-                    {allAllergens.map(allergen => (
-                      <Form.Check
-                        type="checkbox"
-                        id={`profile-allergen-${allergen._id}`}
-                        key={allergen._id}
-                        label={allergen.name[i18n.language] || allergen.name.en}
-                        value={allergen._id}
-                        checked={formData.allergens.includes(allergen._id)}
-                        onChange={(e) => handleCheckboxChange(e, 'allergens')}
-                        inline
-                      />
-                    ))}
-                  </div>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formSpecialGroups">
-                  <Form.Label>{t('special_groups')}</Form.Label>
-                  <div>
-                    {allSpecialGroups.map(group => (
-                      <Form.Check
-                        type="checkbox"
-                        id={`profile-group-${group._id}`}
-                        key={group._id}
-                        label={group.name[i18n.language] || group.name.en}
-                        value={group._id}
-                        checked={formData.specialGroups.includes(group._id)}
-                        onChange={(e) => handleCheckboxChange(e, 'specialGroups')}
-                        inline
-                      />
-                    ))}
-                  </div>
-                </Form.Group>
-
+                <Form.Group className="mb-3" controlId="formAllergens"><Form.Label>{t('allergens')}</Form.Label><div>{allAllergens.map(allergen => (<Form.Check type="checkbox" id={`profile-allergen-${allergen._id}`} key={allergen._id} label={getLocalizedValue(allergen.name, i18n.language)} value={allergen._id} checked={formData.allergens.includes(allergen._id)} onChange={(e) => handleCheckboxChange(e, 'allergens')} inline />))}</div></Form.Group>
+                <Form.Group className="mb-3" controlId="formSpecialGroups"><Form.Label>{t('special_groups')}</Form.Label><div>{allSpecialGroups.map(group => (<Form.Check type="checkbox" id={`profile-group-${group._id}`} key={group._id} label={getLocalizedValue(group.name, i18n.language)} value={group._id} checked={formData.specialGroups.includes(group._id)} onChange={(e) => handleCheckboxChange(e, 'specialGroups')} inline />))}</div></Form.Group>
                 <div className="d-grid mt-3"><Button variant="primary" type="submit">{t('update_profile')}</Button></div>
               </Form>
             </Card.Body>
           </Card>
 
-          {/* Change Password Card */}
           <Card style={{ maxWidth: '600px', margin: '40px auto 0 auto' }}>
             <Card.Body>
               <h3 className="text-center mb-4">{t('change_password')}</h3>

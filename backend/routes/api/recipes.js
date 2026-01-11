@@ -9,7 +9,9 @@ const Comment = require('../../models/Comment');
 // @access  Public
 router.get('/', async (req, res) => {
   try {
-    const recipes = await Recipe.find()
+    const recipes = await Recipe.find({
+      $or: [{ isOriginal: { $ne: false } }, { isPublic: true }],
+    })
       .populate('country_or_region')
       .populate('creator', 'name')
       .sort({ _id: -1 });
@@ -22,8 +24,8 @@ router.get('/', async (req, res) => {
 
 // @route   GET api/recipes/:id
 // @desc    Get a single recipe by ID
-// @access  Public
-router.get('/:id', async (req, res) => {
+// @access  Public (with user-specific data if authenticated)
+router.get('/:id', passport.authenticate(['jwt', 'anonymous'], { session: false }), async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id)
       .populate('country_or_region')
@@ -44,9 +46,19 @@ router.get('/:id', async (req, res) => {
       return res.status(404).json({ msg: 'Recipe not found' });
     }
 
+    // Add comments
     recipe.comments = await Comment.find({ recipe: recipe._id })
       .populate('user', 'name avatar')
       .sort({ createdAt: -1 });
+
+    // Check if the current user has favorited this recipe
+    recipe.isFavorited = false;
+    if (req.user) {
+      const fork = await Recipe.findOne({ originalRecipe: recipe._id, creator: req.user.id });
+      if (fork) {
+        recipe.isFavorited = true;
+      }
+    }
 
     res.json(recipe);
   } catch (err) {
@@ -134,6 +146,78 @@ router.delete('/:id/like', (req, res, next) => {
       res.status(500).send('Server Error');
     }
   })(req, res, next);
+});
+
+// @route   POST api/recipes/:id/favorite
+// @desc    Favorite (fork) a recipe
+// @access  Private
+router.post('/:id/favorite', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  try {
+    const originalRecipe = await Recipe.findById(req.params.id).lean();
+    if (!originalRecipe) {
+      return res.status(404).json({ msg: 'Original recipe not found' });
+    }
+
+    // Check if user has already forked this recipe
+    const existingFork = await Recipe.findOne({
+      originalRecipe: originalRecipe._id,
+      creator: req.user.id,
+    });
+
+    if (existingFork) {
+      // User has already forked this, return the existing fork's ID
+      return res.status(200).json({ newRecipeId: existingFork._id, message: 'Recipe already favorited.' });
+    }
+
+    // Create a copy
+    const { _id, createdAt, updatedAt, ...recipeData } = originalRecipe;
+
+    const newRecipe = new Recipe({
+      ...recipeData,
+      creator: req.user.id,
+      isOriginal: false,
+      originalRecipe: originalRecipe._id,
+      // Reset likes and other user-specific data
+      likes_users: [],
+      likes_guests: [],
+      name: { ...recipeData.name }, // Ensure name object is a new copy
+      description: { ...recipeData.description },
+      preparation: { ...recipeData.preparation },
+      remark: { ...recipeData.remark },
+    });
+
+    await newRecipe.save();
+
+    res.status(201).json({ newRecipeId: newRecipe._id });
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   DELETE api/recipes/:id/favorite
+// @desc    Unfavorite (un-fork) a recipe
+// @access  Private
+router.delete('/:id/favorite', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  try {
+    const originalRecipeId = req.params.id;
+    const userId = req.user.id;
+
+    const deletedRecipe = await Recipe.findOneAndDelete({
+      originalRecipe: originalRecipeId,
+      creator: userId,
+    });
+
+    if (!deletedRecipe) {
+      return res.status(404).json({ msg: 'Favorite entry not found for this user and recipe.' });
+    }
+
+    res.json({ msg: 'Recipe removed from favorites.' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 module.exports = router;

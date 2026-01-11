@@ -1,0 +1,424 @@
+{
+  "ingredients": [
+    {
+      "name": {
+        "en": "Green Pepper",
+        "fi": "Vihreä Paprika",
+        "zh": "青椒"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Potato",
+        "fi": "Peruna",
+        "zh": "土豆"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Light Soy Sauce",
+        "fi": "Vaalea Soijakastike",
+        "zh": "生抽"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Salt",
+        "fi": "Suola",
+        "zh": "盐"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Cooking Oil",
+        "fi": "Ruokaöljy",
+        "zh": "食用油"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Scallop",
+        "fi": "Simpukka",
+        "zh": "扇贝"
+      },
+      "category": {
+        "en": "Seafood",
+        "fi": "Merenelävä",
+        "zh": "海鲜"
+      }
+    },
+    {
+      "name": {
+        "en": "Glass Noodles",
+        "fi": "Lasagnuudelit",
+        "zh": "粉丝"
+      },
+      "category": {
+        "en": "Staple",
+        "fi": "Perusruoka",
+        "zh": "主食"
+      }
+    },
+    {
+      "name": {
+        "en": "Garlic",
+        "fi": "Valkosipuli",
+        "zh": "蒜"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Ginger",
+        "fi": "Inkivääri",
+        "zh": "生姜"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Green Onion",
+        "fi": "Kevätsipuli",
+        "zh": "葱"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Eggplant",
+        "fi": "Munakoiso",
+        "zh": "茄子"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Ground Pork",
+        "fi": "Jauheliha",
+        "zh": "猪肉末"
+      },
+      "category": {
+        "en": "Meat",
+        "fi": "Liha",
+        "zh": "肉类"
+      }
+    },
+    {
+      "name": {
+        "en": "Oyster Sauce",
+        "fi": "Osterikastike",
+        "zh": "蚝油"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Chicken Thigh",
+        "fi": "Broilerin Reisi",
+        "zh": "鸡腿肉"
+      },
+      "category": {
+        "en": "Meat",
+        "fi": "Liha",
+        "zh": "肉类"
+      }
+    },
+    {
+      "name": {
+        "en": "Mushroom",
+        "fi": "Sieni",
+        "zh": "香菇"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Dark Soy Sauce",
+        "fi": "Tumma Soijakastike",
+        "zh": "老抽"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Cooking Wine",
+        "fi": "Ruoanlaittoon Tarkoitettu Viini",
+        "zh": "料酒"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Star Anise",
+        "fi": "Tähtianis",
+        "zh": "八角"
+      },
+      "category": {
+        "en": "Spice",
+        "fi": "Mauste",
+        "zh": "香料"
+      }
+    },
+    {
+      "name": {
+        "en": "Yellow Bean Sauce",
+        "fi": "Keltainen Papukastike",
+        "zh": "黄豆酱"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Tofu",
+        "fi": "Tofu",
+        "zh": "豆腐"
+      },
+      "category": {
+        "en": "Bean Products",
+        "fi": "Paputuotteet",
+        "zh": "豆制品"
+      }
+    },
+    {
+      "name": {
+        "en": "Doubanjiang",
+        "fi": "Doubanjiang",
+        "zh": "豆瓣酱"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Sichuan Peppercorn",
+        "fi": "Sichuanpippuri",
+        "zh": "花椒"
+      },
+      "category": {
+        "en": "Spice",
+        "fi": "Mauste",
+        "zh": "香料"
+      }
+    },
+    {
+      "name": {
+        "en": "Cornstarch",
+        "fi": "Maissitärkkelys",
+        "zh": "淀粉"
+      },
+      "category": {
+        "en": "Condiment",
+        "fi": "Mauste",
+        "zh": "调味料"
+      }
+    },
+    {
+      "name": {
+        "en": "Green Bean",
+        "fi": "Vihreä Papu",
+        "zh": "四季豆"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Cauliflower",
+        "fi": "Kukkakaali",
+        "zh": "花菜"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Pork Belly",
+        "fi": "Porsaankylki",
+        "zh": "五花肉"
+      },
+      "category": {
+        "en": "Meat",
+        "fi": "Liha",
+        "zh": "肉类"
+      }
+    },
+    {
+      "name": {
+        "en": "Dried Chili",
+        "fi": "Kuivattu Chili",
+        "zh": "干辣椒"
+      },
+      "category": {
+        "en": "Spice",
+        "fi": "Mauste",
+        "zh": "香料"
+      }
+    },
+    {
+      "name": {
+        "en": "Beef Tenderloin",
+        "fi": "Naudanfilee",
+        "zh": "牛里脊"
+      },
+      "category": {
+        "en": "Meat",
+        "fi": "Liha",
+        "zh": "肉类"
+      }
+    },
+    {
+      "name": {
+        "en": "Onion",
+        "fi": "Sipuli",
+        "zh": "洋葱"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Beef Brisket",
+        "fi": "Naudanrinta",
+        "zh": "牛腩"
+      },
+      "category": {
+        "en": "Meat",
+        "fi": "Liha",
+        "zh": "肉类"
+      }
+    },
+    {
+      "name": {
+        "en": "Tomato",
+        "fi": "Tomaatti",
+        "zh": "番茄"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Cinnamon",
+        "fi": "Kaneli",
+        "zh": "桂皮"
+      },
+      "category": {
+        "en": "Spice",
+        "fi": "Mauste",
+        "zh": "香料"
+      }
+    },
+    {
+      "name": {
+        "en": "Lamb Chop",
+        "fi": "Lampaankyljys",
+        "zh": "羊排"
+      },
+      "category": {
+        "en": "Meat",
+        "fi": "Liha",
+        "zh": "肉类"
+      }
+    },
+    {
+      "name": {
+        "en": "Carrot",
+        "fi": "Porkkana",
+        "zh": "胡萝卜"
+      },
+      "category": {
+        "en": "Vegetable",
+        "fi": "Vihannes",
+        "zh": "蔬菜"
+      }
+    },
+    {
+      "name": {
+        "en": "Cumin Powder",
+        "fi": "Juustokuminajauhe",
+        "zh": "孜然粉"
+      },
+      "category": {
+        "en": "Spice",
+        "fi": "Mauste",
+        "zh": "香料"
+      }
+    }
+  ]
+}

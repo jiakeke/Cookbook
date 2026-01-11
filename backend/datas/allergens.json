@@ -1,0 +1,124 @@
+{
+  "allergens": [
+    {
+      "name": {
+        "en": "Lactose",
+        "fi": "Laktoosi",
+        "zh": "乳糖"
+      },
+      "description": "Common dairy sugar that some people cannot digest"
+    },
+    {
+      "name": {
+        "en": "Gluten",
+        "fi": "Gluteeni",
+        "zh": "麸质"
+      },
+      "description": "Found in wheat, barley, rye, and some other grains"
+    },
+    {
+      "name": {
+        "en": "Peanuts",
+        "fi": "Maapähkinät",
+        "zh": "花生"
+      },
+      "description": "May trigger severe allergic reactions"
+    },
+    {
+      "name": {
+        "en": "Tree Nuts",
+        "fi": "Pähkinät",
+        "zh": "坚果"
+      },
+      "description": "Includes almonds, walnuts, cashews, etc."
+    },
+    {
+      "name": {
+        "en": "Milk",
+        "fi": "Maito",
+        "zh": "牛奶"
+      },
+      "description": "Includes all dairy products"
+    },
+    {
+      "name": {
+        "en": "Eggs",
+        "fi": "Kananmunat",
+        "zh": "鸡蛋"
+      },
+      "description": "Common ingredient in baked goods"
+    },
+    {
+      "name": {
+        "en": "Soy",
+        "fi": "Soija",
+        "zh": "大豆"
+      },
+      "description": "Found in many processed foods"
+    },
+    {
+      "name": {
+        "en": "Wheat",
+        "fi": "Vehnä",
+        "zh": "小麦"
+      },
+      "description": "Common in breads, pasta, and baked goods"
+    },
+    {
+      "name": {
+        "en": "Fish",
+        "fi": "Kala",
+        "zh": "鱼"
+      },
+      "description": "All species of finfish"
+    },
+    {
+      "name": {
+        "en": "Shellfish",
+        "fi": "Äyriäiset",
+        "zh": "贝类"
+      },
+      "description": "Includes shrimp, crab, and lobster"
+    },
+    {
+      "name": {
+        "en": "Sesame",
+        "fi": "Seesami",
+        "zh": "芝麻"
+      },
+      "description": "Common in Asian cuisine"
+    },
+    {
+      "name": {
+        "en": "Sulfites",
+        "fi": "Sulfiitit",
+        "zh": "亚硫酸盐"
+      },
+      "description": "Used as preservatives in dried fruits, wine, and processed foods"
+    },
+    {
+      "name": {
+        "en": "MSG",
+        "fi": "Natriumglutamaatti",
+        "zh": "味精"
+      },
+      "description": "Flavor enhancer common in Asian cuisine and processed foods"
+    },
+    {
+      "name": {
+        "en": "Celery",
+        "fi": "Selleri",
+        "zh": "芹菜"
+      },
+      "description": "Including celery roots, leaves, seeds and the spice celeriac"
+    },
+    {
+      "name": {
+        "en": "Mustard",
+        "fi": "Sinappi",
+        "zh": "芥末"
+      },
+      "description": "Including mustard seeds, leaves and oils"
+    }
+  ]
+}

@@ -23,6 +23,8 @@ import RecipeDetail from './components/RecipeDetail';
 import IngredientList from './components/IngredientList';
 import IngredientDetail from './components/IngredientDetail';
 import ShoppingCart from './components/ShoppingCart';
+import UserRecipeEdit from './components/UserRecipeEdit';
+import MyRecipes from './components/MyRecipes';
 import { useTranslation } from 'react-i18next';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { CartProvider } from './context/CartContext.jsx';
@@ -56,6 +58,8 @@ function App() {
             {/* Protected Routes for any logged-in user */}
             <Route element={<PrivateRoute />}>
               <Route path="/profile" element={<Profile />} />
+              <Route path="/my-recipes" element={<MyRecipes />} />
+              <Route path="/my-recipes/:id/edit" element={<UserRecipeEdit />} />
             </Route>
 
             {/* Protected Routes for admin users */}

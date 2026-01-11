@@ -1,31 +1,39 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Image, Spinner, Alert, Card, ListGroup, Table, Badge, Button } from 'react-bootstrap';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { getLocalizedValue } from '../utils/translationHelper';
 import CommentSection from './CommentSection';
 import StarRating from './StarRating';
 import { useLike } from '../hooks/useLike';
-import { FaShoppingCart, FaThumbsUp, FaRegThumbsUp, FaStore } from 'react-icons/fa';
+import { FaShoppingCart, FaThumbsUp, FaRegThumbsUp, FaStore, FaHeart, FaRegHeart } from 'react-icons/fa';
 import { CartContext } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 
 const RecipeDetail = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { addToCart, addAllToCart } = useContext(CartContext);
+  const { token, user } = useAuth();
   
   const { isLiked, likeCount, toggleLike } = useLike('recipe', recipe);
+  const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
     const fetchRecipe = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/recipes/${id}`);
+        const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
+        // Add cache-busting query parameter
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/recipes/${id}?timestamp=${new Date().getTime()}`;
+        const res = await axios.get(url, config);
         setRecipe(res.data);
+        setIsFavorited(res.data.isFavorited || false);
       } catch (err) {
         setError(t('fetch_recipes_failed'));
         console.error(err);
@@ -35,16 +43,15 @@ const RecipeDetail = () => {
     };
 
     fetchRecipe();
-  }, [id, t]);
+  }, [id, t, token]);
 
   const handleAddAllToCart = () => {
     if (!recipe || !recipe.ingredients) return;
 
     const itemsToAdd = recipe.ingredients.flatMap(ing => {
       if (!ing.ingredient || !ing.ingredient.link || ing.ingredient.link.length === 0) {
-        return []; // Return empty array if no links, flatMap will handle it
+        return [];
       }
-      // Map over all links for the current ingredient
       return ing.ingredient.link.map(linkToAdd => ({
         ...linkToAdd,
         ingredientName: ing.ingredient.name,
@@ -59,6 +66,35 @@ const RecipeDetail = () => {
       alert(t('all_ingredients_added_to_cart', { count: itemsToAdd.length }));
     } else {
       alert(t('no_ingredients_to_add'));
+    }
+  };
+
+  const toggleFavorite = async () => {
+    if (!user) {
+      alert(t('login_to_favorite'));
+      navigate('/login');
+      return;
+    }
+    
+    const config = { headers: { Authorization: `Bearer ${token}` } };
+
+    try {
+      if (isFavorited) {
+        // Unfavorite (delete the fork)
+        await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/recipes/${id}/favorite`, config);
+        setIsFavorited(false);
+        alert(t('recipe_unfavorited_success'));
+      } else {
+        // Favorite (create the fork)
+        const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/recipes/${id}/favorite`, {}, config);
+        const { newRecipeId } = res.data;
+        setIsFavorited(true);
+        alert(t('recipe_favorited_success'));
+        navigate(`/my-recipes/${newRecipeId}/edit`);
+      }
+    } catch (err) {
+      console.error('Failed to toggle favorite', err);
+      alert(err.response?.data?.message || t('recipe_favorited_failed'));
     }
   };
 
@@ -118,7 +154,6 @@ const RecipeDetail = () => {
                     <ListGroup.Item>{t('price')}: {link.price} &euro;</ListGroup.Item>
                     {link.pricePerKg && <ListGroup.Item>{t('price_per_kg')}: {link.pricePerKg} &euro;</ListGroup.Item>}
                     <ListGroup.Item>{t('size_spec')}: {link.size}</ListGroup.Item>
-                    <ListGroup.Item>{t('store')}: {getLocalizedValue(link.store.name, i18n.language)}</ListGroup.Item>
                   </ListGroup>
                   <div className="d-flex justify-content-between align-items-center mt-2">
                     <Button variant="primary" onClick={() => addToCart(link, { id: recipe._id, name: recipe.name })}>{t('add_to_cart')}</Button>
@@ -161,7 +196,14 @@ const RecipeDetail = () => {
             <Button variant="link" onClick={toggleLike} className="p-0 me-2">
               {isLiked ? <FaThumbsUp color="#0d6efd" size={24} /> : <FaRegThumbsUp size={24} />}
             </Button>
-            <span>{likeCount} {t('likes')}</span>
+            <span className="me-3">{likeCount} {t('likes')}</span>
+            
+            {user && (
+              <Button variant="link" onClick={toggleFavorite} className="p-0 text-danger">
+                {isFavorited ? <FaHeart size={24} /> : <FaRegHeart size={24} />}
+                <span className="ms-1">{isFavorited ? t('unfavorite') : t('favorite')}</span>
+              </Button>
+            )}
           </div>
           <p className="text-muted">{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</p>
           <p>{getLocalizedValue(recipe.description, i18n.language)}</p>

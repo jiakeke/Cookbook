@@ -1,0 +1,1007 @@
+{
+  "recipes": [
+    {
+      "name": {
+        "en": "Stir-fried Shredded Potato with Green Pepper",
+        "fi": "Paistetut perunasuikaleet vihreällä paprikalla",
+        "zh": "青椒土豆丝"
+      },
+
+  "description": {
+    "en": "A classic Chinese home-style dish featuring crisp shredded potatoes and green peppers, simple and refreshing.",
+    "fi": "Kiinan kotiruokaklassikko: rapeat perunasuikaleet ja vihreä paprika, yksinkertainen ja raikas.",
+    "zh": "家常菜，口感清脆，简单爽口。"
+  },
+
+  "creator": "等待用户ID",
+  "isAdminCreated": true,
+
+  "likes": [],
+  "likeCount": 0,
+
+  "image": "等待图片ID",
+
+  "country_or_region": "China",
+
+  "calorie": 160,
+  "protein": 3,
+  "carbohydrate": 25,
+  "fat": 6,
+
+  "preparation": {
+    "en": "1. Cut green peppers into thin strips.\n2. Cut potatoes into thin strips, soak in water for 4 minutes, then drain well.\n3. Heat the wok first, then add cold oil.\n4. Stir-fry the potato strips for 2-3 minutes.\n5. Add green peppers and continue stir-frying.\n6. When both vegetables are slightly cooked but still crisp, add 1 tablespoon of soy sauce and salt.\n7. Stir-fry briefly and serve.\n\nNote: If ingredients stick to the pan, add small amounts of water multiple times.",
+    "fi": "1. Leikkaa vihreä paprika ohuiksi suikaleiksi.\n2. Leikkaa perunat ohuiksi suikaleiksi, liota vedessä 4 minuuttia ja valuta hyvin.\n3. Kuumenna wokki ensin, lisää sitten kylmä öljy.\n4. Paista perunasuikaleita 2-3 minuuttia.\n5. Lisää paprika ja jatka paistamista.\n6. Kun molemmat vihannekset ovat hieman kypsiä mutta vielä rapeita, lisää 1 rkl soijakastiketta ja suolaa.\n7. Paista nopeasti ja tarjoa.\n\nHuom: Jos ainekset tarttuvat pannuun, lisää pieniä määriä vettä useita kertoja.",
+    "zh": "1. 青椒切丝。\n2. 土豆切丝，泡水4分钟，沥干水分。\n3. 热锅冷油。\n4. 放土豆丝翻炒2–3分钟。\n5. 放青椒，继续翻炒。\n6. 青椒土豆断生后，加生抽一汤匙，加盐。\n7. 快速翻炒出锅。\n\n注意：若粘锅可少量多次加点水。",
+    "cookingTime": 15
+  },
+
+  "servings": 2,
+
+ "ingredients": [
+    {
+      "ingredient": "青椒",
+      "quantity": 2,
+      "unit": "pcs",
+      "optional": false,
+      "method": "切丝"
+    },
+    {
+      "ingredient": "土豆",
+      "quantity": 2,
+      "unit": "medium pcs",
+      "optional": false,
+      "method": "切丝"
+    },
+    {
+      "ingredient": "生抽",
+      "quantity": 1,
+      "unit": "tbsp",
+      "optional": false,
+      "method": ""
+    },
+    {
+      "ingredient": "盐",
+      "quantity": 0.5,
+      "unit": "tsp",
+      "optional": false,
+      "method": ""
+    },
+    {
+      "ingredient": "食用油",
+      "quantity": 2,
+      "unit": "tbsp",
+      "optional": false,
+      "method": ""
+    }
+  ],
+
+  "remark": {
+    "en": "If potatoes stick to the pan, sprinkle a little water several times while frying. Green peppers are cheapest at Alanya Middle Eastern market; LIDL sells them seasonally.",
+    "fi": "Jos perunat tarttuvat pannuun, lisää vähän vettä useasti. Alanya (lähi-idän kauppa) on halvin paikka ostaa vihreitä paprikoita; LIDL myy niitä kausittain.",
+    "zh": "炒时若粘锅可少量多次加水。青椒在中东超市 Alanya 最便宜，LIDL 是季节性供应。"
+  },
+  "allergens": []
+    },
+    {
+      "name": {
+        "en": "Garlic Scallops with Glass Noodles",
+        "fi": "Valkosipulisimpukat lasagnuudeleilla",
+        "zh": "蒜蓉粉丝扇贝"
+      },
+      "description": {
+        "en": "Fresh scallops steamed with garlic and glass noodles, a delicate seafood dish that's both elegant and flavorful.",
+        "fi": "Tuoreita simpukoita höyrytettynä valkosipulin ja lasagnuudeleiden kanssa, hienostunut ja maukas mereneläväruoka.",
+        "zh": "新鲜扇贝配以蒜蓉和粉丝蒸制，清淡鲜美，既优雅又美味。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 280,
+      "protein": 20,
+      "carbohydrate": 30,
+      "fat": 8,
+      "preparation": {
+        "en": "1. Clean scallops and remove the orange roe if present.\n2. Soak glass noodles in warm water until soft.\n3. Mince garlic, ginger, and spring onions.\n4. Place glass noodles at the bottom of a heat-resistant plate.\n5. Arrange scallops on top of the noodles.\n6. Sprinkle minced garlic, ginger, and spring onions over the scallops.\n7. Steam for 5-7 minutes.\n8. Heat oil until very hot.\n9. Drizzle hot oil and soy sauce over the dish before serving.\n\nNote: Make sure the steaming water is boiling before placing the dish in the steamer.",
+        "fi": "1. Puhdista simpukat ja poista oranssi mäti, jos sellaista on.\n2. Liota lasagnuudeleita lämpimässä vedessä kunnes ne pehmenevät.\n3. Hienonna valkosipuli, inkivääri ja kevätsipuli.\n4. Aseta lasagnuudelit lämmönkestävän lautasen pohjalle.\n5. Asettele simpukat nuudeleiden päälle.\n6. Ripottele hienonnettu valkosipuli, inkivääri ja kevätsipuli simpukoiden päälle.\n7. Höyrytä 5-7 minuuttia.\n8. Kuumenna öljy erittäin kuumaksi.\n9. Viimeistele kuumalla öljyllä ja soijakastikkeella ennen tarjoilua.\n\nHuom: Varmista että höyrytinvesi kiehuu ennen astian asettamista höyryttimeen.",
+        "zh": "1. 扇贝洗净，如有橙色的蒌子可以去掉。\n2. 粉丝用温水泡软。\n3. 蒜末、姜末和葱花切好。\n4. 把粉丝铺在耐热盘底。\n5. 扇贝摆在粉丝上面。\n6. 撒上蒜末、姜末和葱花。\n7. 蒸5-7分钟。\n8. 准备热油。\n9. 最后淋上热油和生抽即可上桌。\n\n注意：上笼前确保蒸锅水已烧开。",
+        "cookingTime": 20
+      },
+      "servings": 2,
+      "ingredients": [
+        {
+          "ingredient": "扇贝",
+          "quantity": 8,
+          "unit": "pcs",
+          "optional": false,
+          "method": "洗净"
+        },
+        {
+          "ingredient": "粉丝",
+          "quantity": 100,
+          "unit": "g",
+          "optional": false,
+          "method": "泡发"
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "葱",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": "切碎"
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": "热油"
+        }
+      ],
+      "remark": {
+        "en": "Fresh scallops can be found at Citymarket or K-Supermarket fish counter. Glass noodles are available at Asian markets.",
+        "fi": "Tuoreita simpukoita löytyy Citymarketin tai K-Supermarketin kalatiskiltä. Lasagnuudeleita saa aasialaisista kaupoista.",
+        "zh": "新鲜扇贝可以在Citymarket或K-Supermarket的生鲜柜台买到。粉丝在亚洲超市有售。"
+      },
+      "allergens": ["shellfish"]
+    },
+    {
+      "name": {
+        "en": "Minced Pork with Eggplant",
+        "fi": "Jauheliha munakoison kanssa",
+        "zh": "肉沫茄子"
+      },
+      "description": {
+        "en": "A savory dish combining tender eggplant with seasoned minced pork, perfect over steamed rice.",
+        "fi": "Maukas ruoka, jossa yhdistyy pehmeä munakoiso ja maustettu jauheliha, täydellinen höyrytetyn riisin kanssa.",
+        "zh": "茄子嫩滑，搭配入味的肉沫，配米饭很完美。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 320,
+      "protein": 18,
+      "carbohydrate": 15,
+      "fat": 25,
+      "preparation": {
+        "en": "1. Cut eggplant into strips.\n2. Sprinkle salt on eggplant, let sit for 15 minutes, then squeeze out excess water.\n3. Heat oil in wok until hot.\n4. Fry eggplant until soft, remove and set aside.\n5. In the same wok, fry minced pork until color changes.\n6. Add minced garlic and ginger.\n7. Return eggplant to wok.\n8. Add seasonings and stir well.\n9. Garnish with chopped green onions before serving.\n\nNote: Properly removing excess water from eggplant helps achieve better texture and prevents oil splashing.",
+        "fi": "1. Leikkaa munakoiso suikaleiksi.\n2. Ripottele suolaa munakoisoille, anna levätä 15 minuuttia, purista ylimääräinen vesi pois.\n3. Kuumenna öljy wokissa kuumaksi.\n4. Paista munakoisot pehmeiksi, ota sivuun.\n5. Paista jauheliha samassa wokissa kunnes väri muuttuu.\n6. Lisää hienonnettu valkosipuli ja inkivääri.\n7. Lisää munakoiso takaisin wokkiin.\n8. Lisää mausteet ja sekoita hyvin.\n9. Koristele silputulla kevätsipulilla ennen tarjoilua.\n\nHuom: Ylimääräisen veden poistaminen munakoisosta auttaa saavuttamaan paremman koostumuksen ja estää öljyn roiskumista.",
+        "zh": "1. 茄子切条。\n2. 撒盐腌15分钟，挤出多余水分。\n3. 锅中放油烧热。\n4. 炸茄子至软，取出备用。\n5. 同一锅中炒肉沫至变色。\n6. 加入蒜末、姜末。\n7. 放回茄子。\n8. 加入调味料，翻炒均匀。\n9. 最后撒葱花装饰。\n\n注意：充分挤出茄子的水分可以保持口感并防止油溅。",
+        "cookingTime": 30
+      },
+      "servings": 2,
+      "ingredients": [
+        {
+          "ingredient": "茄子",
+          "quantity": 2,
+          "unit": "medium",
+          "optional": false,
+          "method": "切条"
+        },
+        {
+          "ingredient": "猪肉末",
+          "quantity": 200,
+          "unit": "g",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蚝油",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "葱",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": "切碎"
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 4,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "盐",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": "腌制用"
+        }
+      ],
+      "remark": {
+        "en": "Choose firm, glossy eggplants. Asian eggplants work best but regular ones are fine too. LIDL often has good prices on eggplants.",
+        "fi": "Valitse kiinteitä, kiiltäviä munakoisoja. Aasialaiset munakoisot toimivat parhaiten, mutta tavallisetkin käyvät. LIDLissä on usein hyviä tarjouksia munakoisoista.",
+        "zh": "选择紧实有光泽的茄子。亚洲茄子最好，但普通的也可以。LIDL的茄子经常很便宜。"
+      },
+      "allergens": []
+    },
+    {
+      "name": {
+        "en": "Braised Yellow Chicken",
+        "fi": "Haudutettua keltaista kanaa",
+        "zh": "黄焖鸡"
+      },
+      "description": {
+        "en": "A hearty braised chicken dish with mushrooms and potatoes in a rich soy sauce-based broth.",
+        "fi": "Runsas haudutettu kanaruoka sienien ja perunoiden kanssa rikkaassa soijakastikkeeseen pohjautuvassa liemessä.",
+        "zh": "鸡肉炖得软烂，配以香菇和土豆，浓郁的酱油味底汤。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 450,
+      "protein": 35,
+      "carbohydrate": 25,
+      "fat": 28,
+      "preparation": {
+        "en": "1. Cut chicken into bite-sized pieces, wash and drain well.\n2. Heat oil in wok.\n3. Stir-fry ginger and green onion until fragrant.\n4. Add chicken and stir-fry until color changes.\n5. Add light soy sauce, dark soy sauce, and yellow bean sauce.\n6. Add hot water to cover ingredients.\n7. Bring to a boil, then reduce to low heat.\n8. Add potatoes and mushrooms.\n9. Simmer for 20 minutes until tender.\n10. Adjust seasoning before serving.\n\nNote: Using hot water helps maintain the temperature and speeds up cooking.",
+        "fi": "1. Leikkaa kana suupaloiksi, pese ja valuta hyvin.\n2. Kuumenna öljy wokissa.\n3. Paista inkivääri ja kevätsipuli kunnes tuoksuvat.\n4. Lisää kana ja paista kunnes väri muuttuu.\n5. Lisää vaalea soijakastike, tumma soijakastike ja keltainen papukastike.\n6. Lisää kuumaa vettä peittämään ainekset.\n7. Kiehauta ja vähennä lämpöä.\n8. Lisää perunat ja sienet.\n9. Hauduta 20 minuuttia kunnes pehmeää.\n10. Mausta ennen tarjoilua.\n\nHuom: Kuuman veden käyttö auttaa ylläpitämään lämpötilaa ja nopeuttaa kypsymistä.",
+        "zh": "1. 鸡肉切块，冲洗干净并沥干水分。\n2. 锅中放油烧热。\n3. 爆香姜葱。\n4. 加入鸡肉翻炒至变色。\n5. 加入生抽、老抽，黄豆酱。\n6. 加热水没过材料。\n7. 大火烧开后转小火。\n8. 加入土豆和香菇。\n9. 焖20分钟至软烂。\n10. 调味后出锅。\n\n注意：加入热水可以保持温度，加快烹饪。",
+        "cookingTime": 40
+      },
+      "servings": 4,
+      "ingredients": [
+        {
+          "ingredient": "鸡腿肉",
+          "quantity": 500,
+          "unit": "g",
+          "optional": false,
+          "method": "切块"
+        },
+        {
+          "ingredient": "土豆",
+          "quantity": 2,
+          "unit": "medium",
+          "optional": false,
+          "method": "切块"
+        },
+        {
+          "ingredient": "香菇",
+          "quantity": 200,
+          "unit": "g",
+          "optional": false,
+          "method": "对半切"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 3,
+          "unit": "slices",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "葱",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": "切段"
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "老抽",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "料酒",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "八角",
+          "quantity": 2,
+          "unit": "pcs",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "黄豆酱",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        }
+      ],
+      "remark": {
+        "en": "Best made with chicken thighs for more flavor. Chinese cooking wine can be found in Asian markets, or substitute with dry sherry.",
+        "fi": "Parhaiten sopii kanankoivet niiden maun vuoksi. Kiinalaista ruoanlaittoon tarkoitettua viiniä löytyy aasialaisista kaupoista, tai korvaa kuivalla sherryllä.",
+        "zh": "最好用鸡腿肉，味道更好。料酒在亚洲超市有售，也可以用干雪利酒代替。"
+      },
+      "allergens": []
+    },
+    {
+      "name": {
+        "en": "Mapo Tofu",
+        "fi": "Mapo tofu",
+        "zh": "麻婆豆腐"
+      },
+      "description": {
+        "en": "A classic Sichuan dish featuring soft tofu in a spicy sauce with minced meat, numbing and spicy.",
+        "fi": "Klassinen Sichuanin ruoka, jossa pehmeää tofua mausteisessa kastikkeessa jauhelihan kanssa, puuduttavan tulinen.",
+        "zh": "四川经典菜品，嫩滑豆腐配上肉末，麻辣可口。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 300,
+      "protein": 20,
+      "carbohydrate": 8,
+      "fat": 22,
+      "preparation": {
+        "en": "1. Cut tofu into cubes.\n2. Prepare hot water with dark soy sauce, soak tofu for 5 minutes, then drain.\n3. Heat oil in wok.\n4. Fry minced meat until color changes.\n5. Add doubanjiang and stir-fry until fragrant.\n6. Add minced garlic, ginger, and Sichuan peppercorns.\n7. Add water and seasonings, bring to boil.\n8. Gently add tofu, simmer for 3-5 minutes.\n9. Gradually add cornstarch slurry to thicken.\n10. Top with chopped green onions and ground Sichuan pepper.\n\nNote: Adding dark soy sauce to the soaking water helps tofu maintain its shape and adds color.",
+        "fi": "1. Leikkaa tofu kuutioiksi.\n2. Valmista kuuma vesi tummalla soijakastikkeella, liota tofua 5 minuuttia, valuta.\n3. Kuumenna öljy wokissa.\n4. Paista jauheliha kunnes väri muuttuu.\n5. Lisää doubanjiang ja paista kunnes tuoksuva.\n6. Lisää hienonnettu valkosipuli, inkivääri ja sichuanpippuri.\n7. Lisää vesi ja mausteet, kiehauta.\n8. Lisää tofu varovasti, hauduta 3-5 minuuttia.\n9. Lisää maissitärkkelysseosta vähitellen suurusteeksi.\n10. Koristele silputulla kevätsipulilla ja jauhetulla sichuanpippurilla.\n\nHuom: Tumman soijakastikkeen lisääminen liotusveteen auttaa tofua säilyttämään muotonsa ja lisää väriä.",
+        "zh": "1. 豆腐切块。\n2. 准备热水并加入适量老抽，放入豆腐浸泡5分钟后沥干备用。\n3. 锅中热油。\n4. 炒肉末至变色。\n5. 加入豆瓣酱翻炒出香。\n6. 加入蒜末、姜末和花椒。\n7. 加水和调味料，煮沸。\n8. 轻轻放入豆腐，煮3-5分钟。\n9. 少量多次加入水淀粉勾芡。\n10. 最后撒上葱花和花椒粉。\n\n注意：在浸泡水中加入老抽可以帮助豆腐保持形状并上色。",
+        "cookingTime": 25
+      },
+      "servings": 2,
+      "ingredients": [
+        {
+          "ingredient": "豆腐",
+          "quantity": 400,
+          "unit": "g",
+          "optional": false,
+          "method": "切块"
+        },
+        {
+          "ingredient": "猪肉末",
+          "quantity": 150,
+          "unit": "g",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "豆瓣酱",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "花椒",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "老抽",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": "浸泡用"
+        },
+        {
+          "ingredient": "料酒",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "葱",
+          "quantity": 2,
+          "unit": "stalks",
+          "optional": false,
+          "method": "切碎"
+        },
+        {
+          "ingredient": "淀粉",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": "水淀粉"
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        }
+      ],
+      "remark": {
+        "en": "Doubanjiang (fermented broad bean paste) is essential and can be found in Asian markets. Use soft tofu for authentic texture. Vegan version can be made with impossible meat or omit meat entirely.",
+        "fi": "Doubanjiang (fermentoitu härkäpapumurska) on olennainen ja löytyy aasialaisista kaupoista. Käytä pehmeää tofua autenttisen koostumuksen saamiseksi. Vegaaninen versio voidaan tehdä impossible-lihalla tai jättää liha pois kokonaan.",
+        "zh": "豆瓣酱是必需的，亚洲超市有售。用嫩豆腐口感最正宗。素食版本可以用impossible肉或完全不放肉。"
+      },
+      "allergens": ["soy"]
+    },
+    {
+      "name": {
+        "en": "Minced Pork with Green Beans",
+        "fi": "Jauheliha vihreiden papujen kanssa",
+        "zh": "肉沫四季豆"
+      },
+      "description": {
+        "en": "A quick stir-fry dish with crispy green beans and savory minced pork, seasoned with soy sauce.",
+        "fi": "Nopea wokkaus rapeilla vihreillä pavuilla ja maukkaalla jauhelihalla, maustettu soijakastikkeella.",
+        "zh": "快炒小菜，四季豆清脆，肉沫鲜香，生抽提味。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 250,
+      "protein": 15,
+      "carbohydrate": 12,
+      "fat": 18,
+      "preparation": {
+        "en": "1. Trim and cut green beans into small sections.\n2. Heat oil in wok until smoking.\n3. Fry green beans until skin blisters, then remove and set aside.\n4. Using the same wok, fry minced pork until browned.\n5. Add minced garlic and ginger.\n6. Return beans to wok.\n7. Add seasonings and stir-fry briefly.",
+        "fi": "1. Leikkaa pavut pieniksi paloiksi.\n2. Kuumenna öljy wokissa kunnes savuaa.\n3. Paista pavut kunnes kuori rakkuloituu, ota sivuun.\n4. Paista jauheliha samassa wokissa ruskeaksi.\n5. Lisää hienonnettu valkosipuli ja inkivääri.\n6. Lisää pavut takaisin wokkiin.\n7. Lisää mausteet ja paista nopeasti.",
+        "zh": "1. 四季豆去筋切小段。\n2. 锅中油热至冒烟。\n3. 炒至四季豆表皮起泡，盛出备用。\n4. 同一锅中炒肉沫至变色。\n5. 加入蒜末、姜末。\n6. 放回豆子。\n7. 加调味料快炒。",
+        "cookingTime": 20
+      },
+      "servings": 2,
+      "ingredients": [
+        {
+          "ingredient": "四季豆",
+          "quantity": 300,
+          "unit": "g",
+          "optional": false,
+          "method": "切段"
+        },
+        {
+          "ingredient": "猪肉末",
+          "quantity": 150,
+          "unit": "g",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蚝油",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        }
+      ],
+      "remark": {
+        "en": "Choose fresh, crisp green beans. They should snap easily when bent. Available year-round in most supermarkets.",
+        "fi": "Valitse tuoreita, rapeita vihreitä papuja. Niiden pitäisi napsahtaa helposti taivutettaessa. Saatavilla ympäri vuoden useimmissa supermarketeissa.",
+        "zh": "选择新鲜脆嫩的四季豆，掰折时应该容易断开。大多数超市全年有售。"
+      },
+      "allergens": []
+    },
+    {
+      "name": {
+        "en": "Dry-Fried Cauliflower",
+        "fi": "Kuivapaahdettu kukkakaali",
+        "zh": "干锅花菜"
+      },
+      "description": {
+        "en": "Spicy dry-fried cauliflower with sliced pork belly, a flavorful dish with a perfect balance of vegetables and meat.",
+        "fi": "Tulinen kuivapaahdettu kukkakaali porsaankyljen kanssa, maukas ruoka jossa täydellinen tasapaino kasviksia ja lihaa.",
+        "zh": "花菜配五花肉干锅烹饪，荤素搭配，香辣可口。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 280,
+      "protein": 12,
+      "carbohydrate": 15,
+      "fat": 20,
+      "preparation": {
+        "en": "1. Cut cauliflower into small florets.\n2. Slice pork belly.\n3. Heat oil in wok.\n4. Fry pork belly until fat renders.\n5. Add dried chili and Sichuan peppercorns.\n6. Add cauliflower, stir-fry until edges brown slightly.\n7. Add minced garlic, ginger, and seasonings.\n8. Add some water, cover and simmer on low heat until tender.\n\nNote: Don't add too much water; the dish should be relatively dry when finished.",
+        "fi": "1. Paloittele kukkakaali pieniksi kukinnoksi.\n2. Viipaloi porsankylki.\n3. Kuumenna öljy wokissa.\n4. Paista porsaankylkeä kunnes rasva sulaa.\n5. Lisää kuivatut chilit ja sichuanpippurit.\n6. Lisää kukkakaali, paista kunnes reunat ruskistuvat hieman.\n7. Lisää hienonnettu valkosipuli, inkivääri ja mausteet.\n8. Lisää hieman vettä, peitä ja hauduta miedolla lämmöllä kypsäksi.\n\nHuom: Älä lisää liikaa vettä; ruoan tulisi olla suhteellisen kuiva valmiina.",
+        "zh": "1. 花菜切小朵。\n2. 五花肉切片。\n3. 锅中热油。\n4. 炒五花肉出油。\n5. 加入干辣椒和花椒。\n6. 放入花菜，炒至边缘微焦。\n7. 加入蒜末、姜末和调味料。\n8. 加入适量清水，盖盖小火焖至断生。\n\n注意：不要加太多水，成菜应该偏干。",
+        "cookingTime": 25
+      },
+      "servings": 3,
+      "ingredients": [
+        {
+          "ingredient": "花菜",
+          "quantity": 500,
+          "unit": "g",
+          "optional": false,
+          "method": "切小朵"
+        },
+        {
+          "ingredient": "五花肉",
+          "quantity": 150,
+          "unit": "g",
+          "optional": false,
+          "method": "切片"
+        },
+        {
+          "ingredient": "干辣椒",
+          "quantity": 4,
+          "unit": "pcs",
+          "optional": false,
+          "method": "对半切"
+        },
+        {
+          "ingredient": "花椒",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        }
+      ],
+      "remark": {
+        "en": "Choose firm, white cauliflower without brown spots. Can be made vegetarian by omitting pork belly. LIDL and Prisma often have good prices on cauliflower.",
+        "fi": "Valitse kiinteä, valkoinen kukkakaali ilman ruskeita täpliä. Voidaan tehdä kasvisversiona jättämällä porsaankylki pois. LIDLissä ja Prismassa on usein hyviä tarjouksia kukkakaaleista.",
+        "zh": "选择结实、洁白、无褐斑的花菜。可以不放五花肉做素食版本。LIDL和Prisma的花菜经常特价。"
+      },
+      "allergens": []
+    },
+    {
+      "name": {
+        "en": "Stir-Fried Beef",
+        "fi": "Wokattu naudanliha",
+        "zh": "小炒牛肉"
+      },
+      "description": {
+        "en": "Quick-fried tender beef slices with vegetables in a savory sauce, a classic Chinese stir-fry dish.",
+        "fi": "Nopeasti paistetut mureat naudanlihaviipaleet kasvisten kanssa maukkaassa kastikkeessa, klassinen kiinalainen wokkiruoka.",
+        "zh": "牛肉嫩滑，配以时令蔬菜，经典快炒菜品。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 350,
+      "protein": 28,
+      "carbohydrate": 10,
+      "fat": 24,
+      "preparation": {
+        "en": "1. Slice beef against grain.\n2. Marinate beef with soy sauce, cornstarch, and oil.\n3. Cut all vegetables.\n4. Heat wok until smoking.\n5. Stir-fry beef until medium rare, then remove.\n6. Stir-fry vegetables until crisp-tender.\n7. Return beef to wok.\n8. Add sauce mixture and toss quickly.",
+        "fi": "1. Viipaloi liha syiden vastaisesti.\n2. Marinoi liha soijakastikkeella, maissitärkkelyksellä ja öljyllä.\n3. Leikkaa kaikki kasvikset.\n4. Kuumenna wokki kunnes savuaa.\n5. Paista liha puolikypsäksi, ota sivuun.\n6. Paista kasvikset rapeiksi.\n7. Lisää liha takaisin wokkiin.\n8. Lisää kastikeseos ja sekoita nopeasti.",
+        "zh": "1. 牛肉逆纹切片。\n2. 加生抽、淀粉和油腌制。\n3. 切好配菜。\n4. 锅烧热至冒烟。\n5. 快炒牛肉至七分熟，盛出。\n6. 炒蔬菜至断生。\n7. 放回牛肉。\n8. 加入酱汁快炒。",
+        "cookingTime": 20
+      },
+      "servings": 2,
+      "ingredients": [
+        {
+          "ingredient": "牛里脊",
+          "quantity": 300,
+          "unit": "g",
+          "optional": false,
+          "method": "切片"
+        },
+        {
+          "ingredient": "青椒",
+          "quantity": 1,
+          "unit": "large",
+          "optional": false,
+          "method": "切片"
+        },
+        {
+          "ingredient": "洋葱",
+          "quantity": 1,
+          "unit": "medium",
+          "optional": false,
+          "method": "切片"
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 3,
+          "unit": "cloves",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 1,
+          "unit": "thumb",
+          "optional": false,
+          "method": "剁碎"
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蚝油",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "料酒",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "淀粉",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": "腌制用"
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        }
+      ],
+      "remark": {
+        "en": "Use tender cuts like sirloin or tenderloin. For best results, freeze beef for 30 minutes before slicing. S-market often has good quality beef on sale.",
+        "fi": "Käytä mureiden osien lihaa kuten sisäfileetä tai ulkofileetä. Parhaan tuloksen saat pakastamalla lihan 30 minuutiksi ennen viipalointia. S-marketissa on usein laadukasta naudanlihaa tarjouksessa.",
+        "zh": "使用里脊或嫩牛肉。最好在切片前把牛肉冷冻30分钟。S-market经常有品质好的牛肉特价。"
+      },
+      "allergens": []
+    },
+    {
+      "name": {
+        "en": "Beef Brisket Stew with Potatoes and Tomatoes",
+        "fi": "Naudan rintalihapataa perunoiden ja tomaattien kanssa",
+        "zh": "土豆番茄炖牛腩"
+      },
+      "description": {
+        "en": "A hearty stew with tender beef brisket, potatoes, and tomatoes in a rich broth.",
+        "fi": "Ruokaisa pata murealla naudanrinnalla, perunoilla ja tomaateilla rikkaassa liemessä.",
+        "zh": "浓汤炖煮，牛腩酥烂，土豆绵软，番茄鲜美。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 480,
+      "protein": 35,
+      "carbohydrate": 30,
+      "fat": 28,
+      "preparation": {
+        "en": "1. Cut beef into chunks.\n2. Brown beef in hot oil.\n3. Add ginger, garlic, and spices.\n4. Add water and bring to boil.\n5. Reduce heat and simmer for 1 hour.\n6. Add potatoes and tomatoes.\n7. Cook until vegetables are tender.\n8. Season with soy sauce and salt.",
+        "fi": "1. Leikkaa liha paloiksi.\n2. Ruskista liha kuumassa öljyssä.\n3. Lisää inkivääri, valkosipuli ja mausteet.\n4. Lisää vesi ja kiehauta.\n5. Vähennä lämpöä ja hauduta 1 tunti.\n6. Lisää perunat ja tomaatit.\n7. Kypsennä kunnes kasvikset ovat pehmeitä.\n8. Mausta soijakastikkeella ja suolalla.",
+        "zh": "1. 牛腩切块。\n2. 热油煎至牛肉表面焦黄。\n3. 加入姜片、蒜和香料。\n4. 加水烧开。\n5. 转小火炖1小时。\n6. 加入土豆和番茄。\n7. 炖至蔬菜软烂。\n8. 加生抽和盐调味。",
+        "cookingTime": 90
+      },
+      "servings": 4,
+      "ingredients": [
+        {
+          "ingredient": "牛腩",
+          "quantity": 600,
+          "unit": "g",
+          "optional": false,
+          "method": "切块"
+        },
+        {
+          "ingredient": "土豆",
+          "quantity": 3,
+          "unit": "medium",
+          "optional": false,
+          "method": "切块"
+        },
+        {
+          "ingredient": "番茄",
+          "quantity": 3,
+          "unit": "medium",
+          "optional": false,
+          "method": "切块"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 4,
+          "unit": "slices",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "拍碎"
+        },
+        {
+          "ingredient": "八角",
+          "quantity": 2,
+          "unit": "pcs",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "桂皮",
+          "quantity": 1,
+          "unit": "pc",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "料酒",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "盐",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": "调味用"
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 3,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        }
+      ],
+      "remark": {
+        "en": "Choose well-marbled beef brisket for best results. Can be cooked in a slow cooker for 6-8 hours on low. Citymarket's meat counter often has good brisket.",
+        "fi": "Valitse hyvin marmoroitunutta naudanrintaa parhaan tuloksen saamiseksi. Voidaan valmistaa hitaassa keittimessä 6-8 tuntia matalalla lämmöllä. Citymarketin lihatiskillä on usein hyvää rintaa.",
+        "zh": "选择有油花的牛腩效果最好。可以用慢炖锅低温煮6-8小时。Citymarket的生鲜柜台经常有好的牛腩。"
+      },
+      "allergens": []
+    },
+    {
+      "name": {
+        "en": "Braised Lamb Chops with Carrots",
+        "fi": "Haudutetut lampaankyljykset porkkanoiden kanssa",
+        "zh": "羊排烧胡萝卜"
+      },
+      "description": {
+        "en": "Tender lamb chops braised with sweet carrots, a perfect combination of meat and vegetables.",
+        "fi": "Mureita lampaankyljyksiä haudutettuna makeiden porkkanoiden kanssa, täydellinen lihan ja kasvisten yhdistelmä.",
+        "zh": "羊排炖得软烂，胡萝卜香甜，荤素搭配恰到好处。"
+      },
+      "creator": "等待用户ID",
+      "isAdminCreated": true,
+      "likes": [],
+      "likeCount": 0,
+      "image": "等待图片ID",
+      "country_or_region": "China",
+      "calorie": 420,
+      "protein": 32,
+      "carbohydrate": 18,
+      "fat": 26,
+      "preparation": {
+        "en": "1. Trim excess fat from lamb chops.\n2. Season with cumin and salt.\n3. Brown the lamb in hot oil.\n4. Add ginger, garlic, and Shaoxing wine.\n5. Add carrots and water.\n6. Braise until meat is tender and carrots are soft.",
+        "fi": "1. Poista ylimääräinen rasva lampaankyljyksistä.\n2. Mausta juustokuminalla ja suolalla.\n3. Ruskista liha kuumassa öljyssä.\n4. Lisää inkivääri, valkosipuli ja Shaoxing-viini.\n5. Lisää porkkanat ja vesi.\n6. Hauduta kunnes liha on mureaa ja porkkanat pehmeitä.",
+        "zh": "1. 羊排去除多余脂肪。\n2. 撒上孜然和盐调味。\n3. 热油煎至表面焦黄。\n4. 加入姜片、蒜和料酒。\n5. 加入胡萝卜和水。\n6. 炖至羊肉酥烂，胡萝卜软糯。",
+        "cookingTime": 60
+      },
+      "servings": 3,
+      "ingredients": [
+        {
+          "ingredient": "羊排",
+          "quantity": 600,
+          "unit": "g",
+          "optional": false,
+          "method": "去油"
+        },
+        {
+          "ingredient": "胡萝卜",
+          "quantity": 3,
+          "unit": "large",
+          "optional": false,
+          "method": "切块"
+        },
+        {
+          "ingredient": "生姜",
+          "quantity": 4,
+          "unit": "slices",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "蒜",
+          "quantity": 4,
+          "unit": "cloves",
+          "optional": false,
+          "method": "拍碎"
+        },
+        {
+          "ingredient": "孜然粉",
+          "quantity": 1,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "料酒",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "生抽",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        },
+        {
+          "ingredient": "盐",
+          "quantity": 1,
+          "unit": "tsp",
+          "optional": false,
+          "method": "调味用"
+        },
+        {
+          "ingredient": "食用油",
+          "quantity": 2,
+          "unit": "tbsp",
+          "optional": false,
+          "method": ""
+        }
+      ],
+      "remark": {
+        "en": "New Zealand lamb chops are often available at K-Citymarket. For less gamey flavor, trim visible fat before cooking. Fresh carrots from farmers' markets are sweeter.",
+        "fi": "Uusiseelantilaisia lampaankyljyksiä on usein saatavilla K-Citymarketissa. Vähemmän voimakkaan maun saamiseksi poista näkyvä rasva ennen kypsentämistä. Tuoreet porkkanat torilta ovat makeampia.",
+        "zh": "K-Citymarket经常有新西兰羊排。如果想减少膻味，可以在烹饪前去除可见的脂肪。农贸市场的新鲜胡萝卜更甜。"
+      },
+      "allergens": []
+    }
+  ]
+}
