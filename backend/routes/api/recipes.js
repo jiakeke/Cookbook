@@ -25,49 +25,53 @@ router.get('/', async (req, res) => {
 // @route   GET api/recipes/:id
 // @desc    Get a single recipe by ID
 // @access  Public (with user-specific data if authenticated)
-router.get('/:id', passport.authenticate(['jwt', 'anonymous'], { session: false }), async (req, res) => {
-  try {
-    const recipe = await Recipe.findById(req.params.id)
-      .populate('country_or_region')
-      .populate('creator', 'name')
-      .populate({
-        path: 'ingredients.ingredient',
-        model: 'ingredient',
-        populate: [
-          { path: 'link.store', model: 'store' },
-          { path: 'allergens', model: 'allergen' },
-          { path: 'specials', model: 'specialGroup' },
-        ]
-      })
-      .populate('ingredients.method')
-      .lean();
+router.get('/:id', (req, res, next) => {
+  passport.authenticate('jwt', { session: false }, async (err, user, info) => {
+    if (err) { return next(err); }
+    
+    try {
+      const recipe = await Recipe.findById(req.params.id)
+        .populate('country_or_region')
+        .populate('creator', 'name')
+        .populate({
+          path: 'ingredients.ingredient',
+          model: 'ingredient',
+          populate: [
+            { path: 'link.store', model: 'store' },
+            { path: 'allergens', model: 'allergen' },
+            { path: 'specials', model: 'specialGroup' },
+          ]
+        })
+        .populate('ingredients.method')
+        .lean();
 
-    if (!recipe) {
-      return res.status(404).json({ msg: 'Recipe not found' });
-    }
-
-    // Add comments
-    recipe.comments = await Comment.find({ recipe: recipe._id })
-      .populate('user', 'name avatar')
-      .sort({ createdAt: -1 });
-
-    // Check if the current user has favorited this recipe
-    recipe.isFavorited = false;
-    if (req.user) {
-      const fork = await Recipe.findOne({ originalRecipe: recipe._id, creator: req.user.id });
-      if (fork) {
-        recipe.isFavorited = true;
+      if (!recipe) {
+        return res.status(404).json({ msg: 'Recipe not found' });
       }
-    }
 
-    res.json(recipe);
-  } catch (err) {
-    console.error(err.message);
-    if (err.kind === 'ObjectId') {
-      return res.status(404).json({ msg: 'Recipe not found' });
+      // Add comments
+      recipe.comments = await Comment.find({ recipe: recipe._id })
+        .populate('user', 'name avatar')
+        .sort({ createdAt: -1 });
+
+      // Check if the current user has favorited this recipe
+      recipe.isFavorited = false;
+      if (user) { // user will be null if not authenticated, so this check is safe
+        const fork = await Recipe.findOne({ originalRecipe: recipe._id, creator: user.id });
+        if (fork) {
+          recipe.isFavorited = true;
+        }
+      }
+
+      res.json(recipe);
+    } catch (err) {
+      console.error(err.message);
+      if (err.kind === 'ObjectId') {
+        return res.status(404).json({ msg: 'Recipe not found' });
+      }
+      res.status(500).send('Server Error');
     }
-    res.status(500).send('Server Error');
-  }
+  })(req, res, next);
 });
 
 // @route   POST api/recipes/:id/like

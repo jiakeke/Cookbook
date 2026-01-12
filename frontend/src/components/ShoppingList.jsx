@@ -25,7 +25,7 @@ const ShoppingList = React.forwardRef(({ items }, ref) => {
   return (
     <div ref={ref} style={{ width: '210mm', padding: '15mm', backgroundColor: 'white' }}>
       <Container fluid>
-        <h1 className="text-center mb-4">{t('shopping_list')}</h1>
+        <h1 className="mb-4">{t('shopping_list')}</h1>
         
         {Object.values(groupedByStore).map(({ storeInfo, items }) => (
           <Card key={storeInfo._id} className="mb-4">
@@ -67,7 +67,7 @@ const ShoppingList = React.forwardRef(({ items }, ref) => {
                       )}
                       <span className="text-muted small d-block mt-1">{t('size_spec')}: {item.size}</span>
                     </Col>
-                    <Col xs={2} className="text-center">
+                    <Col xs={2} className="text-start">
                       <span>x {item.quantity}</span>
                     </Col>
                     <Col xs={2} className="text-end">
@@ -85,7 +85,7 @@ const ShoppingList = React.forwardRef(({ items }, ref) => {
             <h4 className="text-end">{t('total_cost')}: {totalCost.toFixed(2)} &euro;</h4>
           </Card.Body>
         </Card>
-        <div className="text-center text-muted mt-4" style={{ fontSize: '10px' }}>
+        <div className="text-muted mt-4" style={{ fontSize: '10px' }}>
             {new Date().toLocaleString()}
         </div>
       </Container>

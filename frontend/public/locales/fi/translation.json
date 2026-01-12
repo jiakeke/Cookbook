@@ -287,5 +287,9 @@
   "public": "Julkinen",
   "private": "Yksityinen",
   "make_public": "Tee tästä reseptistä julkinen",
-  "make_public_description": "Anna muiden käyttäjien nähdä muokattu versiosi tästä reseptistä."
+  "make_public_description": "Anna muiden käyttäjien nähdä muokattu versiosi tästä reseptistä.",
+  "share": "Jaa",
+  "by": "Tekijä",
+  "share_preview": "Jaa esikatselu",
+  "image_generation_failed": "Kuvan luominen epäonnistui."
 }

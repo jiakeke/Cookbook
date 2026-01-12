@@ -287,5 +287,9 @@
   "public": "公开",
   "private": "私有",
   "make_public": "将此菜谱公开",
-  "make_public_description": "允许其他用户看到您修改后的这个菜谱版本。"
+  "make_public_description": "允许其他用户看到您修改后的这个菜谱版本。",
+  "share": "分享",
+  "by": "作者：",
+  "share_preview": "分享预览",
+  "image_generation_failed": "生成图片失败。"
 }

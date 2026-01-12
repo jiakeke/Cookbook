@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Container, Row, Col, Image, Spinner, Alert, Card, ListGroup, Table, Badge, Button } from 'react-bootstrap';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import { Container, Row, Col, Image, Spinner, Alert, Card, ListGroup, Table, Badge, Button, Modal } from 'react-bootstrap';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
@@ -7,9 +7,10 @@ import { getLocalizedValue } from '../utils/translationHelper';
 import CommentSection from './CommentSection';
 import StarRating from './StarRating';
 import { useLike } from '../hooks/useLike';
-import { FaShoppingCart, FaThumbsUp, FaRegThumbsUp, FaStore, FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaShoppingCart, FaThumbsUp, FaRegThumbsUp, FaStore, FaHeart, FaRegHeart, FaShareSquare } from 'react-icons/fa';
 import { CartContext } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import html2canvas from 'html2canvas';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -24,12 +25,16 @@ const RecipeDetail = () => {
   const { isLiked, likeCount, toggleLike } = useLike('recipe', recipe);
   const [isFavorited, setIsFavorited] = useState(false);
 
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [generatedImage, setGeneratedImage] = useState(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const shareContentRef = useRef();
+
   useEffect(() => {
     const fetchRecipe = async () => {
       setLoading(true);
       try {
         const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-        // Add cache-busting query parameter
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/recipes/${id}?timestamp=${new Date().getTime()}`;
         const res = await axios.get(url, config);
         setRecipe(res.data);
@@ -41,17 +46,13 @@ const RecipeDetail = () => {
         setLoading(false);
       }
     };
-
     fetchRecipe();
   }, [id, t, token]);
 
   const handleAddAllToCart = () => {
     if (!recipe || !recipe.ingredients) return;
-
     const itemsToAdd = recipe.ingredients.flatMap(ing => {
-      if (!ing.ingredient || !ing.ingredient.link || ing.ingredient.link.length === 0) {
-        return [];
-      }
+      if (!ing.ingredient || !ing.ingredient.link || ing.ingredient.link.length === 0) return [];
       return ing.ingredient.link.map(linkToAdd => ({
         ...linkToAdd,
         ingredientName: ing.ingredient.name,
@@ -59,7 +60,6 @@ const RecipeDetail = () => {
         store: linkToAdd.store,
       }));
     });
-
     if (itemsToAdd.length > 0) {
       const recipeInfo = { id: recipe._id, name: recipe.name };
       addAllToCart(itemsToAdd, recipeInfo);
@@ -75,17 +75,13 @@ const RecipeDetail = () => {
       navigate('/login');
       return;
     }
-    
     const config = { headers: { Authorization: `Bearer ${token}` } };
-
     try {
       if (isFavorited) {
-        // Unfavorite (delete the fork)
         await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/recipes/${id}/favorite`, config);
         setIsFavorited(false);
         alert(t('recipe_unfavorited_success'));
       } else {
-        // Favorite (create the fork)
         const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/recipes/${id}/favorite`, {}, config);
         const { newRecipeId } = res.data;
         setIsFavorited(true);
@@ -99,30 +95,13 @@ const RecipeDetail = () => {
   };
 
   const calculateAverageRating = () => {
-    if (!recipe || !recipe.comments || recipe.comments.length === 0) {
-      return 0;
-    }
+    if (!recipe || !recipe.comments || recipe.comments.length === 0) return 0;
     const ratings = recipe.comments.filter(c => c.approved).map(c => c.rating).filter(r => r > 0);
     if (ratings.length === 0) return 0;
-    const totalRating = ratings.reduce((acc, rating) => acc + rating, 0);
-    return totalRating / ratings.length;
+    return ratings.reduce((acc, rating) => acc + rating, 0) / ratings.length;
   };
 
-  if (loading) {
-    return <div className="text-center"><Spinner animation="border" /></div>;
-  }
-
-  if (error) {
-    return <Container><Alert variant="danger">{error}</Alert></Container>;
-  }
-
-  if (!recipe) {
-    return <Container><Alert variant="warning">{t('recipe_not_found')}</Alert></Container>;
-  }
-
-  const averageRating = calculateAverageRating();
-
-  const renderPurchaseLinks = () => {
+  const renderPurchaseLinks = (forShare = false) => {
     const allLinks = recipe.ingredients.flatMap(ing => 
       ing.ingredient.link.map(l => ({ ...l, ingredientName: ing.ingredient.name, ingredientImage: ing.ingredient.image }))
     );
@@ -130,13 +109,15 @@ const RecipeDetail = () => {
     if (allLinks.length === 0) return null;
 
     return (
-      <>
-        <div className="d-flex justify-content-between align-items-center mt-4">
+      <div className="mt-4">
+        <div className="d-flex justify-content-between align-items-center">
           <h3>{t('purchase_links')}</h3>
-          <Button variant="outline-primary" size="sm" onClick={handleAddAllToCart}>
-            <FaShoppingCart className="me-2" />
-            {t('add_all_to_cart')}
-          </Button>
+          {!forShare && (
+            <Button variant="outline-primary" size="sm" onClick={handleAddAllToCart}>
+              <FaShoppingCart className="me-2" />
+              {t('add_all_to_cart')}
+            </Button>
+          )}
         </div>
         <Row>
           {allLinks.map(link => (
@@ -155,130 +136,166 @@ const RecipeDetail = () => {
                     {link.pricePerKg && <ListGroup.Item>{t('price_per_kg')}: {link.pricePerKg} &euro;</ListGroup.Item>}
                     <ListGroup.Item>{t('size_spec')}: {link.size}</ListGroup.Item>
                   </ListGroup>
-                  <div className="d-flex justify-content-between align-items-center mt-2">
-                    <Button variant="primary" onClick={() => addToCart(link, { id: recipe._id, name: recipe.name })}>{t('add_to_cart')}</Button>
-                    <a href={link.uri} target="_blank" rel="noopener noreferrer">
-                      {link.store.logo ? (
-                        <Image
-                          src={link.store.logo}
-                          alt={getLocalizedValue(link.store.name, i18n.language)}
-                          style={{ height: '30px', maxWidth: '100px' }}
-                          onError={(e) => { e.target.style.display = 'none'; }}
-                        />
-                      ) : (
-                        <FaStore size={30} title={getLocalizedValue(link.store.name, i18n.language)} />
-                      )}
-                    </a>
-                  </div>
+                  {!forShare && (
+                    <div className="d-flex justify-content-between align-items-center mt-2">
+                      <Button variant="primary" onClick={() => addToCart(link, { id: recipe._id, name: recipe.name })}>{t('add_to_cart')}</Button>
+                      <a href={link.uri} target="_blank" rel="noopener noreferrer">
+                        {link.store.logo ? (
+                          <Image
+                            src={link.store.logo}
+                            alt={getLocalizedValue(link.store.name, i18n.language)}
+                            style={{ height: '30px', maxWidth: '100px' }}
+                            onError={(e) => { e.target.style.display = 'none'; }}
+                          />
+                        ) : (
+                          <FaStore size={30} title={getLocalizedValue(link.store.name, i18n.language)} />
+                        )}
+                      </a>
+                    </div>
+                  )}
                 </Card.Body>
               </Card>
             </Col>
           ))}
         </Row>
-      </>
+      </div>
     );
-  }
+  };
+
+  const handleShare = async () => {
+    setShowShareModal(true);
+    setIsGenerating(true);
+    setGeneratedImage(null);
+
+    setTimeout(async () => {
+      const element = shareContentRef.current;
+      if (element) {
+        try {
+          const canvas = await html2canvas(element, { useCORS: true, scale: 2 });
+          setGeneratedImage(canvas.toDataURL('image/png'));
+        } catch (err) {
+          console.error("Error generating image:", err);
+          alert(t('image_generation_failed'));
+        } finally {
+          setIsGenerating(false);
+        }
+      }
+    }, 200);
+  };
+
+  if (loading) return <div className="text-center mt-5"><Spinner animation="border" /></div>;
+  if (error) return <Container><Alert variant="danger">{error}</Alert></Container>;
+  if (!recipe) return <Container><Alert variant="warning">{t('recipe_not_found')}</Alert></Container>;
+
+  const averageRating = calculateAverageRating();
+
+  const RecipeShareContent = React.forwardRef((props, ref) => (
+    <div ref={ref} className="bg-white">
+      <Container fluid className="p-4">
+        <Row className="mb-4">
+          <Col xs={4}><Image src={recipe.image || 'https://via.placeholder.com/300'} fluid rounded /></Col>
+          <Col xs={8}>
+            <h1>{getLocalizedValue(recipe.name, i18n.language)}</h1>
+            <div className="d-flex align-items-center mb-2">
+              <StarRating rating={averageRating} readOnly />
+              <span className="ms-2">{averageRating.toFixed(1)} ({recipe.comments.filter(c => c.approved && c.rating > 0).length} {t('ratings')})</span>
+            </div>
+            <p className="text-muted">{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</p>
+            <p>{getLocalizedValue(recipe.description, i18n.language)}</p>
+            {recipe.creator && <p className="text-muted">{t('by')} {recipe.creator.name}</p>}
+          </Col>
+        </Row>
+        <h3 className="mt-4">{t('ingredients')}</h3>
+        <Table striped bordered hover responsive size="sm">
+          <thead><tr><th>{t('quantity')}</th><th>{t('unit')}</th><th>{t('name')}</th><th>{t('method')}</th><th>{t('allergens')} / {t('specials')}</th></tr></thead>
+          <tbody>
+            {recipe.ingredients.map((ing, index) => (
+              <tr key={index}>
+                <td>{ing.quantity}</td><td>{ing.unit}</td>
+                <td>{getLocalizedValue(ing.ingredient.name, i18n.language)}{ing.optional && <Badge bg="secondary" className="ms-2">{t('optional')}</Badge>}</td>
+                <td>{getLocalizedValue(ing.method?.name, i18n.language)}</td>
+                <td>
+                  {ing.ingredient.allergens?.map(a => <Badge key={a._id} bg="warning" className="me-1">{getLocalizedValue(a.name, i18n.language)}</Badge>)}
+                  {ing.ingredient.specials?.map(s => <Badge key={s._id} bg="info" className="me-1">{getLocalizedValue(s.name, i18n.language)}</Badge>)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        <h3 className="mt-4">{t('preparation')}</h3>
+        <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">{getLocalizedValue(recipe.preparation, i18n.language)}</div>
+        
+        {renderPurchaseLinks(true)}
+      </Container>
+    </div>
+  ));
 
   return (
-    <Container className="my-4">
-      {/* Header */}
-      <Row className="mb-4">
-        <Col md={4}>
-          <Image src={recipe.image || 'https://via.placeholder.com/300'} fluid rounded />
-        </Col>
-        <Col md={8}>
-          <h1>{getLocalizedValue(recipe.name, i18n.language)}</h1>
-          <div className="d-flex align-items-center mb-2">
-            <StarRating rating={averageRating} readOnly />
-            <span className="ms-2">{averageRating.toFixed(1)} ({recipe.comments.filter(c => c.approved && c.rating > 0).length} {t('ratings')})</span>
+    <>
+      <Container className="my-4">
+        <div className="bg-white p-4 rounded">
+          <Row className="mb-4">
+            <Col md={4}><Image src={recipe.image || 'https://via.placeholder.com/300'} fluid rounded /></Col>
+            <Col md={8}>
+              <h1>{getLocalizedValue(recipe.name, i18n.language)}</h1>
+              <div className="d-flex align-items-center mb-2">
+                <StarRating rating={averageRating} readOnly />
+                <span className="ms-2">{averageRating.toFixed(1)} ({recipe.comments.filter(c => c.approved && c.rating > 0).length} {t('ratings')})</span>
+              </div>
+              <div className="d-flex align-items-center mb-2">
+                <Button variant="link" onClick={toggleLike} className="p-0 me-2">{isLiked ? <FaThumbsUp color="#0d6efd" size={24} /> : <FaRegThumbsUp size={24} />}</Button>
+                <span className="me-3">{likeCount} {t('likes')}</span>
+                {user && (<Button variant="link" onClick={toggleFavorite} className="p-0 text-danger me-3">{isFavorited ? <FaHeart size={24} /> : <FaRegHeart size={24} />}<span className="ms-1">{isFavorited ? t('unfavorite') : t('favorite')}</span></Button>)}
+                <Button variant="link" onClick={handleShare} className="p-0 text-secondary" title={t('share')}><FaShareSquare size={22} /></Button>
+              </div>
+              <p className="text-muted">{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</p>
+              <p>{getLocalizedValue(recipe.description, i18n.language)}</p>
+              {recipe.creator && <p className="text-muted">{t('creator')}: {recipe.creator.name}</p>}
+            </Col>
+          </Row>
+          <h3 className="mt-4">{t('ingredients')}</h3>
+          <Table striped bordered hover responsive>
+            <thead><tr><th>{t('quantity')}</th><th>{t('unit')}</th><th>{t('name')}</th><th>{t('method')}</th><th>{t('allergens')} / {t('specials')}</th></tr></thead>
+            <tbody>{recipe.ingredients.map((ing, index) => (<tr key={index}><td>{ing.quantity}</td><td>{ing.unit}</td><td><Link to={`/ingredients/${ing.ingredient._id}`}>{getLocalizedValue(ing.ingredient.name, i18n.language)}</Link>{' '}{ing.optional && <Badge bg="secondary">{t('optional')}</Badge>}</td><td>{getLocalizedValue(ing.method?.name, i18n.language)}</td><td>{ing.ingredient.allergens?.map(a => <Badge key={a._id} bg="warning" className="me-1">{getLocalizedValue(a.name, i18n.language)}</Badge>)}{ing.ingredient.specials?.map(s => <Badge key={s._id} bg="info" className="me-1">{getLocalizedValue(s.name, i18n.language)}</Badge>)}</td></tr>))}</tbody>
+          </Table>
+          <h3 className="mt-4">{t('preparation')}</h3>
+          <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">{getLocalizedValue(recipe.preparation, i18n.language)}</div>
+          <h3 className="mt-4">{t('cookingTime')}</h3>
+          <p>{recipe.cookingTime ? `${recipe.cookingTime} ${t('minutes')}` : 'N/A'}</p>
+          {getLocalizedValue(recipe.remark, i18n.language) && (<><h3 className="mt-4">{t('remark')}</h3><div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">{getLocalizedValue(recipe.remark, i18n.language)}</div></>)}
+          
+          {renderPurchaseLinks()}
+        </div>
+        
+        <CommentSection recipe={recipe} onCommentsUpdate={(newComment) => setRecipe({...recipe, comments: [newComment, ...recipe.comments]})}/>
+        
+        <div className="text-muted text-end mt-4">
+          <small>{t('created_at')}: {new Date(recipe.createdAt).toLocaleString()}</small><br />
+          <small>{t('modified_at')}: {new Date(recipe.updatedAt).toLocaleString()}</small>
+        </div>
+      </Container>
+
+      <Modal show={showShareModal} onHide={() => setShowShareModal(false)} size="lg" centered>
+        <Modal.Header closeButton>
+          <Modal.Title>{t('share_preview')}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {isGenerating && !generatedImage && (
+            <div className="text-center">
+              <Spinner animation="border" className="me-3" />
+              <span>{t('generating_image')}</span>
+            </div>
+          )}
+          {generatedImage && <Image src={generatedImage} fluid />}
+          <div style={{ position: 'absolute', left: '-9999px', top: '-9999px', width: '800px' }}>
+            {recipe && <RecipeShareContent recipe={recipe} averageRating={averageRating} t={t} i18n={i18n} ref={shareContentRef} />}
           </div>
-          <div className="d-flex align-items-center mb-2">
-            <Button variant="link" onClick={toggleLike} className="p-0 me-2">
-              {isLiked ? <FaThumbsUp color="#0d6efd" size={24} /> : <FaRegThumbsUp size={24} />}
-            </Button>
-            <span className="me-3">{likeCount} {t('likes')}</span>
-            
-            {user && (
-              <Button variant="link" onClick={toggleFavorite} className="p-0 text-danger">
-                {isFavorited ? <FaHeart size={24} /> : <FaRegHeart size={24} />}
-                <span className="ms-1">{isFavorited ? t('unfavorite') : t('favorite')}</span>
-              </Button>
-            )}
-          </div>
-          <p className="text-muted">{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</p>
-          <p>{getLocalizedValue(recipe.description, i18n.language)}</p>
-          {recipe.creator && <p className="text-muted">{t('creator')}: {recipe.creator.name}</p>}
-        </Col>
-      </Row>
-
-      {/* ... rest of the component ... */}
-
-      {/* Ingredients */}
-      <h3 className="mt-4">{t('ingredients')}</h3>
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>{t('quantity')}</th>
-            <th>{t('unit')}</th>
-            <th>{t('name')}</th>
-            <th>{t('method')}</th>
-            <th>{t('allergens')} / {t('specials')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {recipe.ingredients.map((ing, index) => (
-            <tr key={index}>
-              <td>{ing.quantity}</td>
-              <td>{ing.unit}</td>
-              <td>
-                <Link to={`/ingredients/${ing.ingredient._id}`}>
-                  {getLocalizedValue(ing.ingredient.name, i18n.language)}
-                </Link>{' '}
-                {ing.optional && <Badge bg="secondary">{t('optional')}</Badge>}
-              </td>
-              <td>{getLocalizedValue(ing.method?.name, i18n.language)}</td>
-              <td>
-                {ing.ingredient.allergens?.map(a => <Badge key={a._id} bg="warning" className="me-1">{getLocalizedValue(a.name, i18n.language)}</Badge>)}
-                {ing.ingredient.specials?.map(s => <Badge key={s._id} bg="info" className="me-1">{getLocalizedValue(s.name, i18n.language)}</Badge>)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-
-      {/* Preparation */}
-      <h3 className="mt-4">{t('preparation')}</h3>
-      <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">
-        {getLocalizedValue(recipe.preparation, i18n.language)}
-      </div>
-
-      {/* Cooking Time */}
-      <h3 className="mt-4">{t('cookingTime')}</h3>
-      <p>{recipe.cookingTime ? `${recipe.cookingTime} ${t('minutes')}` : 'N/A'}</p>
-
-      {/* Remark */}
-      {getLocalizedValue(recipe.remark, i18n.language) && (
-        <>
-          <h3 className="mt-4">{t('remark')}</h3>
-          <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">
-            {getLocalizedValue(recipe.remark, i18n.language)}
-          </div>
-        </>
-      )}
-
-      {/* Purchase Links */}
-      {renderPurchaseLinks()}
-
-      {/* Comments */}
-      <CommentSection recipe={recipe} onCommentsUpdate={(newComment) => setRecipe({...recipe, comments: [newComment, ...recipe.comments]})}/>
-
-      {/* Timestamps */}
-      <div className="text-muted text-end mt-4">
-        <small>{t('created_at')}: {new Date(recipe.createdAt).toLocaleString()}</small><br />
-        <small>{t('modified_at')}: {new Date(recipe.updatedAt).toLocaleString()}</small>
-      </div>
-
-    </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowShareModal(false)}>{t('cancel')}</Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 

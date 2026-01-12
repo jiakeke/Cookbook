@@ -131,7 +131,7 @@ const ShoppingCart = () => {
                           )}
                           <span className="text-muted small d-block mt-1">{t('size_spec')}: {item.size}</span>
                         </Col>
-                        <Col xs={12} sm={6} md={4} className="d-flex align-items-center justify-content-start justify-content-sm-center mt-2 mt-sm-0">
+                        <Col xs={12} sm={6} md={4} className="d-flex align-items-center justify-content-start mt-2 mt-sm-0">
                           <ButtonGroup>
                             <Button size="sm" variant="outline-secondary" onClick={() => decreaseQuantity(item.cartItemId)}>-</Button>
                             <Button variant="light" disabled style={{ minWidth: '40px' }}>{item.quantity}</Button>

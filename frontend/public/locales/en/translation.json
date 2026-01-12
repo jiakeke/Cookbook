@@ -271,6 +271,9 @@
   "generating_pdf": "Generating PDF...",
   "download_pdf": "Download PDF",
   "source_recipe": "Source",
+  "add_all_to_cart": "Add All to Cart",
+  "all_ingredients_added_to_cart": "{{count}} ingredients have been added to your cart.",
+  "no_ingredients_to_add": "This recipe has no purchasable ingredients to add.",
   "added_to_cart_alert": "has been added to your cart.",
   "favorite": "Favorite",
   "unfavorite": "Unfavorite",
@@ -284,5 +287,9 @@
   "public": "Public",
   "private": "Private",
   "make_public": "Make this recipe public",
-  "make_public_description": "Allow other users to see your modified version of this recipe."
+  "make_public_description": "Allow other users to see your modified version of this recipe.",
+  "share": "Share",
+  "by": "By",
+  "share_preview": "Share Preview",
+  "image_generation_failed": "Failed to generate image."
 }
