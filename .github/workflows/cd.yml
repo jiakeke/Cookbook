@@ -69,12 +69,12 @@ jobs:
             echo "CORS_ORIGIN=${{ secrets.CORS_ORIGIN }}" >> .env
             echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env
             
-            # Use the full path for docker-compose
+            # Use the new 'docker compose' command
             # Pull the latest images defined in docker-compose.yml
-            /usr/local/bin/docker-compose pull
+            docker compose pull
             
             # Stop and remove old containers, and start new ones
-            /usr/local/bin/docker-compose up -d --force-recreate
+            docker compose up -d --force-recreate
             
             # Clean up unused Docker images
             docker image prune -f
