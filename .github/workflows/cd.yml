@@ -48,6 +48,15 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Copy docker-compose.yml to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          source: "docker-compose.yml"
+          target: "~" # Target home directory
+
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
@@ -55,22 +64,17 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           script: |
-            # Create a .env file with secrets
-            echo "MONGO_URI=${{ secrets.MONGO_URI }}" > .env
-            echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
+            # Create a .env file with secrets in the home directory
+            echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" > .env
             echo "CORS_ORIGIN=${{ secrets.CORS_ORIGIN }}" >> .env
             echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env
             
-            # Copy docker-compose.yml to the home directory
-            # Note: The user running the action on EC2 needs to have docker-compose installed
-            # and permissions to run docker commands.
-            cp cookbook/docker-compose.yml .
-            
-            # Pull the latest images
-            docker-compose pull
+            # Use the full path for docker-compose
+            # Pull the latest images defined in docker-compose.yml
+            /usr/local/bin/docker-compose pull
             
             # Stop and remove old containers, and start new ones
-            docker-compose up -d --force-recreate
+            /usr/local/bin/docker-compose up -d --force-recreate
             
             # Clean up unused Docker images
             docker image prune -f
