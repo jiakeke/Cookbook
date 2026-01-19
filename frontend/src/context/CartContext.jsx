@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
+const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     try {
       const storedCartItems = localStorage.getItem('cartItems');
@@ -107,3 +107,5 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+export default CartProvider;

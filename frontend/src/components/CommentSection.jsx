@@ -10,7 +10,6 @@ import { FaThumbsUp, FaRegThumbsUp, FaEllipsisV } from 'react-icons/fa';
 
 // --- Like Component for Comments ---
 const CommentLike = ({ comment }) => {
-  const { t } = useTranslation();
   const { isLiked, likeCount, toggleLike } = useLike('comment', comment);
 
   return (

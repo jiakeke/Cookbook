@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const AuthContext = createContext(null);
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [guestId, setGuestId] = useState(null);
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
           setUser({ id: decoded.id, name: decoded.name, role: decoded.role, token });
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         }
-      } catch (error) {
+      } catch {
         console.error("Invalid token");
         logout();
       }
@@ -67,3 +67,5 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
+export default AuthProvider;
