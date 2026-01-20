@@ -138,6 +138,75 @@ npm run db:destroy
 
 ---
 
+## Docker & CI/CD
+
+This project is equipped with Docker for containerization and GitHub Actions for Continuous Integration (CI) and Continuous Deployment (CD).
+
+### Local Development with Docker
+
+You can run the entire application stack (frontend, backend, database) locally using Docker Compose. This is the recommended way to run the project for development as it ensures a consistent environment.
+
+1.  **Create an environment file:** In the project root, create a file named `.env`. This file will provide the necessary secrets to the Docker containers.
+    ```plaintext
+    # .env (at project root)
+
+    # A secret key for signing JWTs
+    JWT_SECRET=your_super_secret_jwt_key_for_local_dev
+
+    # The public URL of the frontend, for CORS
+    CORS_ORIGIN=http://localhost
+
+    # The public URL of the backend, for the frontend to connect to
+    VITE_API_BASE_URL=http://localhost:5000
+    ```
+
+2.  **Run Docker Compose:** From the project root, run the following command:
+    ```sh
+    docker compose up --build
+    ```
+    This will build the images and start all services. The frontend will be available at `http://localhost` and the backend at `http://localhost:5000`.
+
+### Continuous Integration (CI)
+
+The CI pipeline is defined in `.github/workflows/ci.yml`. It automatically triggers on every push or pull request to the `main` branch. It performs the following checks on the `frontend` application:
+- Installs dependencies (`npm ci`)
+- Runs the linter (`npm run lint`)
+- Runs the build process (`npm run build`)
+
+### Continuous Deployment (CD)
+
+The CD pipeline is defined in `.github/workflows/cd.yml`. It automatically triggers on every push to the `main` branch, after the CI pipeline has successfully completed.
+
+The process is as follows:
+1.  Builds Docker images for the frontend and backend.
+2.  Pushes the images to GitHub Container Registry (ghcr.io).
+3.  Connects to a target EC2 server via SSH and deploys the application using `docker compose`.
+
+#### CD Setup: EC2 Server
+
+Your target EC2 server must be prepared with the following:
+1.  **Docker Installed**: Follow the official guide to install Docker Engine.
+2.  **User Permissions**: The SSH user (e.g., `ubuntu`) must be added to the `docker` group to run Docker commands without `sudo`.
+    ```sh
+    sudo usermod -aG docker $USER
+    ```
+    You will need to log out and log back in for this change to take effect.
+
+#### CD Setup: GitHub Secrets
+
+The CD workflow requires the following secrets to be set in your GitHub repository under `Settings > Secrets and variables > Actions`:
+
+| Secret Name           | Description                                                                                             | Example Value                      |
+| --------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| `EC2_HOST`            | The public IP address or DNS name of your EC2 instance.                                                 | `3.14.15.92`                       |
+| `EC2_USERNAME`        | The username for logging into the EC2 instance.                                                         | `ubuntu` or `ec2-user`             |
+| `EC2_SSH_PRIVATE_KEY` | The private SSH key (the full content of the `.pem` file) to access the EC2 instance.                     | `-----BEGIN OPENSSH PRIVATE KEY...` |
+| `JWT_SECRET`          | A long, random string used by the backend to sign JSON Web Tokens.                                      | `a_very_long_and_secure_random_string` |
+| `CORS_ORIGIN`         | The public URL where the frontend will be hosted, for the backend's CORS policy.                        | `http://your_ec2_ip_address`       |
+| `VITE_API_BASE_URL`   | The public URL of the backend API, for the frontend to connect to.                                      | `http://your_ec2_ip_address:5000`  |
+
+---
+
 ## API Documentation
 
 For detailed information about the backend API, please see the [Backend API Documentation](./docs/backend_api.md).
