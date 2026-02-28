@@ -1,6 +1,6 @@
 services:
   mongo:
-    image: mongo:latest
+    image: mongo:6.0
     restart: always
     ports:
       # This allows connecting to the DB from outside the container, e.g., with MongoDB Compass
