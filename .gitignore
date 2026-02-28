@@ -32,4 +32,7 @@ Thumbs.db
 
 # Uploads
 /backend/public
-\n# Local data and temp files\nbackend/datas/\ntemp/
+
+# Local data and temp files
+backend/datas/
+temp/
