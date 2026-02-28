@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mongo:
     image: mongo:latest
@@ -16,7 +14,6 @@ services:
   backend:
     build:
       context: ./backend
-    image: ghcr.io/jiakeke/cookbook-backend:latest
     restart: always
     ports:
       - "5000:5000"
@@ -36,7 +33,6 @@ services:
       context: ./frontend
       args:
         - VITE_API_BASE_URL=${VITE_API_BASE_URL}
-    image: ghcr.io/jiakeke/cookbook-frontend:latest
     restart: always
     ports:
       - "80:80"
