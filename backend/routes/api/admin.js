@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const adminAuth = require('../../middleware/adminAuth');
+const { uploadSingleRecipeImage } = require('../../middleware/upload');
 const { check, validationResult } = require('express-validator');
 const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 
 const User = require('../../models/User');
 const Method = require('../../models/Method');
@@ -510,13 +513,30 @@ router.get('/recipes', adminAccess, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-router.post('/recipes', [ ...adminAccess, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
+
+router.post('/recipes', [ ...adminAccess, uploadSingleRecipeImage, check('name', 'English name is required').not().isEmpty(), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
   try {
-    const newRecipe = new Recipe({ ...req.body, creator: req.user.id, isOriginal: true, isPublic: true });
+    // When using multipart/form-data, complex objects are sent as strings
+    const parsedData = {};
+    for (const key in req.body) {
+      try {
+        parsedData[key] = JSON.parse(req.body[key]);
+      } catch (e) {
+        parsedData[key] = req.body[key];
+      }
+    }
+
+    const recipeData = { ...parsedData, creator: req.user.id, isOriginal: true, isPublic: true };
+
+    if (req.file) {
+      recipeData.image = `/uploads/${req.file.filename}`;
+    }
+    
+    const newRecipe = new Recipe(recipeData);
     await newRecipe.save();
     await newRecipe.populate('country_or_region ingredients.ingredient ingredients.method creator');
     res.status(201).json(newRecipe);
@@ -525,13 +545,36 @@ router.post('/recipes', [ ...adminAccess, check('name.en', 'English name is requ
     res.status(500).send('Server Error');
   }
 });
-router.put('/recipes/:id', [ ...adminAccess, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
+
+router.put('/recipes/:id', [ ...adminAccess, uploadSingleRecipeImage, check('name', 'English name is required').not().isEmpty(), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
   try {
-    const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true }).populate('country_or_region ingredients.ingredient ingredients.method creator');
+    const parsedData = {};
+    for (const key in req.body) {
+      try {
+        parsedData[key] = JSON.parse(req.body[key]);
+      } catch (e) {
+        parsedData[key] = req.body[key];
+      }
+    }
+
+    const updateData = { ...parsedData };
+
+    if (req.file) {
+      const oldRecipe = await Recipe.findById(req.params.id);
+      if (oldRecipe && oldRecipe.image && oldRecipe.image.startsWith('/uploads/')) {
+        const oldImagePath = path.join(__dirname, '..', 'public', oldRecipe.image);
+        if (fs.existsSync(oldImagePath)) {
+          fs.unlinkSync(oldImagePath);
+        }
+      }
+      updateData.image = `/uploads/${req.file.filename}`;
+    }
+
+    const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, { $set: updateData }, { new: true }).populate('country_or_region ingredients.ingredient ingredients.method creator');
     if (!updatedRecipe) {
       return res.status(404).json({ msg: 'Recipe not found' });
     }
@@ -541,11 +584,19 @@ router.put('/recipes/:id', [ ...adminAccess, check('name.en', 'English name is r
     res.status(500).send('Server Error');
   }
 });
+
 router.delete('/recipes/:id', adminAccess, async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
     if (!recipe) {
       return res.status(404).json({ msg: 'Recipe not found' });
+    }
+    // Also delete image file if it exists
+    if (recipe.image && recipe.image.startsWith('/uploads/')) {
+      const imagePath = path.join(__dirname, '..', 'public', recipe.image);
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
     }
     await Recipe.findByIdAndDelete(req.params.id);
     res.json({ msg: 'Recipe deleted successfully' });

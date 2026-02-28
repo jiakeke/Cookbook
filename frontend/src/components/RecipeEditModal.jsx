@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, Form, Alert, Tab, Nav, Col, Row } from 'react-bootstrap';
+import { Modal, Button, Form, Alert, Tab, Nav, Col, Row, Image } from 'react-bootstrap';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 
@@ -13,6 +13,8 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
   const [error, setError] = useState('');
   const [loadingDeps, setLoadingDeps] = useState(true);
   const [activeLang, setActiveLang] = useState('en');
+  const [recipeImageFile, setRecipeImageFile] = useState(null); // New state for local image file
+  const [imagePreview, setImagePreview] = useState(''); // New state for image preview
 
   useEffect(() => {
     const fetchDependencies = async () => {
@@ -43,12 +45,34 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
           method: ing.method?._id || null,
         }))
       });
+      // Set initial image preview if an image URL/path exists
+      if (recipe.image) {
+        setImagePreview(recipe.image.startsWith('/uploads/') ? `${import.meta.env.VITE_API_BASE_URL}${recipe.image}` : recipe.image);
+      } else {
+        setImagePreview('');
+      }
     } else {
       setFormData(null);
     }
     setError('');
     setActiveLang('en');
+    setRecipeImageFile(null); // Reset file state on new recipe prop
   }, [recipe]);
+
+  useEffect(() => {
+    let newPreview = '';
+    if (recipeImageFile) {
+      newPreview = URL.createObjectURL(recipeImageFile);
+    } else if (formData && formData.image) {
+      newPreview = formData.image;
+    }
+    setImagePreview(newPreview);
+
+    return () => {
+      if (newPreview && newPreview.startsWith('blob:')) URL.revokeObjectURL(newPreview);
+    };
+  }, [recipeImageFile, formData?.image]);
+
 
   if (!formData) return null; // Don't render modal without data
 
@@ -66,6 +90,12 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
     const newIngredients = [...formData.ingredients];
     newIngredients[index][name] = type === 'checkbox' ? checked : value;
     setFormData({ ...formData, ingredients: newIngredients });
+  };
+
+  const handleRecipeImageFileChange = (e) => {
+    setRecipeImageFile(e.target.files[0]);
+    // Clear image URL if a file is selected
+    setFormData(prev => ({ ...prev, image: '' }));
   };
 
   const addIngredient = () => {
@@ -87,8 +117,42 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
       setError(t('english_name_required'));
       return;
     }
+
+    const submitFormData = new FormData();
+
+    // Append file if selected
+    if (recipeImageFile) {
+      submitFormData.append('recipeImage', recipeImageFile);
+    } else if (formData.image) {
+      // Only append image URL if no file is selected
+      submitFormData.append('image', formData.image);
+    } else {
+      // If both are empty, explicitly send an empty string for image to clear it
+      submitFormData.append('image', '');
+    }
+
+    // Append other fields, stringifying complex objects
+    submitFormData.append('name', JSON.stringify(formData.name));
+    submitFormData.append('description', JSON.stringify(formData.description));
+    submitFormData.append('preparation', JSON.stringify(formData.preparation));
+    submitFormData.append('remark', JSON.stringify(formData.remark));
+    submitFormData.append('ingredients', JSON.stringify(formData.ingredients));
+
+    // Append simple fields
+    submitFormData.append('country_or_region', formData.country_or_region || '');
+    submitFormData.append('calorie', formData.calorie);
+    submitFormData.append('protein', formData.protein);
+    submitFormData.append('carbohydrate', formData.carbohydrate);
+    submitFormData.append('fat', formData.fat);
+    submitFormData.append('cookingTime', formData.cookingTime);
+    submitFormData.append('servings', formData.servings);
+
     try {
-      const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/admin/recipes/${recipe._id}`, formData);
+      const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/admin/recipes/${recipe._id}`, submitFormData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       onRecipeUpdate(res.data);
       onHide();
     } catch (err) {
@@ -97,6 +161,15 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
       console.error(err);
     }
   };
+
+  const handleHide = () => {
+    setFormData(null); // Reset formData
+    setError('');
+    setActiveLang('en');
+    setRecipeImageFile(null); // Reset file state
+    setImagePreview(''); // Reset preview
+    onHide();
+  }
 
   return (
     <Modal show={show} onHide={onHide} centered size="lg">
@@ -138,10 +211,20 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
               <Row>
                 <Col md={6}>
                   <Form.Group className="mb-3">
-                    <Form.Label>{t('image_url')}</Form.Label>
-                    <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} />
+                    <Form.Label>{t('image')}</Form.Label>
+                    <Form.Control type="file" name="recipeImage" onChange={handleRecipeImageFileChange} />
+                    {imagePreview && <Image src={imagePreview} thumbnail className="mt-2" style={{ maxWidth: '100px' }} />}
                   </Form.Group>
                 </Col>
+                <Col md={6}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('image_url')}</Form.Label>
+                    <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} disabled={!!recipeImageFile} />
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row>
                 <Col md={6}>
                   <Form.Group className="mb-3">
                     <Form.Label>{t('country_or_region')}</Form.Label>

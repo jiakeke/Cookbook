@@ -127,7 +127,7 @@ const RecipeManagement = () => {
             <tbody>
               {(recipes || []).map(recipe => (
                 <tr key={recipe._id}>
-                  <td><Image src={recipe.image} alt={getLocalizedValue(recipe.name, i18n.language)} style={{ width: '50px', height: 'auto' }} thumbnail /></td>
+                  <td><Image src={recipe.image || 'https://via.placeholder.com/50'} alt={getLocalizedValue(recipe.name, i18n.language)} style={{ width: '50px', height: 'auto' }} thumbnail /></td>
                   <td>{getLocalizedValue(recipe.name, i18n.language)}</td>
                   <td>{getLocalizedValue(recipe.description, i18n.language)?.substring(0, 50) || ''}...</td>
                   <td>{getLocalizedValue(recipe.country_or_region?.name, i18n.language)}</td>

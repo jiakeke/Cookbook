@@ -77,4 +77,5 @@ jobs:
             docker compose up -d --force-recreate
             
             # Clean up unused Docker images
-            docker image prune -f
+            #docker image prune -f
+            docker system prune -af

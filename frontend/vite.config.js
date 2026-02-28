@@ -12,6 +12,18 @@ export default defineConfig(({ mode }) => {
     server: {
       host: env.HOST,
       port: Number(env.PORT),
+      proxy: {
+        '/api': {
+          target: env.VITE_API_BASE_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '/api'),
+        },
+        '/uploads': {
+          target: env.VITE_API_BASE_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/uploads/, '/uploads'),
+        },
+      }
     }
   }
 })

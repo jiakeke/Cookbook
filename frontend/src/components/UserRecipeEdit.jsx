@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Container, Button, Form, Alert, Tab, Nav, Col, Row, Spinner } from 'react-bootstrap';
+import { Container, Button, Form, Alert, Tab, Nav, Col, Row, Spinner, Image } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
@@ -18,6 +18,8 @@ const UserRecipeEdit = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(true);
   const [activeLang, setActiveLang] = useState('en');
+  const [recipeImageFile, setRecipeImageFile] = useState(null); // New state for local image file
+  const [imagePreview, setImagePreview] = useState(''); // New state for image preview
 
   const fetchRecipeAndDeps = useCallback(async () => {
     setLoading(true);
@@ -42,6 +44,13 @@ const UserRecipeEdit = () => {
         }))
       });
 
+      // Set initial image preview if an image URL/path exists
+      if (recipeData.image) {
+        setImagePreview(recipeData.image);
+      } else {
+        setImagePreview('');
+      }
+
     } catch (err) {
       console.error('Failed to fetch data', err);
       setError(t('fetch_recipe_failed'));
@@ -53,6 +62,20 @@ const UserRecipeEdit = () => {
   useEffect(() => {
     fetchRecipeAndDeps();
   }, [fetchRecipeAndDeps]);
+
+  useEffect(() => {
+    let newPreview = '';
+    if (recipeImageFile) {
+      newPreview = URL.createObjectURL(recipeImageFile);
+    } else if (formData && formData.image) {
+      newPreview = formData.image;
+    }
+    setImagePreview(newPreview);
+
+    return () => {
+      if (newPreview && newPreview.startsWith('blob:')) URL.revokeObjectURL(newPreview);
+    };
+  }, [recipeImageFile, formData?.image]);
 
   if (loading) {
     return <div className="text-center mt-5"><Spinner animation="border" /></div>;
@@ -80,6 +103,12 @@ const UserRecipeEdit = () => {
     setFormData({ ...formData, ingredients: newIngredients });
   };
 
+  const handleRecipeImageFileChange = (e) => {
+    setRecipeImageFile(e.target.files[0]);
+    // Clear image URL if a file is selected
+    setFormData(prev => ({ ...prev, image: '' }));
+  };
+
   const addIngredient = () => {
     setFormData({ 
       ...formData, 
@@ -100,19 +129,47 @@ const UserRecipeEdit = () => {
       setError(t('english_name_required'));
       return;
     }
-    try {
-      const config = { headers: { Authorization: `Bearer ${token}` } };
-      
-      const payload = { ...formData };
-      delete payload.isOriginal;
-      delete payload.originalRecipe;
-      delete payload._id;
-      delete payload.creator;
-      delete payload.createdAt;
-      delete payload.updatedAt;
-      delete payload.comments;
 
-      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/my-recipes/${id}`, payload, config);
+    const submitFormData = new FormData();
+
+    // Append file if selected
+    if (recipeImageFile) {
+      submitFormData.append('recipeImage', recipeImageFile);
+    } else if (formData.image) {
+      // Only append image URL if no file is selected
+      submitFormData.append('image', formData.image);
+    } else {
+      // If both are empty, explicitly send an empty string for image to clear it
+      submitFormData.append('image', '');
+    }
+
+    // Append other fields, stringifying complex objects
+    submitFormData.append('name', JSON.stringify(formData.name));
+    submitFormData.append('description', JSON.stringify(formData.description));
+    submitFormData.append('preparation', JSON.stringify(formData.preparation));
+    submitFormData.append('remark', JSON.stringify(formData.remark));
+    submitFormData.append('ingredients', JSON.stringify(formData.ingredients));
+
+    // Append simple fields
+    submitFormData.append('country_or_region', formData.country_or_region || '');
+    submitFormData.append('calorie', formData.calorie);
+    submitFormData.append('protein', formData.protein);
+    submitFormData.append('carbohydrate', formData.carbohydrate);
+    submitFormData.append('fat', formData.fat);
+    submitFormData.append('cookingTime', formData.cookingTime);
+    submitFormData.append('servings', formData.servings);
+    submitFormData.append('isPublic', formData.isPublic);
+
+
+    try {
+      const config = { 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        } 
+      };
+      
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/my-recipes/${id}`, submitFormData, config);
       setSuccess(t('recipe_updated_success'));
       setTimeout(() => navigate('/my-recipes'), 2000);
     } catch (err) {
@@ -146,11 +203,25 @@ const UserRecipeEdit = () => {
         </Tab.Content>
 
         <Row>
-          <Col md={6}><Form.Group className="mb-3"><Form.Label>{t('image_url')}</Form.Label><Form.Control type="text" name="image" value={formData.image} onChange={handleChange} /></Form.Group></Col>
-          <Col md={6}><Form.Group className="mb-3"><Form.Label>{t('country_or_region')}</Form.Label><Form.Select name="country_or_region" value={formData.country_or_region || ''} onChange={handleChange}><option value="">{t('select_country')}</option>{dependencies.countries.map(c => <option key={c._id} value={c._id}>{getLocalizedValue(c.name, i18n.language)}</option>)}</Form.Select></Form.Group></Col>
+          <Col md={6}>
+            <Form.Group className="mb-3">
+              <Form.Label>{t('image')}</Form.Label>
+              <Form.Control type="file" name="recipeImage" onChange={handleRecipeImageFileChange} />
+              {imagePreview && <Image src={imagePreview} thumbnail className="mt-2" style={{ maxWidth: '100px' }} />}
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group className="mb-3">
+              <Form.Label>{t('image_url')}</Form.Label>
+              <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} disabled={!!recipeImageFile} />
+            </Form.Group>
+          </Col>
         </Row>
         <Row>
+          <Col md={6}><Form.Group className="mb-3"><Form.Label>{t('country_or_region')}</Form.Label><Form.Select name="country_or_region" value={formData.country_or_region || ''} onChange={handleChange}><option value="">{t('select_country')}</option>{dependencies.countries.map(c => <option key={c._id} value={c._id}>{getLocalizedValue(c.name, i18n.language)}</option>)}</Form.Select></Form.Group></Col>
           <Col md={6}><Form.Group className="mb-3"><Form.Label>{t('cooking_time_minutes')}</Form.Label><Form.Control type="number" name="cookingTime" value={formData.cookingTime} onChange={handleChange} /></Form.Group></Col>
+        </Row>
+        <Row>
           <Col md={6}><Form.Group className="mb-3"><Form.Label>{t('servings')}</Form.Label><Form.Control type="number" name="servings" value={formData.servings} onChange={handleChange} /></Form.Group></Col>
         </Row>
 
