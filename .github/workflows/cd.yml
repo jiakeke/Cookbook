@@ -55,7 +55,8 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           source: "docker-compose.yml"
-          target: "~/docker-compose.yml" # Target home directory with filename
+          target: "~/docker-compose.yml"
+          overwrite: true
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
