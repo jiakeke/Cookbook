@@ -18,8 +18,8 @@ const UserRecipeEdit = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(true);
   const [activeLang, setActiveLang] = useState('en');
-  const [recipeImageFile, setRecipeImageFile] = useState(null); // New state for local image file
-  const [imagePreview, setImagePreview] = useState(''); // New state for image preview
+  const [recipeImageFile, setRecipeImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
 
   const fetchRecipeAndDeps = useCallback(async () => {
     setLoading(true);
@@ -44,7 +44,6 @@ const UserRecipeEdit = () => {
         }))
       });
 
-      // Set initial image preview if an image URL/path exists
       if (recipeData.image) {
         setImagePreview(recipeData.image);
       } else {
@@ -75,7 +74,7 @@ const UserRecipeEdit = () => {
     return () => {
       if (newPreview && newPreview.startsWith('blob:')) URL.revokeObjectURL(newPreview);
     };
-  }, [recipeImageFile, formData?.image]);
+  }, [recipeImageFile, formData]);
 
   if (loading) {
     return <div className="text-center mt-5"><Spinner animation="border" /></div>;
@@ -105,7 +104,6 @@ const UserRecipeEdit = () => {
 
   const handleRecipeImageFileChange = (e) => {
     setRecipeImageFile(e.target.files[0]);
-    // Clear image URL if a file is selected
     setFormData(prev => ({ ...prev, image: '' }));
   };
 
@@ -132,25 +130,19 @@ const UserRecipeEdit = () => {
 
     const submitFormData = new FormData();
 
-    // Append file if selected
     if (recipeImageFile) {
       submitFormData.append('recipeImage', recipeImageFile);
     } else if (formData.image) {
-      // Only append image URL if no file is selected
       submitFormData.append('image', formData.image);
     } else {
-      // If both are empty, explicitly send an empty string for image to clear it
       submitFormData.append('image', '');
     }
 
-    // Append other fields, stringifying complex objects
     submitFormData.append('name', JSON.stringify(formData.name));
     submitFormData.append('description', JSON.stringify(formData.description));
     submitFormData.append('preparation', JSON.stringify(formData.preparation));
     submitFormData.append('remark', JSON.stringify(formData.remark));
     submitFormData.append('ingredients', JSON.stringify(formData.ingredients));
-
-    // Append simple fields
     submitFormData.append('country_or_region', formData.country_or_region || '');
     submitFormData.append('calorie', formData.calorie);
     submitFormData.append('protein', formData.protein);

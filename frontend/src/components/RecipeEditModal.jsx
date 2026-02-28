@@ -13,8 +13,8 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
   const [error, setError] = useState('');
   const [loadingDeps, setLoadingDeps] = useState(true);
   const [activeLang, setActiveLang] = useState('en');
-  const [recipeImageFile, setRecipeImageFile] = useState(null); // New state for local image file
-  const [imagePreview, setImagePreview] = useState(''); // New state for image preview
+  const [recipeImageFile, setRecipeImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
 
   useEffect(() => {
     const fetchDependencies = async () => {
@@ -45,9 +45,8 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
           method: ing.method?._id || null,
         }))
       });
-      // Set initial image preview if an image URL/path exists
       if (recipe.image) {
-        setImagePreview(recipe.image.startsWith('/uploads/') ? `${import.meta.env.VITE_API_BASE_URL}${recipe.image}` : recipe.image);
+        setImagePreview(recipe.image);
       } else {
         setImagePreview('');
       }
@@ -56,7 +55,7 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
     }
     setError('');
     setActiveLang('en');
-    setRecipeImageFile(null); // Reset file state on new recipe prop
+    setRecipeImageFile(null);
   }, [recipe]);
 
   useEffect(() => {
@@ -71,10 +70,18 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
     return () => {
       if (newPreview && newPreview.startsWith('blob:')) URL.revokeObjectURL(newPreview);
     };
-  }, [recipeImageFile, formData?.image]);
+  }, [recipeImageFile, formData]);
 
+  const handleHide = () => {
+    setFormData(null);
+    setError('');
+    setActiveLang('en');
+    setRecipeImageFile(null);
+    setImagePreview('');
+    onHide();
+  };
 
-  if (!formData) return null; // Don't render modal without data
+  if (!formData) return null;
 
   const handleMultiLangChange = (e, field) => {
     setFormData({ ...formData, [field]: { ...formData[field], [activeLang]: e.target.value } });
@@ -94,7 +101,6 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
 
   const handleRecipeImageFileChange = (e) => {
     setRecipeImageFile(e.target.files[0]);
-    // Clear image URL if a file is selected
     setFormData(prev => ({ ...prev, image: '' }));
   };
 
@@ -120,25 +126,19 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
 
     const submitFormData = new FormData();
 
-    // Append file if selected
     if (recipeImageFile) {
       submitFormData.append('recipeImage', recipeImageFile);
     } else if (formData.image) {
-      // Only append image URL if no file is selected
       submitFormData.append('image', formData.image);
     } else {
-      // If both are empty, explicitly send an empty string for image to clear it
       submitFormData.append('image', '');
     }
 
-    // Append other fields, stringifying complex objects
     submitFormData.append('name', JSON.stringify(formData.name));
     submitFormData.append('description', JSON.stringify(formData.description));
     submitFormData.append('preparation', JSON.stringify(formData.preparation));
     submitFormData.append('remark', JSON.stringify(formData.remark));
     submitFormData.append('ingredients', JSON.stringify(formData.ingredients));
-
-    // Append simple fields
     submitFormData.append('country_or_region', formData.country_or_region || '');
     submitFormData.append('calorie', formData.calorie);
     submitFormData.append('protein', formData.protein);
@@ -149,12 +149,10 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
 
     try {
       const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/admin/recipes/${recipe._id}`, submitFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
       onRecipeUpdate(res.data);
-      onHide();
+      handleHide();
     } catch (err) {
       const errorMsg = err.response?.data?.errors?.[0]?.msg || err.response?.data?.msg || t('update_recipe_failed');
       setError(errorMsg);
@@ -162,17 +160,8 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
     }
   };
 
-  const handleHide = () => {
-    setFormData(null); // Reset formData
-    setError('');
-    setActiveLang('en');
-    setRecipeImageFile(null); // Reset file state
-    setImagePreview(''); // Reset preview
-    onHide();
-  }
-
   return (
-    <Modal show={show} onHide={onHide} centered size="lg">
+    <Modal show={show} onHide={handleHide} centered size="lg">
       <Form onSubmit={onSubmit}>
         <Modal.Header closeButton>
           <Modal.Title>{t('edit_recipe')}</Modal.Title>
@@ -181,7 +170,6 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
           {error && <Alert variant="danger">{error}</Alert>}
           {loadingDeps ? <p>{t('loading_dependencies')}...</p> : (
             <>
-              {/* Name and Preparation Tabs */}
               <Nav variant="tabs" activeKey={activeLang} onSelect={(k) => setActiveLang(k)} className="mb-2">
                 <Nav.Item><Nav.Link eventKey="en">{t('language_en')}</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="fi">{t('language_fi')}</Nav.Link></Nav.Item>
@@ -251,16 +239,34 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
                 </Col>
               </Row>
 
-              {/* Nutrition */}
-              <h5>{t('nutrition_facts')}</h5>
+              <h5 className="mt-4">{t('nutrition_facts')}</h5>
               <Row>
-                <Col md={3}><Form.Group><Form.Label>{t('calorie')} (kcal)</Form.Label><Form.Control type="number" name="calorie" value={formData.calorie} onChange={handleChange} /></Form.Group></Col>
-                <Col md={3}><Form.Group><Form.Label>{t('protein')} (g)</Form.Label><Form.Control type="number" name="protein" value={formData.protein} onChange={handleChange} /></Form.Group></Col>
-                <Col md={3}><Form.Group><Form.Label>{t('carbohydrate')} (g)</Form.Label><Form.Control type="number" name="carbohydrate" value={formData.carbohydrate} onChange={handleChange} /></Form.Group></Col>
-                <Col md={3}><Form.Group><Form.Label>{t('fat')} (g)</Form.Label><Form.Control type="number" name="fat" value={formData.fat} onChange={handleChange} /></Form.Group></Col>
+                <Col md={3}>
+                  <Form.Group>
+                    <Form.Label>{t('calorie')} (kcal)</Form.Label>
+                    <Form.Control type="number" name="calorie" value={formData.calorie} onChange={handleChange} />
+                  </Form.Group>
+                </Col>
+                <Col md={3}>
+                  <Form.Group>
+                    <Form.Label>{t('protein')} (g)</Form.Label>
+                    <Form.Control type="number" name="protein" value={formData.protein} onChange={handleChange} />
+                  </Form.Group>
+                </Col>
+                <Col md={3}>
+                  <Form.Group>
+                    <Form.Label>{t('carbohydrate')} (g)</Form.Label>
+                    <Form.Control type="number" name="carbohydrate" value={formData.carbohydrate} onChange={handleChange} />
+                  </Form.Group>
+                </Col>
+                <Col md={3}>
+                  <Form.Group>
+                    <Form.Label>{t('fat')} (g)</Form.Label>
+                    <Form.Control type="number" name="fat" value={formData.fat} onChange={handleChange} />
+                  </Form.Group>
+                </Col>
               </Row>
 
-              {/* Ingredients Dynamic List */}
               <h5 className="mt-4">{t('ingredients')}</h5>
               {formData.ingredients.map((ing, index) => (
                 <Row key={index} className="mb-2 align-items-center">
@@ -287,7 +293,7 @@ const RecipeEditModal = ({ show, onHide, recipe, onRecipeUpdate }) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={onHide}>{t('cancel')}</Button>
+          <Button variant="secondary" onClick={handleHide}>{t('cancel')}</Button>
           <Button variant="primary" type="submit">{t('save_changes')}</Button>
         </Modal.Footer>
       </Form>
