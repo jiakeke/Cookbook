@@ -291,5 +291,6 @@
   "share": "Share",
   "by": "By",
   "share_preview": "Share Preview",
-  "image_generation_failed": "Failed to generate image."
+  "image_generation_failed": "Failed to generate image.",
+  "share_qr_code_prompt": "Scan QR code to view the full recipe and comments."
 }

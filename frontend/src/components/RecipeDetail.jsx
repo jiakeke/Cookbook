@@ -11,6 +11,7 @@ import { FaShoppingCart, FaThumbsUp, FaRegThumbsUp, FaStore, FaHeart, FaRegHeart
 import { CartContext } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import html2canvas from 'html2canvas';
+import QRCode from "react-qr-code";
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -241,6 +242,21 @@ const RecipeDetail = () => {
         )}
 
         {renderPurchaseLinks(true)}
+
+        <hr />
+        <Row className="mt-3 align-items-center">
+          <Col xs="auto">
+            <QRCode value={`${window.location.origin}/recipes/${recipe._id}`} size={80} />
+          </Col>
+          <Col>
+            <p className="mb-0 text-muted">
+              {t('share_qr_code_prompt')}
+            </p>
+            <p className="mb-0 text-muted">
+              <small>{`${window.location.origin}/recipes/${recipe._id}`}</small>
+            </p>
+          </Col>
+        </Row>
       </Container>
     </div>
   ));

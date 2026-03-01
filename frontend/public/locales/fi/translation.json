@@ -291,5 +291,6 @@
   "share": "Jaa",
   "by": "Tekijä",
   "share_preview": "Jaa esikatselu",
-  "image_generation_failed": "Kuvan luominen epäonnistui."
+  "image_generation_failed": "Kuvan luominen epäonnistui.",
+  "share_qr_code_prompt": "Skannaa QR-koodi nähdäksesi koko reseptin ja kommentit."
 }

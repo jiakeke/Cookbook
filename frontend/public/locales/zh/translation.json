@@ -291,5 +291,6 @@
   "share": "分享",
   "by": "作者：",
   "share_preview": "分享预览",
-  "image_generation_failed": "生成图片失败。"
+  "image_generation_failed": "生成图片失败。",
+  "share_qr_code_prompt": "扫描二维码查看完整菜谱和评论。"
 }
