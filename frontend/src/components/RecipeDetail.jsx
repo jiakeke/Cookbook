@@ -135,6 +135,7 @@ const RecipeDetail = () => {
                     <ListGroup.Item>{t('price')}: {link.price} &euro;</ListGroup.Item>
                     {link.pricePerKg && <ListGroup.Item>{t('price_per_kg')}: {link.pricePerKg} &euro;</ListGroup.Item>}
                     <ListGroup.Item>{t('size_spec')}: {link.size}</ListGroup.Item>
+                    <ListGroup.Item>{t('store')}: {getLocalizedValue(link.store.name, i18n.language)}</ListGroup.Item>
                   </ListGroup>
                   {!forShare && (
                     <div className="d-flex justify-content-between align-items-center mt-2">
@@ -224,7 +225,21 @@ const RecipeDetail = () => {
         </Table>
         <h3 className="mt-4">{t('preparation')}</h3>
         <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3">{getLocalizedValue(recipe.preparation, i18n.language)}</div>
+
+        <Row className="text-center my-3">
+          <Col><strong>{t('cooking_time_minutes')}:</strong> {recipe.cookingTime || 'N/A'}</Col>
+          <Col><strong>{t('servings')}:</strong> {recipe.servings || 'N/A'}</Col>
+        </Row>
         
+        {getLocalizedValue(recipe.remark, i18n.language) && (
+          <>
+            <h3 className="mt-4">{t('remark')}</h3>
+            <div style={{ whiteSpace: 'pre-wrap' }} className="mb-3 fst-italic">
+              {getLocalizedValue(recipe.remark, i18n.language)}
+            </div>
+          </>
+        )}
+
         {renderPurchaseLinks(true)}
       </Container>
     </div>
