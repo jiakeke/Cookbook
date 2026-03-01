@@ -94,12 +94,6 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
     setFormData(prev => ({ ...prev, image: '' }));
   };
 
-  const handleClearImage = () => {
-    setIngredientImageFile(null);
-    setFormData(prev => ({ ...prev, image: '' }));
-    setImagePreview('');
-  };
-
   // --- Link Handlers ---
   const handleLinkChange = (index, e) => {
     const { name, value } = e.target;
@@ -194,16 +188,23 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
                 </Tab.Content>
               </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Label>{t('image')}</Form.Label>
-                <Form.Control type="file" name="ingredientImage" onChange={handleIngredientImageFileChange} />
-                {imagePreview && (
-                  <div className="mt-2">
-                    <Image src={imagePreview} thumbnail style={{ maxWidth: '100px' }} />
-                    <Button variant="danger" size="sm" className="ms-2" onClick={handleClearImage}>{t('clear_image')}</Button>
-                  </div>
-                )}
-              </Form.Group>
+              <Row>
+                <Col md={6}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('image')}</Form.Label>
+                    <Form.Control type="file" name="ingredientImage" onChange={handleIngredientImageFileChange} />
+                    {imagePreview && (
+                      <Image src={imagePreview} thumbnail className="mt-2" style={{ maxWidth: '100px' }} />
+                    )}
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('image_url')}</Form.Label>
+                    <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} disabled={!!ingredientImageFile} />
+                  </Form.Group>
+                </Col>
+              </Row>
 
               <Row>
                 <Col md={6}>

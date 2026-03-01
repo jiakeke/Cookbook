@@ -174,13 +174,23 @@ const IngredientCreateModal = ({ show, onHide, onIngredientCreate }) => {
                 </Tab.Content>
               </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Label>{t('image')}</Form.Label>
-                <Form.Control type="file" name="ingredientImage" onChange={handleIngredientImageFileChange} />
-                <Form.Text className="text-muted mb-2">{t('or_enter_image_url')}</Form.Text>
-                <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} placeholder={t('image_url_placeholder')} />
-                {imagePreview && <Image src={imagePreview} thumbnail className="mt-2" style={{ maxWidth: '100px' }} />}
-              </Form.Group>
+              <Row>
+                <Col md={6}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('image')}</Form.Label>
+                    <Form.Control type="file" name="ingredientImage" onChange={handleIngredientImageFileChange} />
+                    {imagePreview && (
+                      <Image src={imagePreview} thumbnail className="mt-2" style={{ maxWidth: '100px' }} />
+                    )}
+                  </Form.Group>
+                </Col>
+                <Col md={6}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>{t('image_url')}</Form.Label>
+                    <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} disabled={!!ingredientImageFile} placeholder={t('image_url_placeholder')} />
+                  </Form.Group>
+                </Col>
+              </Row>
 
               <Row>
                 <Col md={6}>
