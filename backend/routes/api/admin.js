@@ -421,6 +421,21 @@ router.delete('/specialgroups/:id', adminAccess, async (req, res) => {
   }
 });
 
+// Middleware to parse JSON strings from multipart/form-data
+const parseMultipartFormData = (req, res, next) => {
+  for (const key in req.body) {
+    try {
+      // Attempt to parse only specific fields that are expected to be JSON strings
+      if (['name', 'link', 'allergens', 'specials'].includes(key)) {
+        req.body[key] = JSON.parse(req.body[key]);
+      }
+    } catch (e) {
+      // If parsing fails, it's not a JSON string, keep as is
+    }
+  }
+  next();
+};
+
 // --- Ingredient Routes ---
 router.get('/ingredients', adminAccess, async (req, res) => {
   try {
@@ -436,7 +451,7 @@ router.get('/ingredients', adminAccess, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-router.post('/ingredients', [ ...adminAccess, uploadSingleIngredientImage, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
+router.post('/ingredients', [ ...adminAccess, uploadSingleIngredientImage, parseMultipartFormData, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -455,7 +470,7 @@ router.post('/ingredients', [ ...adminAccess, uploadSingleIngredientImage, check
     res.status(500).send('Server Error');
   }
 });
-router.put('/ingredients/:id', [ ...adminAccess, uploadSingleIngredientImage, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
+router.put('/ingredients/:id', [ ...adminAccess, uploadSingleIngredientImage, parseMultipartFormData, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
