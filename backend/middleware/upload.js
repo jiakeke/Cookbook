@@ -45,5 +45,6 @@ const upload = multer({
 
 module.exports = {
   uploadCommentImages: upload.array('images', 10),
-  uploadSingleRecipeImage: upload.single('recipeImage')
+  uploadSingleRecipeImage: upload.single('recipeImage'),
+  uploadSingleIngredientImage: upload.single('ingredientImage')
 };

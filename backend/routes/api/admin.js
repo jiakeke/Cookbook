@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const adminAuth = require('../../middleware/adminAuth');
-const { uploadSingleRecipeImage } = require('../../middleware/upload');
+const { uploadSingleRecipeImage, uploadSingleIngredientImage } = require('../../middleware/upload');
 const { check, validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 const fs = require('fs');
@@ -436,14 +436,17 @@ router.get('/ingredients', adminAccess, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-router.post('/ingredients', [ ...adminAccess, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
+router.post('/ingredients', [ ...adminAccess, uploadSingleIngredientImage, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const { name, image, link, allergens, specials } = req.body;
+  const { name, link, allergens, specials } = req.body;
   try {
-    const newIngredient = new Ingredient({ name, image, link, allergens, specials });
+    const newIngredient = new Ingredient({ name, link, allergens, specials });
+    if (req.file) {
+      newIngredient.image = `/uploads/${req.file.filename}`;
+    }
     await newIngredient.save();
     await newIngredient.populate('link.store allergens specials');
     res.status(201).json(newIngredient);
@@ -452,14 +455,38 @@ router.post('/ingredients', [ ...adminAccess, check('name.en', 'English name is 
     res.status(500).send('Server Error');
   }
 });
-router.put('/ingredients/:id', [ ...adminAccess, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
+router.put('/ingredients/:id', [ ...adminAccess, uploadSingleIngredientImage, check('name.en', 'English name is required').not().isEmpty(), ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const { name, image, link, allergens, specials } = req.body;
+  const { name, link, allergens, specials } = req.body;
   try {
-    const updatedIngredient = await Ingredient.findByIdAndUpdate(req.params.id, { $set: { name, image, link, allergens, specials } }, { new: true }).populate('link.store allergens specials');
+    const updateData = { name, link, allergens, specials };
+
+    if (req.file) {
+      const oldIngredient = await Ingredient.findById(req.params.id);
+      if (oldIngredient && oldIngredient.image && oldIngredient.image.startsWith('/uploads/')) {
+        const oldImagePath = path.join(__dirname, '..', 'public', oldIngredient.image);
+        if (fs.existsSync(oldImagePath)) {
+          fs.unlinkSync(oldImagePath);
+        }
+      }
+      updateData.image = `/uploads/${req.file.filename}`;
+    } else if (req.body.image === '') { // Explicitly clear image
+      const oldIngredient = await Ingredient.findById(req.params.id);
+      if (oldIngredient && oldIngredient.image && oldIngredient.image.startsWith('/uploads/')) {
+        const oldImagePath = path.join(__dirname, '..', 'public', oldIngredient.image);
+        if (fs.existsSync(oldImagePath)) {
+          fs.unlinkSync(oldImagePath);
+        }
+      }
+      updateData.image = '';
+    } else if (req.body.image) { // Keep existing image if URL is provided
+      updateData.image = req.body.image;
+    }
+
+    const updatedIngredient = await Ingredient.findByIdAndUpdate(req.params.id, { $set: updateData }, { new: true }).populate('link.store allergens specials');
     if (!updatedIngredient) {
       return res.status(404).json({ msg: 'Ingredient not found' });
     }
