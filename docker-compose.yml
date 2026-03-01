@@ -2,37 +2,25 @@ services:
   mongo:
     image: mongo:6.0
     restart: always
-    ports:
-      # This allows connecting to the DB from outside the container, e.g., with MongoDB Compass
-      # For security, you might want to remove this in a production environment
-      - "27017:27017"
     volumes:
       - mongo-data:/data/db
     networks:
       - app-network
 
   backend:
-    build:
-      context: ./backend
+    image: ghcr.io/jiakeke/cookbook-backend:latest
     restart: always
-    ports:
-      - "5000:5000"
     environment:
-      - PORT=5000
-      # The backend will connect to the 'mongo' service on the internal docker network
-      - MONGO_URI=mongodb://mongo:27017/cookbook 
+      - MONGO_URI=mongodb://mongo:27017/cookbook
       - JWT_SECRET=${JWT_SECRET}
       - CORS_ORIGIN=${CORS_ORIGIN}
     depends_on:
-      - mongo # Ensures mongo starts before the backend
+      - mongo
     networks:
       - app-network
 
   frontend:
-    build:
-      context: ./frontend
-      args:
-        - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+    image: ghcr.io/jiakeke/cookbook-frontend:latest
     restart: always
     ports:
       - "80:80"
@@ -42,7 +30,7 @@ services:
       - app-network
 
 volumes:
-  mongo-data: # Defines the persistent volume for MongoDB data
+  mongo-data:
 
 networks:
   app-network:
