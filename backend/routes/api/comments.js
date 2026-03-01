@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const upload = require('../../middleware/upload');
+const { uploadCommentImages } = require('../../middleware/upload');
 const Comment = require('../../models/Comment');
 const Recipe = require('../../models/Recipe');
 
@@ -20,7 +20,7 @@ const getNextGuestNickname = async () => {
 // @access  Public
 router.post('/:recipeId', (req, res, next) => {
   passport.authenticate('jwt', { session: false }, async (err, user, info) => {
-    upload(req, res, async (err) => {
+    uploadCommentImages(req, res, async (err) => {
       if (err) {
         return res.status(400).json({ msg: err });
       }
