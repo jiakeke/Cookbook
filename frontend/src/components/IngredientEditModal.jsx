@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, Form, Alert, Tab, Nav, Col, Row, Stack } from 'react-bootstrap';
+import { Modal, Button, Form, Alert, Tab, Nav, Col, Row, Stack, Image } from 'react-bootstrap';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { getLocalizedValue } from '../utils/translationHelper';
@@ -12,6 +12,8 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [activeLang, setActiveLang] = useState('en');
+  const [ingredientImageFile, setIngredientImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
 
   useEffect(() => {
     const fetchDependencies = async () => {
@@ -42,12 +44,33 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
         allergens: (ingredient.allergens || []).map(a => a._id),
         specials: (ingredient.specials || []).map(s => s._id),
       });
+      // Set initial image preview if an image URL/path exists
+      if (ingredient.image) {
+        setImagePreview(ingredient.image);
+      } else {
+        setImagePreview('');
+      }
     } else {
       setFormData(null);
     }
     setError('');
     setActiveLang('en');
+    setIngredientImageFile(null); // Reset file state on new ingredient prop
   }, [ingredient]);
+
+  useEffect(() => {
+    let newPreview = '';
+    if (ingredientImageFile) {
+      newPreview = URL.createObjectURL(ingredientImageFile);
+    } else if (formData && formData.image) {
+      newPreview = formData.image;
+    }
+    setImagePreview(newPreview);
+
+    return () => {
+      if (newPreview && newPreview.startsWith('blob:')) URL.revokeObjectURL(newPreview);
+    };
+  }, [ingredientImageFile, formData?.image]);
 
   if (!formData) return null;
 
@@ -63,6 +86,18 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleIngredientImageFileChange = (e) => {
+    setIngredientImageFile(e.target.files[0]);
+    // Clear image URL if a file is selected
+    setFormData(prev => ({ ...prev, image: '' }));
+  };
+
+  const handleClearImage = () => {
+    setIngredientImageFile(null);
+    setFormData(prev => ({ ...prev, image: '' }));
+    setImagePreview('');
   };
 
   // --- Link Handlers ---
@@ -93,8 +128,29 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
       setError(t('english_name_required'));
       return;
     }
+
+    const submitFormData = new FormData();
+    submitFormData.append('name', JSON.stringify(formData.name));
+    submitFormData.append('link', JSON.stringify(formData.link));
+    submitFormData.append('allergens', JSON.stringify(formData.allergens));
+    submitFormData.append('specials', JSON.stringify(formData.specials));
+
+    if (ingredientImageFile) {
+      submitFormData.append('ingredientImage', ingredientImageFile);
+    } else if (formData.image) {
+      // Only append image URL if no file is selected
+      submitFormData.append('image', formData.image);
+    } else {
+      // If both are empty, explicitly send an empty string for image to clear it
+      submitFormData.append('image', '');
+    }
+
     try {
-      const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/admin/ingredients/${ingredient._id}`, formData);
+      const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/admin/ingredients/${ingredient._id}`, submitFormData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       onIngredientUpdate(res.data);
       onHide();
     } catch (err) {
@@ -104,8 +160,17 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
     }
   };
 
+  const handleHide = () => {
+    setFormData(null);
+    setError('');
+    setActiveLang('en');
+    setIngredientImageFile(null);
+    setImagePreview('');
+    onHide();
+  }
+
   return (
-    <Modal show={show} onHide={onHide} centered size="lg">
+    <Modal show={show} onHide={handleHide} centered size="lg">
       <Form onSubmit={onSubmit}>
         <Modal.Header closeButton>
           <Modal.Title>{t('edit_ingredient')}</Modal.Title>
@@ -129,9 +194,15 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
                 </Tab.Content>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="editFormImage">
-                <Form.Label>{t('image_url')}</Form.Label>
-                <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} />
+              <Form.Group className="mb-3">
+                <Form.Label>{t('image')}</Form.Label>
+                <Form.Control type="file" name="ingredientImage" onChange={handleIngredientImageFileChange} />
+                {imagePreview && (
+                  <div className="mt-2">
+                    <Image src={imagePreview} thumbnail style={{ maxWidth: '100px' }} />
+                    <Button variant="danger" size="sm" className="ms-2" onClick={handleClearImage}>{t('clear_image')}</Button>
+                  </div>
+                )}
               </Form.Group>
 
               <Row>
@@ -212,7 +283,7 @@ const IngredientEditModal = ({ show, onHide, ingredient, onIngredientUpdate }) =
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={onHide}>{t('cancel')}</Button>
+          <Button variant="secondary" onClick={handleHide}>{t('cancel')}</Button>
           <Button variant="primary" type="submit">{t('save_changes')}</Button>
         </Modal.Footer>
       </Form>
