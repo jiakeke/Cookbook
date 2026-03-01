@@ -21,6 +21,8 @@ services:
       - mongo
     networks:
       - app-network
+    volumes:
+      - uploads-data:/usr/src/app/public/uploads
 
   frontend:
     image: ghcr.io/jiakeke/cookbook-frontend:latest
@@ -34,6 +36,7 @@ services:
 
 volumes:
   mongo-data:
+  uploads-data:
 
 networks:
   app-network:
