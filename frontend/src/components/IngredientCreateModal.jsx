@@ -9,6 +9,7 @@ const IngredientCreateModal = ({ show, onHide, onIngredientCreate }) => {
   
   const initialFormData = {
     name: { en: '', fi: '', zh: '' },
+    image: '', // Re-add image to initialFormData
     link: [],
     allergens: [],
     specials: [],
@@ -44,15 +45,18 @@ const IngredientCreateModal = ({ show, onHide, onIngredientCreate }) => {
   }, [show, t]);
 
   useEffect(() => {
+    let newPreview = '';
     if (ingredientImageFile) {
-      setImagePreview(URL.createObjectURL(ingredientImageFile));
-    } else {
-      setImagePreview('');
+      newPreview = URL.createObjectURL(ingredientImageFile);
+    } else if (formData.image) { // Use formData.image for preview if no file selected
+      newPreview = formData.image;
     }
+    setImagePreview(newPreview);
+
     return () => {
-      if (imagePreview && imagePreview.startsWith('blob:')) URL.revokeObjectURL(imagePreview);
+      if (newPreview && newPreview.startsWith('blob:')) URL.revokeObjectURL(newPreview);
     };
-  }, [ingredientImageFile]);
+  }, [ingredientImageFile, formData.image]); // Add formData.image to dependencies
 
   const handleNameChange = (e) => {
     setFormData({ ...formData, name: { ...formData.name, [activeLang]: e.target.value } });
@@ -66,10 +70,16 @@ const IngredientCreateModal = ({ show, onHide, onIngredientCreate }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    if (name === 'image' && value !== '') { // If user types in URL, clear file input
+      setIngredientImageFile(null);
+    }
   };
 
   const handleIngredientImageFileChange = (e) => {
     setIngredientImageFile(e.target.files[0]);
+    if (e.target.files[0]) { // If a file is selected, clear the URL text field
+      setFormData(prev => ({ ...prev, image: '' }));
+    }
   };
 
   // --- Link Handlers ---
@@ -109,6 +119,10 @@ const IngredientCreateModal = ({ show, onHide, onIngredientCreate }) => {
 
     if (ingredientImageFile) {
       submitFormData.append('ingredientImage', ingredientImageFile);
+    } else if (formData.image) { // If no file, but URL is provided
+      submitFormData.append('image', formData.image);
+    } else { // If both are empty, explicitly send an empty string to clear
+      submitFormData.append('image', '');
     }
 
     try {
@@ -163,6 +177,8 @@ const IngredientCreateModal = ({ show, onHide, onIngredientCreate }) => {
               <Form.Group className="mb-3">
                 <Form.Label>{t('image')}</Form.Label>
                 <Form.Control type="file" name="ingredientImage" onChange={handleIngredientImageFileChange} />
+                <Form.Text className="text-muted mb-2">{t('or_enter_image_url')}</Form.Text>
+                <Form.Control type="text" name="image" value={formData.image} onChange={handleChange} placeholder={t('image_url_placeholder')} />
                 {imagePreview && <Image src={imagePreview} thumbnail className="mt-2" style={{ maxWidth: '100px' }} />}
               </Form.Group>
 
