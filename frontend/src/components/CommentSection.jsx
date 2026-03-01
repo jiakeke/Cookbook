@@ -213,7 +213,7 @@ const CommentList = ({ comments }) => {
                   {comment.images.map((img, i) => (
                     <Col key={i} xs={4} md={3} lg={2} className="mb-2">
                       <Image 
-                        src={`${import.meta.env.VITE_API_BASE_URL}${img}`} 
+                        src={img} 
                         thumbnail 
                         style={{ cursor: 'pointer', width: '80px', height: '80px', objectFit: 'cover' }} 
                         onClick={() => handleImageClick(img)} 
@@ -234,7 +234,7 @@ const CommentList = ({ comments }) => {
       <Modal show={showImgModal} onHide={() => setShowImgModal(false)} centered size="lg">
         <Modal.Header closeButton />
         <Modal.Body className="text-center">
-          <Image src={`${import.meta.env.VITE_API_BASE_URL}${imageToShow}`} fluid />
+          <Image src={imageToShow} fluid />
         </Modal.Body>
       </Modal>
 
